@@ -7,7 +7,7 @@ using namespace std;
 void funkcja(int,int,string);
 
 int main(){
-  string napis = "" // Antek dodaj napis
+  string napis = "( 2 + 4 ) * 2 = " // Antek dodaj napis
     
   funkcja(2,4,napis);  
 
