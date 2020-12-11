@@ -3,6 +3,6 @@ Bank internetowy. Repozytorium projektu na przedmiot Inżynieria Oprogramowania 
 
 Wykonali: 
 
-
+Adam Plotnik
 Antoni Pawlak
 
