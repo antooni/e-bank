@@ -1,15 +1,15 @@
 #include <iostream>
-#include <dodawanie.cpp>
-#include <mnozenie.cpp>
+#include "dodawanie.cpp"
+#include "mnozenie.cpp"
 
 using namespace std;
 
 void funkcja(int,int,string);
 
 int main(){
-  string napis = "( 2 + 4 ) * 2 = " // Antek dodaj napis
-    
-  funkcja(2,4,napis);  
+  string napis = "( 2 + 4 ) * 2 = "; // Antek dodaj napis
+
+  funkcja(2,4,napis);
 
   return 0;
 }
