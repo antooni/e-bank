@@ -3,3 +3,6 @@ Bank internetowy. Repozytorium projektu na przedmiot Inżynieria Oprogramowania 
 
 Wykonali: 
 
+
+Antoni Pawlak
+
