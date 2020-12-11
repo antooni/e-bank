@@ -1,4 +1,6 @@
 #include <iostream>
+#include <dodawanie.cpp>
+#include <mnozenie.cpp>
 
 using namespace std;
 
