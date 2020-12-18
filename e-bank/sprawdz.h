@@ -4,6 +4,28 @@
 
 using namespace std;
 
+class Data {
+	int dzien;
+	int miesiac;
+	int rok;
+};
+
+class Typ_operacji {
+	string typ_operacji;
+public:
+	bool sprawdz_czy_wykonaj(string typ_operacji);
+};
+
+class Dane {
+	string typ_danych;
+	double wartosc;
+};
+
+
+class Blad {
+	int kod_bledu;
+	string informacje;
+};
 
 class Operacja {
 	Typ_operacji typ_operacji;
@@ -13,31 +35,6 @@ class Operacja {
 	Blad blad;
 };
 
-class Dane {
-	string typ_danych;
-	double wartosc;
-};
-
-class Typ_operacji {
-	string typ_operacji;
-public:
-	bool sprawdz_czy_wykonaj(string typ_operacji);
-};
-
-class Blad {
-	int kod_bledu;
-	string informacje;
-};
-
-class Sprawdz {
-	Historia his;
-	Kontakty kon;
-	Saldo sal;
-	Kursy_walut kur;
-	Typ_operacji typ_operacji;
-public:
-	Operacja sprawdz(Typ_operacji);
-};
 
 class Historia {
 	Data data;
@@ -58,20 +55,31 @@ class Saldo {
 	double dolar;
 };
 
-class Kursy_walut {
-	Kurs kurs;
-public:
-	double sprawdz_kurs();
-};
-
 class Kurs {
 	string symbol;
 	double wartosc;
 	Data data;
 };
 
-class Data{
-	int dzien;
-	int miesiac;
-	int rok;
+class Kursy_walut {
+	Kurs kurs;
+public:
+	double sprawdz_kurs();
 };
+
+
+
+
+
+
+
+class Sprawdz {
+	Historia his;
+	Kontakty kon;
+	Saldo sal;
+	Kursy_walut kur;
+	Typ_operacji typ_operacji;
+public:
+	Operacja sprawdz(Typ_operacji);
+};
+
