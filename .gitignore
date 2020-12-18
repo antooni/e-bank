@@ -1,0 +1,6 @@
+/Debug
+/e-bank/Debug
+
+/e-bank/*.user
+
+/.vs
