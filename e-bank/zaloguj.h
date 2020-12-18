@@ -15,8 +15,12 @@ class Token
 class Zaloguj
 {
 	Token* token_sesji;
-	string baza = "baza.txt";
+	string baza;
 
+	
+
+public:
+	Zaloguj(string);
 	bool sprawdz(string, string);
 };
 

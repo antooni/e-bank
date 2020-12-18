@@ -8,3 +8,10 @@ bool Zaloguj::sprawdz(string, string)
 
 	return true;
 }
+
+Zaloguj::Zaloguj(string _baza)
+{
+	baza = _baza;
+
+
+}
