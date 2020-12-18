@@ -1,4 +1,5 @@
 #include "ui.h"
+#include "zaloguj.h"
 
 void str_startowa() {
 	system("cls");
@@ -11,12 +12,18 @@ void uruchom()
 {
 	int wybor;
 
+	Zaloguj zaloguj("baza.txt");
+
 	for (;;) {
 		str_startowa();
 		cin >> wybor;
 		switch (wybor){
 		case 1:			//jesli wybrano zaloguj		
-						//wywolanie funkcji zaloguj   ma zwracac bool czy sie udalo
+			if (zaloguj.sprawdz("Antoni", "Pawlak"))
+			{
+				cout << "zalogowano" << endl;
+			}
+
 			break;
 		case 2:			//jesli wybrano rejestruj
 						//wywolanei funkcji do resjestracji   niech zwraca czy sie udalo zarejestrowac
@@ -26,7 +33,7 @@ void uruchom()
 			break;
 		}
 						
-						//dalszy kod jesli uda zalogowac
+		cin >> wybor;
 
 
 	}
