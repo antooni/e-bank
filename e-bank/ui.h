@@ -5,3 +5,5 @@
 using namespace std;
 
 void str_startowa();
+
+void uruchom();
