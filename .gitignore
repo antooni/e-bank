@@ -4,3 +4,7 @@
 /e-bank/*.user
 
 /.vs
+
+/x64
+
+/e-bank/x64
