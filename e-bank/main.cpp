@@ -8,6 +8,7 @@ using namespace std;
 
 int main()
 {
+	str_startowa();
 
 	return 0;
 }
