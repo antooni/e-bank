@@ -1,11 +1,14 @@
 #include "ui.h"
 #include "zaloguj.h"
+#include "rejestruj.h"
 
 void str_startowa() {
 	system("cls");
-	std::cout << "Wybierz funkcje ktora chcesz wykonaæ (wpisz 1 lub 2)" << std::endl;
-	std::cout << "1 Zaloguj" << std::endl;
-	std::cout << "2 Zarejestruj" << std::endl;
+	cout << "Wybierz funkcje ktora chcesz wykonac (wpisz 1 lub 2 lub 3 aby wyjsc)" << std::endl;
+	cout << "1 Zaloguj" << endl;
+	cout << "2 Zarejestruj" << endl;
+	cout << "3 Wyjdz" << endl;
+
 }
 
 void uruchom()
@@ -26,13 +29,16 @@ void uruchom()
 
 			break;
 		case 2:			//jesli wybrano rejestruj
-						//wywolanei funkcji do resjestracji   niech zwraca czy sie udalo zarejestrowac
+			rejestruj();			//wywolanei funkcji do resjestracji   
 			break;
+
 
 		default:
 			break;
 		}
-						
+		if (wybor == 3) {
+			break;
+		}
 		cin >> wybor;
 
 

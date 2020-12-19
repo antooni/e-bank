@@ -139,12 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="rejestruj.cpp" />
     <ClCompile Include="sprawdz.cpp" />
     <ClCompile Include="zaloguj.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ui.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="rejestruj.h" />
     <ClInclude Include="sprawdz.h" />
     <ClInclude Include="ui.h" />
     <ClInclude Include="zaloguj.h" />

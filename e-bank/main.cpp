@@ -3,6 +3,7 @@
 #include "ui.h"
 #include "sprawdz.h"
 #include "zaloguj.h"
+#include "rejestruj.h"
 
 using namespace std;
 
