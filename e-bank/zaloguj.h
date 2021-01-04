@@ -15,7 +15,7 @@ class Zaloguj
 public:
 	Zaloguj();
 	string weryfikacja(string, string);
-	string rejestracja(string, string, string);
+	string rejestracja(string, string, string, string);
 	string wyloguj(string);
 };
 

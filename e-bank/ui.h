@@ -9,7 +9,7 @@ using namespace std;
 
 class UI
 {
-	int token;
+	string token;
 	Konto* konto;
 	Uzytkownik* user;
 	Zaloguj* zaloguj;

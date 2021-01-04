@@ -6,7 +6,7 @@
 
 UI::UI()
 {
-	token = NULL;
+	token = "";
 	konto = NULL;
 	user = NULL;
 	zaloguj = NULL;
@@ -14,15 +14,9 @@ UI::UI()
 
 void UI::start()
 {
-	konto = new Konto();
-	Operacja operacja = Operacja();
-
-	konto->wykonaj(operacja);
-	konto->sprawdz(operacja);
-
 	while (true)
 	{
-		if (token == NULL)
+		if (token == "")
 		{
 			obsluga_rejestracji_lub_logowania();
 			continue;
@@ -39,8 +33,7 @@ void UI::start()
 
 void UI::obsluga_rejestracji_lub_logowania()
 {
-
-
+	zaloguj = new Zaloguj();
 	while (true)
 	{
 		// wyswietl menu();
@@ -50,8 +43,12 @@ void UI::obsluga_rejestracji_lub_logowania()
 		// logowanie
 		if (wybor == 1)
 		{
+			string email = "";
+			string haslo = "";
+
 			//popros o dane ()
-			//token = zaloguj.weryfikacja();
+
+			token = zaloguj->weryfikacja(email,haslo);
 
 			//info o powodzeniu lub nie ()
 
@@ -61,14 +58,18 @@ void UI::obsluga_rejestracji_lub_logowania()
 		//rejestracja
 		else if (wybor == 2)
 		{
+			string email = "";
+			string haslo = "";
+			string imie = "";
+			string nazwisko = "";
 			//popros o dane ()
-			//zaloguj.rejestracja();
+			zaloguj->rejestracja(email, haslo, imie, nazwisko);
 
 			//info o powodzeniu lub nie()
 			// czy chcesz sie zalogowac?
 
 			// if chce sie zalogowac
-			//token = zaloguj.weryfikacja();
+			//token = zaloguj->weryfikacja();
 
 			// info o powodzeniu lub nie()
 
@@ -95,23 +96,25 @@ void UI::obsluga_rejestracji_lub_logowania()
 
 void UI::obsluga_operacji_lub_wylogowania()
 {
-	// wyswietl menu()
+	
+	Operacja operacja = Operacja();
+
+
+	while (true)
+	{
+		// wyswietl menu()
 	// dalbym tutaj jakis naglowek w stylu
 	// Antoni Pawlak  |  saldo : 100 BTC  |  numer konta : 112132
 
 	// ==========================================================
 
-
-
-	while (true)
-	{
 		int wybor = 0;
 		// zbierz dane o typie operacji
 		if (wybor == 3)
 		{
 			//wyswietl info wylogowanie();
 			//mo¿e jakieœ dodatkowe pytanie czy na pewno chce sie wylogowac
-			//token = zaloguj.wyloguj;
+			token = zaloguj->wyloguj(token);
 			break;
 		}
 		else if (wybor == 1)
@@ -122,7 +125,7 @@ void UI::obsluga_operacji_lub_wylogowania()
 			//cin >> [typ operacji]
 			// operacja.typ_operacji = [typ operacji]
 
-			//operacja = konto.sprawdz(operacja);
+			operacja = konto->sprawdz(operacja);
 
 			// wyswietl info(operacja);
 			// w tej metodzie jakas obsluga bledow najpierw
@@ -149,7 +152,7 @@ void UI::obsluga_operacji_lub_wylogowania()
 			// operacja.dane.do_wykonania.adresat = cin>>podaj numer adresata;
 			// operacja.dane.do_wykonania.suma = cin >> podaj ile chcesz przelac;
 
-			// operacja = konto.wykonaj(operacja);
+			 operacja = konto->wykonaj(operacja);
 
 			//wyswietl info()
 
