@@ -52,6 +52,8 @@ void UI::obsluga_rejestracji_lub_logowania()
 
 			//info o powodzeniu lub nie ()
 
+
+
 			//wyjdz jezeli mu sie udalo
 			break;
 		}
@@ -96,13 +98,20 @@ void UI::obsluga_rejestracji_lub_logowania()
 
 void UI::obsluga_operacji_lub_wylogowania()
 {
-	
 	Operacja operacja = Operacja();
+	konto = new Konto();
+	user = new Uzytkownik();
 
-
+	
 	while (true)
 	{
-		// wyswietl menu()
+		// !!!!
+	// tu jeszcze przydaloby sie odpalic sprawdz() zeby :
+	// ustawic : nr_konta, saldo dla : konto
+	// ustawic : imie, nazwisko, numer_konta, email
+	// bo mogly ulec jakies zmianie
+
+	// wyswietl menu()
 	// dalbym tutaj jakis naglowek w stylu
 	// Antoni Pawlak  |  saldo : 100 BTC  |  numer konta : 112132
 
