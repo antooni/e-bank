@@ -1,9 +1,5 @@
 #include "zaloguj.h"
 
-
-
-
-
 Zaloguj::Zaloguj()
 {
 	baza = "baza.txt";
