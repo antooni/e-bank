@@ -5,22 +5,17 @@
 
 using namespace std;
 
-class Token
-{
-	int ID_user;
-	hash<string> token;
-};
-
-
 class Zaloguj
 {
-	Token* token_sesji;
+	string token;
 	string baza;
 
 	
 
 public:
-	Zaloguj(string);
-	bool sprawdz(string, string);
+	Zaloguj();
+	string weryfikacja(string, string);
+	string rejestracja(string, string, string);
+	string wyloguj(string);
 };
 

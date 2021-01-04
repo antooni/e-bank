@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="operacja.cpp" />
     <ClCompile Include="rejestruj.cpp" />
     <ClCompile Include="sprawdz.cpp" />
     <ClCompile Include="zaloguj.cpp" />
@@ -146,6 +147,7 @@
     <ClCompile Include="ui.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="operacja.h" />
     <ClInclude Include="rejestruj.h" />
     <ClInclude Include="sprawdz.h" />
     <ClInclude Include="ui.h" />

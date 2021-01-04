@@ -10,42 +10,16 @@ class Data {
 	int rok;
 };
 
-class Typ_operacji {
-	string typ_operacji;
-public:
-	bool sprawdz_czy_wykonaj(string typ_operacji);
-};
-
-class Dane {
-	string typ_danych;
-	double wartosc;
-};
-
-
-class Blad {
-	int kod_bledu;
-	string informacje;
-};
-
-class Operacja {
-	Typ_operacji typ_operacji;
-	Dane dane;
-	int token_sesji;
-	Data data_operacji;
-	Blad blad;
-};
-
-
 class Historia {
 	Data data;
-	Typ_operacji typ_operacji;
 	double wartosc;
 	string odbiorca;
+	string nadawca;
 };
 
 class Kontakty {
 	string nazwa;
-	double numer_konta;
+	string numer_konta;
 };
 
 class Saldo {
@@ -69,17 +43,4 @@ public:
 
 
 
-
-
-
-
-class Sprawdz {
-	Historia his;
-	Kontakty kon;
-	Saldo sal;
-	Kursy_walut kur;
-	Typ_operacji typ_operacji;
-public:
-	Operacja sprawdz(Typ_operacji);
-};
 
