@@ -16,7 +16,7 @@ string Zaloguj::weryfikacja(string, string)
 	return "";
 }
 
-string Zaloguj::rejestracja(string, string, string)
+string Zaloguj::rejestracja(string, string, string, string)
 {
 	return "";
 }
