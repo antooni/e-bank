@@ -14,7 +14,7 @@ Dane::Dane()
 	//Kontakt = NULL;
 	//Historia = NULL;
 	//Kurs = NULL;
-	do_wykonania = NULL;
+	do_wykonania = new Do_wykonania();
 }
 
 Operacja::Operacja()
@@ -23,6 +23,5 @@ Operacja::Operacja()
 	typ_operacji = "";
 	token = "";
 	kod_bledu = NULL;
-	dane = NULL;
-
+	dane = new Dane();
 }

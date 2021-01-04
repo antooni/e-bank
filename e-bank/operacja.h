@@ -4,37 +4,41 @@
 
 using namespace std; 
 
+// mozna sprobowac poukrywaæ pola zeby nie byly public
+// i pozaprzyjazniac klasy
+
 class Do_wykonania
 {
+public:
 	string nadawca;
 	string adresat;
-	int suma;
+	double suma;
 	// Kontakt;
 
-public:
+
 	Do_wykonania();
 };
 
 class Dane
 {
-	int saldo;
+public:
+	double saldo;
 	// Kontakt
 	// Historia
 	// Kursy
 	Do_wykonania* do_wykonania;
 
-public:
+
 	Dane();
 };
 
 class Operacja
 {
+public:
 	string typ;
 	string typ_operacji;
 	string token;
 	int kod_bledu;
 	Dane* dane;
-
-public:
 	Operacja();
 };

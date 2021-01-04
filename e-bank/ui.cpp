@@ -1,10 +1,45 @@
 #include "ui.h"
+#include "konto.h"
 #include "zaloguj.h"
-#include "rejestruj.h"
+#include "operacja.h"
+
+
+UI::UI()
+{
+	token = NULL;
+	konto = NULL;
+	user = NULL;
+	zaloguj = NULL;
+}
+
+void UI::start()
+{
+	konto = new Konto();
+	Operacja operacja = Operacja();
+
+	konto->wykonaj(operacja);
+	konto->sprawdz(operacja);
+
+	while (true)
+	{
+		if (token == NULL)
+		{
+			obsluga_rejestracji_lub_logowania();
+			continue;
+		}
+		else
+		{
+			obsluga_operacji_lub_wylogowania();
+			continue;
+		}
+	}
+	// tutaj jeszcze podjerzewam bedzie brakowac wyjscia z tego while'a
+	// moze jakis kod niech returnuje ta funkcja obsluga...
+}
 
 void UI::obsluga_rejestracji_lub_logowania()
 {
-	
+
 
 	while (true)
 	{
@@ -36,7 +71,7 @@ void UI::obsluga_rejestracji_lub_logowania()
 			//token = zaloguj.weryfikacja();
 
 			// info o powodzeniu lub nie()
-			
+
 			// moze zrobic obiekt Menu czy coœ
 			// ¿eby te info i bledy oddzielic od reszty
 			// i zeby nie wyszedl nam z tego jeden ogromny obiekt
@@ -66,8 +101,8 @@ void UI::obsluga_operacji_lub_wylogowania()
 
 	// ==========================================================
 
-	
-	
+
+
 	while (true)
 	{
 		int wybor = 0;
@@ -124,31 +159,6 @@ void UI::obsluga_operacji_lub_wylogowania()
 		else
 		{
 			// podaj poprawny numer operacji
-		}
-	}
-}
-
-UI::UI()
-{
-	token = NULL;
-	//konto = NULL;
-	//user = NULL;
-	//zaloguj = NULL;
-}
-
-void UI::start()
-{
-	while (true)
-	{
-		if (token == NULL)
-		{
-			
-			continue;
-		}
-		else
-		{
-
-			continue;
 		}
 	}
 }

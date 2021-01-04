@@ -5,16 +5,8 @@
 
 using namespace std;
 
-class Sprawdz {
+class Wykonaj {
 public:
-	Sprawdz();
-	Operacja sprawdz(Operacja);
+	Wykonaj();
+	Operacja wykonaj(Operacja);
 };
-
-
-
-
-
-
-
-
