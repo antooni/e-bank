@@ -1,17 +1,27 @@
 #include "zaloguj.h"
 
-bool Zaloguj::sprawdz(string, string)
+
+
+
+
+Zaloguj::Zaloguj()
+{
+	baza = "baza.txt";
+}
+
+string Zaloguj::weryfikacja(string, string)
 {
 	fstream baza;
 
-
-
-	return true;
+	return "";
 }
 
-Zaloguj::Zaloguj(string _baza)
+string Zaloguj::rejestracja(string, string, string)
 {
-	baza = _baza;
+	return "";
+}
 
-
+string Zaloguj::wyloguj(string)
+{
+	return "";
 }

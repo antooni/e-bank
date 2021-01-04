@@ -1,46 +1,164 @@
 #include "ui.h"
+#include "konto.h"
 #include "zaloguj.h"
-#include "rejestruj.h"
+#include "operacja.h"
 
-void str_startowa() {
-	system("cls");
-	cout << "Wybierz funkcje ktora chcesz wykonac (wpisz 1 lub 2 lub 3 aby wyjsc)" << std::endl;
-	cout << "1 Zaloguj" << endl;
-	cout << "2 Zarejestruj" << endl;
-	cout << "3 Wyjdz" << endl;
+
+UI::UI()
+{
+	token = NULL;
+	konto = NULL;
+	user = NULL;
+	zaloguj = NULL;
+}
+
+void UI::start()
+{
+	konto = new Konto();
+	Operacja operacja = Operacja();
+
+	konto->wykonaj(operacja);
+	konto->sprawdz(operacja);
+
+	while (true)
+	{
+		if (token == NULL)
+		{
+			obsluga_rejestracji_lub_logowania();
+			continue;
+		}
+		else
+		{
+			obsluga_operacji_lub_wylogowania();
+			continue;
+		}
+	}
+	// tutaj jeszcze podjerzewam bedzie brakowac wyjscia z tego while'a
+	// moze jakis kod niech returnuje ta funkcja obsluga...
+}
+
+void UI::obsluga_rejestracji_lub_logowania()
+{
+
+
+	while (true)
+	{
+		// wyswietl menu();
+		int wybor = 0;
+		// zbierz dane uzytkownika ();
+
+		// logowanie
+		if (wybor == 1)
+		{
+			//popros o dane ()
+			//token = zaloguj.weryfikacja();
+
+			//info o powodzeniu lub nie ()
+
+			//wyjdz jezeli mu sie udalo
+			break;
+		}
+		//rejestracja
+		else if (wybor == 2)
+		{
+			//popros o dane ()
+			//zaloguj.rejestracja();
+
+			//info o powodzeniu lub nie()
+			// czy chcesz sie zalogowac?
+
+			// if chce sie zalogowac
+			//token = zaloguj.weryfikacja();
+
+			// info o powodzeniu lub nie()
+
+			// moze zrobic obiekt Menu czy coœ
+			// ¿eby te info i bledy oddzielic od reszty
+			// i zeby nie wyszedl nam z tego jeden ogromny obiekt
+
+			// wyjdz jezeli mu sie udalo
+			break;
+		}
+		//zamkniecie panelu logowania, powrot do strony startowej
+		else if (wybor == 3)
+		{
+			break;
+		}
+		// podaj poprawny numer operacji
+		else
+		{
+			// cout podaj normalny numer
+		}
+	}
 
 }
 
-void uruchom()
+void UI::obsluga_operacji_lub_wylogowania()
 {
-	int wybor;
+	// wyswietl menu()
+	// dalbym tutaj jakis naglowek w stylu
+	// Antoni Pawlak  |  saldo : 100 BTC  |  numer konta : 112132
 
-	Zaloguj zaloguj("baza.txt");
-
-	for (;;) {
-		str_startowa();
-		cin >> wybor;
-		switch (wybor){
-		case 1:			//jesli wybrano zaloguj		
-			if (zaloguj.sprawdz("Antoni", "Pawlak"))
-			{
-				cout << "zalogowano" << endl;
-			}
-
-			break;
-		case 2:			//jesli wybrano rejestruj
-			rejestruj();			//wywolanei funkcji do resjestracji   
-			break;
+	// ==========================================================
 
 
-		default:
+
+	while (true)
+	{
+		int wybor = 0;
+		// zbierz dane o typie operacji
+		if (wybor == 3)
+		{
+			//wyswietl info wylogowanie();
+			//mo¿e jakieœ dodatkowe pytanie czy na pewno chce sie wylogowac
+			//token = zaloguj.wyloguj;
 			break;
 		}
-		if (wybor == 3) {
-			break;
+		else if (wybor == 1)
+		{
+			// operacja.typ = "sprawdz"
+			// wyswietl menu sprawdzanie();
+
+			//cin >> [typ operacji]
+			// operacja.typ_operacji = [typ operacji]
+
+			//operacja = konto.sprawdz(operacja);
+
+			// wyswietl info(operacja);
+			// w tej metodzie jakas obsluga bledow najpierw
+			// a jak jest powodzenie to wyswietlic pobrane Dane
+
 		}
-		cin >> wybor;
+		else if (wybor == 2)
+		{
+			// operacja.typ = "wykonaj"
+			// wyswietl menu wykonaj();
+
+			// cin >> [typ_operacji]
+			// operacja.typ_operacji = typ_operacji;
+
+			// switch( [typ_operacji] )
+
+			// w zaleznosci od typu operacji zbierz potrzebne dane
+			// przyklad
+			// case [przelew] :
+
+			// operacja = konto.sprawdz( [saldo] ); //ta linijka jest po to zeby miec aktualne saldo
+
+			// operacja.dane.do_wykonania.nadawca = konto.numer;
+			// operacja.dane.do_wykonania.adresat = cin>>podaj numer adresata;
+			// operacja.dane.do_wykonania.suma = cin >> podaj ile chcesz przelac;
+
+			// operacja = konto.wykonaj(operacja);
+
+			//wyswietl info()
 
 
+
+		}
+		else
+		{
+			// podaj poprawny numer operacji
+		}
 	}
 }
