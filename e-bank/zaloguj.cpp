@@ -2,13 +2,31 @@
 
 Zaloguj::Zaloguj()
 {
-	baza = "baza.txt";
+
 }
 
-string Zaloguj::weryfikacja(string, string)
+string Zaloguj::weryfikacja(string nazwa, string haslo)
 {
-	fstream baza;
-
+	string line;
+	string temp;
+	fstream plik;
+	plik.open("base/baza_logowania.txt", ios::in | ios::out);
+	while (getline(plik, line)) {
+		istringstream iss(line);
+		iss >> temp;
+		if (temp == nazwa) {
+			iss >> temp;
+			while (true) {
+				if (temp == haslo) {
+					iss >> temp;
+					return temp;
+				}
+				else {
+					return "";
+				}
+			}
+		}
+	}
 	return "";
 }
 

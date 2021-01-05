@@ -12,12 +12,14 @@ class Uzytkownik {
 
 
 class Data {
+	friend class Baza;
 	int dzien;
 	int miesiac;
 	int rok;
 };
 
 class Historia {
+	friend class Baza;
 	Data data;
 	double wartosc;
 	string odbiorca;
@@ -25,11 +27,14 @@ class Historia {
 };
 
 class Kontakty {
-	string nazwa;
+	friend class Baza;
+	string imie;
+	string nazwisko;
 	string numer_konta;
 };
 
 class Saldo {
+	friend class Baza;
 	double euro;
 	double funt;
 	double zloty;
@@ -37,7 +42,9 @@ class Saldo {
 };
 
 class Kurs {
-	string symbol;
-	double wartosc;
-	Data data;
+	friend class Baza;
+	double euro;
+	double funt;
+	double zloty;
+	double dolar;
 };
