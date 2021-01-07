@@ -3,18 +3,22 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to e-bank's documentation!
-==================================
+e-bank
+=============
 
+
+Dokumentacja
+^^^^^^^^^^^^
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 3
+   
+   main.cpp <main>
+   ui.cpp <ui>
+   konto.cpp <konto>
+   zaloguj.cpp <zaloguj>
+   operacja.cpp <operacja>
+   dodatkowe.cpp <dodatkowe>
+   baza.cpp <baza>
 
 
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
