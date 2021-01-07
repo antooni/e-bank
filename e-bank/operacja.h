@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
-
+#include <vector>
+#include "dodatkowe.h"
 
 using namespace std; 
 
@@ -22,10 +23,11 @@ public:
 class Dane
 {
 public:
-	double saldo;
-	// Kontakt
-	// Historia
-	// Kursy
+	vector <Historia> historia;
+	vector <Kontakty> kontakty;
+	Saldo saldo;
+	Kurs kursy;
+	
 	Do_wykonania* do_wykonania;
 
 

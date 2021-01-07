@@ -10,7 +10,7 @@ Do_wykonania::Do_wykonania()
 
 Dane::Dane()
 {
-	saldo = NULL;
+	// saldo = NULL;
 	//Kontakt = NULL;
 	//Historia = NULL;
 	//Kurs = NULL;

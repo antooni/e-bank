@@ -3,6 +3,12 @@
 #include "zaloguj.h"
 #include "operacja.h"
 
+void podaj_dane(string& email, string& haslo) {
+	cout << "Podaj email: ";
+	cin >> email;
+	cout << "Podaj haslo: ";
+	cin >> haslo;
+}
 
 UI::UI()
 {
@@ -37,25 +43,28 @@ void UI::obsluga_rejestracji_lub_logowania()
 	while (true)
 	{
 		// wyswietl menu();
+		cout << "Aby sie zalogowac wybierz 1" << endl;
 		int wybor = 0;
 		// zbierz dane uzytkownika ();
-
+		cin >> wybor;
 		// logowanie
 		if (wybor == 1)
 		{
 			string email = "";
 			string haslo = "";
+			podaj_dane(email, haslo);
 
-			//popros o dane ()
-
-			token = zaloguj->weryfikacja(email,haslo);
+			token = zaloguj->weryfikacja(email, haslo);
 
 			//info o powodzeniu lub nie ()
 
 
 
 			//wyjdz jezeli mu sie udalo
-			break;
+			if (token != "")
+				break;
+			else
+				cout << "bledne dane" << endl;
 		}
 		//rejestracja
 		else if (wybor == 2)
@@ -105,6 +114,7 @@ void UI::obsluga_operacji_lub_wylogowania()
 	
 	while (true)
 	{
+		cout << "git";
 		// !!!!
 	// tu jeszcze przydaloby sie odpalic sprawdz() zeby :
 	// ustawic : nr_konta, saldo dla : konto
