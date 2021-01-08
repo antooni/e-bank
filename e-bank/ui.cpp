@@ -69,6 +69,7 @@ void UI::obsluga_rejestracji_lub_logowania()
 		// wyswietl menu();
 		menu();
 		//cout << "Aby sie zalogowac wybierz 1" << endl;
+
 		int wybor = 0;
 		// zbierz dane uzytkownika ();
 		wczytaj_dane(wybor);
@@ -98,6 +99,11 @@ void UI::obsluga_rejestracji_lub_logowania()
 			string haslo = "";
 			string imie = "";
 			string nazwisko = "";
+
+			cin >> email;
+			cin >> haslo;
+			cin >> imie;
+			cin >> nazwisko;
 			//popros o dane ()
 			zaloguj->rejestracja(email, haslo, imie, nazwisko);
 
@@ -109,8 +115,8 @@ void UI::obsluga_rejestracji_lub_logowania()
 
 			// info o powodzeniu lub nie()
 
-			// moze zrobic obiekt Menu czy coœ
-			// ¿eby te info i bledy oddzielic od reszty
+			// moze zrobic obiekt Menu czy coÅ›
+			// Å¼eby te info i bledy oddzielic od reszty
 			// i zeby nie wyszedl nam z tego jeden ogromny obiekt
 
 			// wyjdz jezeli mu sie udalo
@@ -157,7 +163,7 @@ void UI::obsluga_operacji_lub_wylogowania()
 		if (wybor == 3)
 		{
 			//wyswietl info wylogowanie();
-			//mo¿e jakieœ dodatkowe pytanie czy na pewno chce sie wylogowac
+			//moÅ¼e jakieÅ› dodatkowe pytanie czy na pewno chce sie wylogowac
 			token = zaloguj->wyloguj(token);
 			break;
 		}
