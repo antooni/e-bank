@@ -196,7 +196,7 @@ void UI::obsluga_operacji_lub_wylogowania()
 				//cin >> [typ operacji]
 				// operacja.typ_operacji = [typ operacji]
 				operacja.typ_operacji = "saldo";
-				operacja = konto->sprawdz(operacja);
+				konto->sprawdz(operacja);
 				operacja.dane->wypisz_saldo();
 
 				// wyswietl info(operacja);
@@ -206,10 +206,14 @@ void UI::obsluga_operacji_lub_wylogowania()
 
 			}
 			else if (wybor == 2) {					//kontakt
-
+				operacja.typ_operacji = "kontakty";
+				konto->sprawdz(operacja);
+				operacja.dane->wypisz_kontakty();
 			}
 			else if (wybor == 3) {					//historia
-
+				operacja.typ_operacji = "historia";
+				konto->sprawdz(operacja);
+				operacja.dane->wypisz_historia();
 			}
 			else if (wybor == 4) {				//kursy
 				operacja.typ_operacji = "kurs";

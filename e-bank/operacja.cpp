@@ -10,13 +10,34 @@ Do_wykonania::Do_wykonania()
 
 Dane::Dane()
 {
-	// saldo = NULL;
 	saldo = new Saldo();
-	//Kontakt = NULL;
-	//Historia = NULL;
+	vector <Kontakty> kontakty;
+	vector <Historia> historia;
 	kurs = new Kurs();
 	do_wykonania = new Do_wykonania();
 }
+void Dane::wypisz_historia() {
+	cout << "Twoja historia: " << endl << endl;
+	for (int i = 0; i < historia.size(); i++) {
+		cout << "D/M/Y" << endl;
+		cout << historia[i].data.dzien << "/" << historia[i].data.miesiac << "/" << historia[i].data.rok << endl << endl;
+		cout << "Wartosc: " << historia[i].wartosc << endl << endl;
+		cout << "Odbiorca: " << historia[i].odbiorca << endl << endl;
+		cout << "Nadawca: " << historia[i].nadawca << endl << endl;
+	}
+	historia.clear();
+}
+
+void Dane::wypisz_kontakty() {
+	cout << "Twoje kontakty: " << endl << endl;
+	for (int i = 0; i < kontakty.size(); i++) {
+		cout << "Imie: " << kontakty[i].imie << endl << endl;
+		cout << "Nazwisko: " << kontakty[i].nazwisko << endl << endl;
+		cout << "Numer konta: " << kontakty[i].numer_konta << endl << endl;
+	}
+	kontakty.clear();
+}
+
 void Dane::wypisz_saldo() {
 	cout << "Euro: " << saldo->euro << endl << endl;
 	cout << "Funt: " << saldo->funt << endl << endl;
