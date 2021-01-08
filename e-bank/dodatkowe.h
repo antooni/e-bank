@@ -35,10 +35,12 @@ class Kontakty {
 
 class Saldo {
 	friend class Baza;
+	friend class Dane;
 	double euro;
 	double funt;
 	double zloty;
 	double dolar;
+	Saldo();
 };
 
 class Kurs {
