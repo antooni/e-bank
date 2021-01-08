@@ -12,7 +12,6 @@ void podaj_dane(string& email, string& haslo) {
 }
 
 void menu() {
-	
 	cout.width(60);
 	cout << "Aby sie zalogowac wybierz 1" << endl<<endl;
 	cout.width(64);
@@ -20,6 +19,20 @@ void menu() {
 	cout.width(56);
 	cout << "Aby sie wyjsc wybierz 3" << endl << endl;
 }
+
+template <typename T>					
+T wczytaj_dane(T& d) {							//funkcja pobiera dane uzytkownika w przypadku gdy sa poprawne
+	cin >> d;
+	while (cin.fail() == true) {
+		cout << "Podales niedozwolona dane podaj jeszcze raz" << endl;
+		cin.clear();
+		cin.ignore(numeric_limits <streamsize>::max(), '\n');
+		cin >> d;
+	}
+	return d;
+}
+
+
 
 UI::UI()
 {
@@ -58,7 +71,7 @@ void UI::obsluga_rejestracji_lub_logowania()
 		//cout << "Aby sie zalogowac wybierz 1" << endl;
 		int wybor = 0;
 		// zbierz dane uzytkownika ();
-		cin >> wybor;										//blad gdy nie wpiszemy liczby
+		wczytaj_dane(wybor);
 		// logowanie
 		if (wybor == 1)
 		{
