@@ -25,12 +25,12 @@ class Dane
 public:
 	vector <Historia> historia;
 	vector <Kontakty> kontakty;
-	Saldo saldo;
+	Saldo* saldo;
 	Kurs kursy;
 	
 	Do_wykonania* do_wykonania;
 
-
+	void wypisz_saldo();
 	Dane();
 };
 
