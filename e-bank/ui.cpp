@@ -4,11 +4,35 @@
 #include "operacja.h"
 
 void podaj_dane(string& email, string& haslo) {
+	system("cls");
 	cout << "Podaj email: ";
 	cin >> email;
 	cout << "Podaj haslo: ";
 	cin >> haslo;
 }
+
+void menu() {
+	cout.width(60);
+	cout << "Aby sie zalogowac wybierz 1" << endl<<endl;
+	cout.width(64);
+	cout << "Aby sie zarejestrowac wybierz 2" << endl<<endl;
+	cout.width(56);
+	cout << "Aby sie wyjsc wybierz 3" << endl << endl;
+}
+
+template <typename T>					
+T wczytaj_dane(T& d) {							//funkcja pobiera dane uzytkownika w przypadku gdy sa poprawne
+	cin >> d;
+	while (cin.fail() == true) {
+		cout << "Podales niedozwolona dane podaj jeszcze raz" << endl;
+		cin.clear();
+		cin.ignore(numeric_limits <streamsize>::max(), '\n');
+		cin >> d;
+	}
+	return d;
+}
+
+
 
 UI::UI()
 {
@@ -43,11 +67,12 @@ void UI::obsluga_rejestracji_lub_logowania()
 	while (true)
 	{
 		// wyswietl menu();
-		cout << "Aby sie zalogowac wybierz 1" << endl; // temp
-		cout << "Aby sie zarejestrowac wybierz 2" << endl; // temp
+		menu();
+		//cout << "Aby sie zalogowac wybierz 1" << endl;
+
 		int wybor = 0;
 		// zbierz dane uzytkownika ();
-		cin >> wybor;
+		wczytaj_dane(wybor);
 		// logowanie
 		if (wybor == 1)
 		{
@@ -90,8 +115,8 @@ void UI::obsluga_rejestracji_lub_logowania()
 
 			// info o powodzeniu lub nie()
 
-			// moze zrobic obiekt Menu czy coœ
-			// ¿eby te info i bledy oddzielic od reszty
+			// moze zrobic obiekt Menu czy coÅ›
+			// Å¼eby te info i bledy oddzielic od reszty
 			// i zeby nie wyszedl nam z tego jeden ogromny obiekt
 
 			// wyjdz jezeli mu sie udalo
@@ -138,7 +163,7 @@ void UI::obsluga_operacji_lub_wylogowania()
 		if (wybor == 3)
 		{
 			//wyswietl info wylogowanie();
-			//mo¿e jakieœ dodatkowe pytanie czy na pewno chce sie wylogowac
+			//moÅ¼e jakieÅ› dodatkowe pytanie czy na pewno chce sie wylogowac
 			token = zaloguj->wyloguj(token);
 			break;
 		}
