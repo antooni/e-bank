@@ -26,11 +26,12 @@ public:
 	vector <Historia> historia;
 	vector <Kontakty> kontakty;
 	Saldo* saldo;
-	Kurs kursy;
+	Kurs* kurs;
 	
 	Do_wykonania* do_wykonania;
 
 	void wypisz_saldo();
+	void wypisz_kurs();
 	Dane();
 };
 

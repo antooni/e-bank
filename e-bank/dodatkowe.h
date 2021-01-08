@@ -20,6 +20,7 @@ class Data {
 
 class Historia {
 	friend class Baza;
+	friend class Dane;
 	Data data;
 	double wartosc;
 	string odbiorca;
@@ -28,6 +29,7 @@ class Historia {
 
 class Kontakty {
 	friend class Baza;
+	friend class Dane;
 	string imie;
 	string nazwisko;
 	string numer_konta;
@@ -45,8 +47,10 @@ class Saldo {
 
 class Kurs {
 	friend class Baza;
+	friend class Dane;
 	double euro;
 	double funt;
 	double zloty;
 	double dolar;
+	Kurs();
 };
