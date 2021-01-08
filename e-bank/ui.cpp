@@ -146,6 +146,8 @@ void UI::obsluga_operacji_lub_wylogowania()
 	while (true)
 	{
 		cout << "git";
+		operacja.token = token;		//operacja nie miala przypisanego tokenu
+									//spr czy tak ma to zostac lub czy nie powinien byc przypisany w zaloguj!!!!
 		// !!!!
 	// tu jeszcze przydaloby sie odpalic sprawdz() zeby :
 	// ustawic : nr_konta, saldo dla : konto
@@ -160,6 +162,7 @@ void UI::obsluga_operacji_lub_wylogowania()
 
 		int wybor = 0;
 		// zbierz dane o typie operacji
+		wczytaj_dane(wybor);
 		if (wybor == 3)
 		{
 			//wyswietl info wylogowanie();
@@ -169,14 +172,16 @@ void UI::obsluga_operacji_lub_wylogowania()
 		}
 		else if (wybor == 1)
 		{
+			operacja.typ_operacji = "sprawdz";
 			// operacja.typ = "sprawdz"
 			// wyswietl menu sprawdzanie();
-
+			
 			//cin >> [typ operacji]
 			// operacja.typ_operacji = [typ operacji]
-
+			operacja.typ_operacji = "saldo";
 			operacja = konto->sprawdz(operacja);
-
+			operacja.dane->wypisz_saldo();
+			
 			// wyswietl info(operacja);
 			// w tej metodzie jakas obsluga bledow najpierw
 			// a jak jest powodzenie to wyswietlic pobrane Dane

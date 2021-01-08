@@ -5,7 +5,7 @@ Baza::Baza()
 {
 }
 Operacja Baza::odczyt(Operacja operacja)
-{
+{	
 	if (operacja.typ_operacji == "historia") {
 		Historia historia;
 		string line;
@@ -71,13 +71,17 @@ Operacja Baza::odczyt(Operacja operacja)
 			istringstream iss(line);
 
 			iss >> temp;
-			operacja.dane->saldo.zloty = stod(temp);
+			operacja.dane->saldo->zloty = stod(temp);
+			//operacja.dane->saldo.zloty = stod(temp);
 			iss >> temp;
-			operacja.dane->saldo.euro = stod(temp);
+			operacja.dane->saldo->euro = stod(temp);
+			//operacja.dane->saldo.euro = stod(temp);
 			iss >> temp;
-			operacja.dane->saldo.funt = stod(temp);
+			operacja.dane->saldo->funt = stod(temp);
+			//operacja.dane->saldo.funt = stod(temp);
 			iss >> temp;
-			operacja.dane->saldo.dolar = stod(temp);
+			operacja.dane->saldo->dolar = stod(temp);
+			//operacja.dane->saldo.dolar = stod(temp);
 			plik.close();
 		}
 		else {
