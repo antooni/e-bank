@@ -1,4 +1,1 @@
-Antoni
-Pawlak
-87654321
-anti@cos.pl
+Antoni Pawlak 87654321 anti@cos.pl

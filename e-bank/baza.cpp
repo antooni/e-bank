@@ -12,24 +12,30 @@ Operacja Baza::odczyt(Operacja operacja)
 		string temp;
 		fstream plik;
 		plik.open("base/" + operacja.token + "/historia.txt", ios::in | ios::out);
-		while (getline(plik, line))
+		if (plik.good() == true)
 		{
-			istringstream iss(line);
-			iss >> temp;
-			historia.data.dzien = stoi(temp);
-			iss >> temp;
-			historia.data.miesiac = stoi(temp);
-			iss >> temp;
-			historia.data.rok = stoi(temp);
-			iss >> temp;
-			historia.wartosc = stod(temp);
-			iss >> temp;
-			historia.odbiorca = temp;
-			iss >> temp;
-			historia.nadawca = temp;
-			operacja.dane->historia.push_back(historia);
+			while (getline(plik, line))
+			{
+				istringstream iss(line);
+				iss >> temp;
+				historia.data.dzien = stoi(temp);
+				iss >> temp;
+				historia.data.miesiac = stoi(temp);
+				iss >> temp;
+				historia.data.rok = stoi(temp);
+				iss >> temp;
+				historia.wartosc = stod(temp);
+				iss >> temp;
+				historia.odbiorca = temp;
+				iss >> temp;
+				historia.nadawca = temp;
+				operacja.dane->historia.push_back(historia);
+			}
+			plik.close();
 		}
-		plik.close();
+		else {
+			operacja.kod_bledu = 1;
+		}
 	}
 
 	else if (operacja.typ_operacji == "kontakty") {
@@ -37,15 +43,21 @@ Operacja Baza::odczyt(Operacja operacja)
 		string line;
 		fstream plik;
 		plik.open("base/" + operacja.token + "/kontakty.txt", ios::in | ios::out);
-		while (getline(plik, line))
+		if (plik.good() == true)
 		{
-			istringstream iss(line);
-			iss >> kontakty.imie;
-			iss >> kontakty.nazwisko;
-			iss >> kontakty.numer_konta;
-			operacja.dane->kontakty.push_back(kontakty);
+			while (getline(plik, line))
+			{
+				istringstream iss(line);
+				iss >> kontakty.imie;
+				iss >> kontakty.nazwisko;
+				iss >> kontakty.numer_konta;
+				operacja.dane->kontakty.push_back(kontakty);
+			}
+			plik.close();
 		}
-		plik.close();
+		else {
+			operacja.kod_bledu = 1;
+		}
 	}
 
 	else if (operacja.typ_operacji == "saldo") {
@@ -53,16 +65,24 @@ Operacja Baza::odczyt(Operacja operacja)
 		string temp;
 		fstream plik;
 		plik.open("base/" + operacja.token + "/saldo.txt", ios::in | ios::out);
-		getline(plik, line);
-		istringstream iss(line);
-		iss >> temp;
-		operacja.dane->saldo.euro = stod(temp);
-		iss >> temp;
-		operacja.dane->saldo.funt = stod(temp);
-		iss >> temp;
-		operacja.dane->saldo.zloty = stod(temp);
-		iss >> temp;
-		operacja.dane->saldo.dolar = stod(temp);
+		if (plik.good() == true)
+		{
+			getline(plik, line);
+			istringstream iss(line);
+
+			iss >> temp;
+			operacja.dane->saldo.zloty = stod(temp);
+			iss >> temp;
+			operacja.dane->saldo.euro = stod(temp);
+			iss >> temp;
+			operacja.dane->saldo.funt = stod(temp);
+			iss >> temp;
+			operacja.dane->saldo.dolar = stod(temp);
+			plik.close();
+		}
+		else {
+			operacja.kod_bledu = 1;
+		}
 	}
 
 	else if (operacja.typ_operacji == "kursy") {
@@ -70,16 +90,23 @@ Operacja Baza::odczyt(Operacja operacja)
 		string temp;
 		fstream plik;
 		plik.open("base/kursy.txt", ios::in | ios::out);
-		getline(plik, line);
-		istringstream iss(line);
-		iss >> temp;
-		operacja.dane->kursy.euro = stod(temp);
-		iss >> temp;
-		operacja.dane->kursy.funt = stod(temp);
-		iss >> temp;
-		operacja.dane->kursy.zloty = stod(temp);
-		iss >> temp;
-		operacja.dane->kursy.dolar = stod(temp);
+		if (plik.good() == true)
+		{
+			getline(plik, line);
+			istringstream iss(line);
+			iss >> temp;
+			operacja.dane->kursy.zloty = stod(temp);
+			iss >> temp;
+			operacja.dane->kursy.euro = stod(temp);
+			iss >> temp;
+			operacja.dane->kursy.funt = stod(temp);
+			iss >> temp;
+			operacja.dane->kursy.dolar = stod(temp);
+			plik.close();
+		}
+		else {
+			operacja.kod_bledu = 1;
+		}
 	}
 
 	return operacja;
