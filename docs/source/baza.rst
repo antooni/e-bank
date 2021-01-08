@@ -9,5 +9,5 @@ Baza
    dane.txt <dane>
    historia.txt <historia>
    saldo.txt <saldo>
-   kontakty.txt <konstakty>
+   kontakty.txt <kontakty>
    
