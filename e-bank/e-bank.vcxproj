@@ -139,7 +139,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="baza.cpp" />
+    <ClCompile Include="dodatkowe.cpp" />
+    <ClCompile Include="konto.cpp" />
+    <ClCompile Include="operacja.cpp" />
+    <ClCompile Include="sprawdz.cpp" />
+    <ClCompile Include="wykonaj.cpp" />
+    <ClCompile Include="zaloguj.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ui.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="baza.h" />
+    <ClInclude Include="dodatkowe.h" />
+    <ClInclude Include="konto.h" />
+    <ClInclude Include="operacja.h" />
+    <ClInclude Include="sprawdz.h" />
+    <ClInclude Include="ui.h" />
+    <ClInclude Include="wykonaj.h" />
+    <ClInclude Include="zaloguj.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
