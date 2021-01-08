@@ -4,10 +4,21 @@
 #include "operacja.h"
 
 void podaj_dane(string& email, string& haslo) {
+	system("cls");
 	cout << "Podaj email: ";
 	cin >> email;
 	cout << "Podaj haslo: ";
 	cin >> haslo;
+}
+
+void menu() {
+	
+	cout.width(60);
+	cout << "Aby sie zalogowac wybierz 1" << endl<<endl;
+	cout.width(64);
+	cout << "Aby sie zarejestrowac wybierz 2" << endl<<endl;
+	cout.width(56);
+	cout << "Aby sie wyjsc wybierz 3" << endl << endl;
 }
 
 UI::UI()
@@ -43,10 +54,11 @@ void UI::obsluga_rejestracji_lub_logowania()
 	while (true)
 	{
 		// wyswietl menu();
-		cout << "Aby sie zalogowac wybierz 1" << endl;
+		menu();
+		//cout << "Aby sie zalogowac wybierz 1" << endl;
 		int wybor = 0;
 		// zbierz dane uzytkownika ();
-		cin >> wybor;
+		cin >> wybor;										//blad gdy nie wpiszemy liczby
 		// logowanie
 		if (wybor == 1)
 		{
