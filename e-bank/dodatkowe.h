@@ -13,9 +13,12 @@ class Uzytkownik {
 
 class Data {
 	friend class Baza;
+	friend class Historia;
+	friend class Dane;
 	int dzien;
 	int miesiac;
 	int rok;
+	Data();
 };
 
 class Historia {
@@ -25,6 +28,7 @@ class Historia {
 	double wartosc;
 	string odbiorca;
 	string nadawca;
+	Historia();
 };
 
 class Kontakty {
@@ -33,6 +37,7 @@ class Kontakty {
 	string imie;
 	string nazwisko;
 	string numer_konta;
+	Kontakty();
 };
 
 class Saldo {

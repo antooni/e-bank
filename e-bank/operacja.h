@@ -31,6 +31,8 @@ public:
 	Do_wykonania* do_wykonania;
 
 	void wypisz_saldo();
+	void wypisz_kontakty();
+	void wypisz_historia();
 	void wypisz_kurs();
 	Dane();
 };
