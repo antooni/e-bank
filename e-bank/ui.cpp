@@ -20,6 +20,17 @@ void menu() {
 	cout << "Aby sie wyjsc wybierz 3" << endl << endl;
 }
 
+void menu_sprawdz() {			//wyrownac najlepiej w osobnym projekcie
+	cout.width(60);
+	cout << "Aby sprawdzic saldo wybierz 1" << endl << endl;
+	cout.width(64);
+	cout << "Aby sprawdzic kontaky wybierz 2" << endl << endl;
+	cout.width(56);
+	cout << "Aby sprawdzic historie wybierz 3" << endl << endl;
+	cout.width(56);
+	cout << "Aby sprawdzic kursy walut wybierz 4" << endl << endl;
+}
+
 template <typename T>					
 T wczytaj_dane(T& d) {							//funkcja pobiera dane uzytkownika w przypadku gdy sa poprawne
 	cin >> d;
@@ -163,6 +174,7 @@ void UI::obsluga_operacji_lub_wylogowania()
 		int wybor = 0;
 		// zbierz dane o typie operacji
 		wczytaj_dane(wybor);
+		system("cls");
 		if (wybor == 3)
 		{
 			//wyswietl info wylogowanie();
@@ -171,20 +183,39 @@ void UI::obsluga_operacji_lub_wylogowania()
 			break;
 		}
 		else if (wybor == 1)
-		{
+		{												
+			menu_sprawdz();
+			wczytaj_dane(wybor);
+			system("cls");
 			operacja.typ_operacji = "sprawdz";
-			// operacja.typ = "sprawdz"
-			// wyswietl menu sprawdzanie();
+			if (wybor == 1) {								//saldo
 			
-			//cin >> [typ operacji]
-			// operacja.typ_operacji = [typ operacji]
-			operacja.typ_operacji = "saldo";
-			operacja = konto->sprawdz(operacja);
-			operacja.dane->wypisz_saldo();
-			
-			// wyswietl info(operacja);
-			// w tej metodzie jakas obsluga bledow najpierw
-			// a jak jest powodzenie to wyswietlic pobrane Dane
+				// operacja.typ = "sprawdz"
+				// wyswietl menu sprawdzanie();
+
+				//cin >> [typ operacji]
+				// operacja.typ_operacji = [typ operacji]
+				operacja.typ_operacji = "saldo";
+				operacja = konto->sprawdz(operacja);
+				operacja.dane->wypisz_saldo();
+
+				// wyswietl info(operacja);
+				// w tej metodzie jakas obsluga bledow najpierw aktualne (jedyny mozliwy blad to otwarcie pliku)
+				// a jak jest powodzenie to wyswietlic pobrane Dane
+
+
+			}
+			else if (wybor == 2) {					//kontakt
+
+			}
+			else if (wybor == 3) {					//historia
+
+			}
+			else if (wybor == 4) {				//kursy
+				operacja.typ_operacji = "kurs";
+				konto->sprawdz(operacja);
+				operacja.dane->wypisz_kurs();
+			}
 
 		}
 		else if (wybor == 2)

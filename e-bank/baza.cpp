@@ -89,7 +89,7 @@ Operacja Baza::odczyt(Operacja operacja)
 		}
 	}
 
-	else if (operacja.typ_operacji == "kursy") {
+	else if (operacja.typ_operacji == "kurs") {
 		string line;
 		string temp;
 		fstream plik;
@@ -99,13 +99,13 @@ Operacja Baza::odczyt(Operacja operacja)
 			getline(plik, line);
 			istringstream iss(line);
 			iss >> temp;
-			operacja.dane->kursy.zloty = stod(temp);
+			operacja.dane->kurs->zloty = stod(temp);
 			iss >> temp;
-			operacja.dane->kursy.euro = stod(temp);
+			operacja.dane->kurs->euro = stod(temp);
 			iss >> temp;
-			operacja.dane->kursy.funt = stod(temp);
+			operacja.dane->kurs->funt = stod(temp);
 			iss >> temp;
-			operacja.dane->kursy.dolar = stod(temp);
+			operacja.dane->kurs->dolar = stod(temp);
 			plik.close();
 		}
 		else {
