@@ -43,7 +43,8 @@ void UI::obsluga_rejestracji_lub_logowania()
 	while (true)
 	{
 		// wyswietl menu();
-		cout << "Aby sie zalogowac wybierz 1" << endl;
+		cout << "Aby sie zalogowac wybierz 1" << endl; // temp
+		cout << "Aby sie zarejestrowac wybierz 2" << endl; // temp
 		int wybor = 0;
 		// zbierz dane uzytkownika ();
 		cin >> wybor;
@@ -73,6 +74,11 @@ void UI::obsluga_rejestracji_lub_logowania()
 			string haslo = "";
 			string imie = "";
 			string nazwisko = "";
+
+			cin >> email;
+			cin >> haslo;
+			cin >> imie;
+			cin >> nazwisko;
 			//popros o dane ()
 			zaloguj->rejestracja(email, haslo, imie, nazwisko);
 
