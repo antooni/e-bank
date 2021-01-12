@@ -20,6 +20,26 @@ void menu() {
 	cout << "Aby sie wyjsc wybierz 3" << endl << endl;
 }
 
+void menu_sprawdz() {			//wyrownac najlepiej w osobnym projekcie
+	cout.width(62);
+	cout << "Aby sprawdzic saldo wybierz 1" << endl << endl;
+	cout.width(64);
+	cout << "Aby sprawdzic kontaky wybierz 2" << endl << endl;
+	cout.width(65);
+	cout << "Aby sprawdzic historie wybierz 3" << endl << endl;
+	cout.width(68);
+	cout << "Aby sprawdzic kursy walut wybierz 4" << endl << endl;
+}
+
+void menu_operacji() {
+	cout.width(61);
+	cout << "Aby sprawdzic dane wybierz 1" << endl << endl;
+	cout.width(63);
+	cout << "Aby wykonac operacje wybierz 2" << endl << endl;
+	cout.width(60);
+	cout << "Aby wylogowac sie wybierz 3" << endl << endl;
+}
+
 template <typename T>					
 T wczytaj_dane(T& d) {							//funkcja pobiera dane uzytkownika w przypadku gdy sa poprawne
 	cin >> d;
@@ -87,10 +107,14 @@ void UI::obsluga_rejestracji_lub_logowania()
 
 
 			//wyjdz jezeli mu sie udalo
-			if (token != "")
+			if (token != "") {
+				system("cls");
+				cout.width(60);
+				cout << "Poprawnie zalogowano" << endl << endl;
 				break;
+			}
 			else
-				cout << "bledne dane" << endl;
+				cout << "Podano bledne dane" << endl;
 		}
 		//rejestracja
 		else if (wybor == 2)
@@ -145,9 +169,8 @@ void UI::obsluga_operacji_lub_wylogowania()
 	
 	while (true)
 	{
-		cout << "git";
 		operacja.token = token;		//operacja nie miala przypisanego tokenu
-									//spr czy tak ma to zostac lub czy nie powinien byc przypisany w zaloguj!!!!
+									//spr czy tak ma to zostac lub czy nie powinien byc przypisany w zaloguj
 		// !!!!
 	// tu jeszcze przydaloby sie odpalic sprawdz() zeby :
 	// ustawic : nr_konta, saldo dla : konto
@@ -159,10 +182,11 @@ void UI::obsluga_operacji_lub_wylogowania()
 	// Antoni Pawlak  |  saldo : 100 BTC  |  numer konta : 112132
 
 	// ==========================================================
-
+		menu_operacji();
 		int wybor = 0;
 		// zbierz dane o typie operacji
 		wczytaj_dane(wybor);
+		system("cls");
 		if (wybor == 3)
 		{
 			//wyswietl info wylogowanie();
@@ -171,20 +195,47 @@ void UI::obsluga_operacji_lub_wylogowania()
 			break;
 		}
 		else if (wybor == 1)
-		{
+		{												
+			menu_sprawdz();
+			wczytaj_dane(wybor);
+			system("cls");
 			operacja.typ_operacji = "sprawdz";
-			// operacja.typ = "sprawdz"
-			// wyswietl menu sprawdzanie();
+			if (wybor == 1) {								//saldo
 			
-			//cin >> [typ operacji]
-			// operacja.typ_operacji = [typ operacji]
-			operacja.typ_operacji = "saldo";
-			operacja = konto->sprawdz(operacja);
-			operacja.dane->wypisz_saldo();
+				// operacja.typ = "sprawdz"
+				// wyswietl menu sprawdzanie();
+
+				//cin >> [typ operacji]
+				// operacja.typ_operacji = [typ operacji]
+				operacja.typ_operacji = "saldo";
+				konto->sprawdz(operacja);
+				operacja.dane->wypisz_saldo();
+
+				// wyswietl info(operacja);
+				// w tej metodzie jakas obsluga bledow najpierw aktualne (jedyny mozliwy blad to otwarcie pliku)
+				// a jak jest powodzenie to wyswietlic pobrane Dane
+
+
+			}
+			else if (wybor == 2) {					//kontakt
+				operacja.typ_operacji = "kontakty";
+				konto->sprawdz(operacja);
+				operacja.dane->wypisz_kontakty();
+			}
+			else if (wybor == 3) {					//historia
+				operacja.typ_operacji = "historia";
+				konto->sprawdz(operacja);
+				operacja.dane->wypisz_historia();
+			}
+			else if (wybor == 4) {				//kursy
+				operacja.typ_operacji = "kurs";
+				konto->sprawdz(operacja);
+				operacja.dane->wypisz_kurs();
+			}
 			
-			// wyswietl info(operacja);
-			// w tej metodzie jakas obsluga bledow najpierw
-			// a jak jest powodzenie to wyswietlic pobrane Dane
+				cout << "Wcisnij dowolny klawisz aby kontynuowac" << endl;
+				_getch();
+				system("cls");
 
 		}
 		else if (wybor == 2)
