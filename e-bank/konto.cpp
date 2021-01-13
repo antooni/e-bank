@@ -5,3 +5,4 @@ Konto::Konto()
 	numer = "";
 	saldo = NULL;
 }
+

@@ -4,6 +4,8 @@
 #include "wykonaj.h"
 
 #include<iostream>
+#include<fstream>
+#include <sstream>
 
 class Konto: public Wykonaj, public Sprawdz{
 	string numer;
@@ -11,5 +13,4 @@ class Konto: public Wykonaj, public Sprawdz{
 
 public:
 	Konto();
-
 };

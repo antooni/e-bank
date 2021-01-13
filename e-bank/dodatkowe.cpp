@@ -1,9 +1,9 @@
 #include "dodatkowe.h"
 
 Data::Data() {
-	dzien = 0;
-	miesiac = 0;
-	rok = 0;
+	dzien = "";
+	miesiac = "";
+	rok = "";
 }
 
 Historia::Historia() {

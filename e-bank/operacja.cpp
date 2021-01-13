@@ -2,10 +2,6 @@
 
 Do_wykonania::Do_wykonania()
 {
-	nadawca = "";
-	adresat = "";
-	suma = NULL;
-	//Kontakt = NULL;
 }
 
 Dane::Dane()
@@ -16,6 +12,15 @@ Dane::Dane()
 	kurs = new Kurs();
 	do_wykonania = new Do_wykonania();
 }
+
+string Dane::znajdz_numer(string numer) {
+	for (int i = 0; i < kontakty.size(); i++) {
+		if (kontakty[i].numer == numer)
+			return kontakty[i].numer_konta;
+	}
+	return "";
+}
+
 void Dane::wypisz_historia() {
 	cout << "Twoja historia: " << endl << endl;
 	for (int i = 0; i < historia.size(); i++) {
@@ -37,6 +42,8 @@ void Dane::wypisz_kontakty() {
 	cout.width(50);
 	cout << "Twoje kontakty: " << endl << endl;
 	for (int i = 0; i < kontakty.size(); i++) {
+		cout.width(50);
+		cout << "Numer: " << kontakty[i].numer << endl << endl;
 		cout.width(50);
 		cout << "Imie: " << kontakty[i].imie << endl << endl;
 		cout.width(54);

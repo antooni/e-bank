@@ -11,10 +11,11 @@ using namespace std;
 class Do_wykonania
 {
 public:
-	string nadawca;
-	string adresat;
-	double suma;
-	// Kontakt;
+	Historia historia;
+	Kontakty kontakty;
+	Saldo saldo;
+	double suma = 0;
+	string odbiorca;
 
 
 	Do_wykonania();
@@ -27,9 +28,9 @@ public:
 	vector <Kontakty> kontakty;
 	Saldo* saldo;
 	Kurs* kurs;
-	
 	Do_wykonania* do_wykonania;
 
+	string znajdz_numer(string);
 	void wypisz_saldo();
 	void wypisz_kontakty();
 	void wypisz_historia();
@@ -45,5 +46,6 @@ public:
 	string token;
 	int kod_bledu;
 	Dane* dane;
+	Do_wykonania* do_wykonania;
 	Operacja();
 };

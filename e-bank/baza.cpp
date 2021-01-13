@@ -1,6 +1,9 @@
 #pragma once
 #include "baza.h"
 
+
+
+
 Baza::Baza()
 {
 }
@@ -18,11 +21,11 @@ Operacja Baza::odczyt(Operacja operacja)
 			{
 				istringstream iss(line);
 				iss >> temp;
-				historia.data.dzien = stoi(temp);
+				historia.data.dzien = temp;
 				iss >> temp;
-				historia.data.miesiac = stoi(temp);
+				historia.data.miesiac = temp;
 				iss >> temp;
-				historia.data.rok = stoi(temp);
+				historia.data.rok = temp;
 				iss >> temp;
 				historia.wartosc = stod(temp);
 				iss >> temp;
@@ -32,6 +35,7 @@ Operacja Baza::odczyt(Operacja operacja)
 				operacja.dane->historia.push_back(historia);
 			}
 			plik.close();
+			operacja.kod_bledu = 0;
 		}
 		else {
 			operacja.kod_bledu = 1;
@@ -48,12 +52,14 @@ Operacja Baza::odczyt(Operacja operacja)
 			while (getline(plik, line))
 			{
 				istringstream iss(line);
+				iss >> kontakty.numer;
 				iss >> kontakty.imie;
 				iss >> kontakty.nazwisko;
 				iss >> kontakty.numer_konta;
 				operacja.dane->kontakty.push_back(kontakty);
 			}
 			plik.close();
+			operacja.kod_bledu = 0;
 		}
 		else {
 			operacja.kod_bledu = 1;
@@ -67,22 +73,22 @@ Operacja Baza::odczyt(Operacja operacja)
 		plik.open("base/" + operacja.token + "/saldo.txt", ios::in | ios::out);
 		if (plik.good() == true)
 		{
+			
 			getline(plik, line);
-			istringstream iss(line);
-
-			iss >> temp;
-			operacja.dane->saldo->zloty = stod(temp);
+			operacja.dane->saldo->zloty = stod(line);
 			//operacja.dane->saldo.zloty = stod(temp);
-			iss >> temp;
-			operacja.dane->saldo->euro = stod(temp);
+			getline(plik, line);
+			operacja.dane->saldo->euro = stod(line);
 			//operacja.dane->saldo.euro = stod(temp);
-			iss >> temp;
-			operacja.dane->saldo->funt = stod(temp);
+			getline(plik, line);
+			operacja.dane->saldo->funt = stod(line);
 			//operacja.dane->saldo.funt = stod(temp);
-			iss >> temp;
-			operacja.dane->saldo->dolar = stod(temp);
+			getline(plik, line);
+			operacja.dane->saldo->dolar = stod(line);
 			//operacja.dane->saldo.dolar = stod(temp);
 			plik.close();
+			operacja.kod_bledu = 0;
+			cout << "Pobrano saldo" << endl;
 		}
 		else {
 			operacja.kod_bledu = 1;
@@ -107,6 +113,7 @@ Operacja Baza::odczyt(Operacja operacja)
 			iss >> temp;
 			operacja.dane->kurs->dolar = stod(temp);
 			plik.close();
+			operacja.kod_bledu = 0;
 		}
 		else {
 			operacja.kod_bledu = 1;
@@ -118,9 +125,41 @@ Operacja Baza::odczyt(Operacja operacja)
 
 Operacja Baza::zapis(Operacja operacja)
 {
-	//otworz odpowiedni plik
-	//zmodyfikuj lub dodaj nowy rekord
+	if (operacja.typ_operacji == "zapisz_kontakt") {
+		fstream zapisz;
+		zapisz.open("base/" + operacja.token + "/kontakty.txt", ios::out | ios::app);
+		zapisz.seekg(0, ios::end);
+		if (zapisz.tellg() != 0) { zapisz << endl; }
+		zapisz << operacja.dane->do_wykonania->kontakty.numer << " " << operacja.dane->do_wykonania->kontakty.imie << " " << operacja.dane->do_wykonania->kontakty.nazwisko << " " << operacja.dane->do_wykonania->kontakty.numer_konta;
 
-	// ustaw blad 
+		zapisz.close();
+	}
+
+	else if (operacja.typ_operacji == "zapisz_saldo") {
+		ofstream zapisz;
+		zapisz.open("base/" + operacja.token + "/saldo.txt", ios::trunc);
+		zapisz << operacja.dane->saldo->zloty << endl << operacja.dane->saldo->euro << endl << operacja.dane->saldo->funt << endl << operacja.dane->saldo->dolar;
+
+		zapisz.close();
+	}
+
+	else if (operacja.typ_operacji == "zapisz_historie") {
+		fstream zapisz;
+		zapisz.open("base/" + operacja.token + "/historia.txt", ios_base::out | ios_base::app);
+		if (zapisz.good()) {
+			zapisz.seekg(0, ios::end);
+			if (zapisz.tellg() != 0) { zapisz << endl; }
+			zapisz << operacja.dane->do_wykonania->historia.data.dzien << " "
+				<< operacja.dane->do_wykonania->historia.data.miesiac << " "
+				<< operacja.dane->do_wykonania->historia.data.rok << " "
+				<< operacja.dane->do_wykonania->historia.wartosc << " "
+				<< operacja.dane->do_wykonania->historia.odbiorca << " "
+				<< operacja.dane->do_wykonania->historia.nadawca;
+			zapisz.close();
+		}
+		else {
+			operacja.kod_bledu = 1;
+		}
+	}
 	return operacja;
 }

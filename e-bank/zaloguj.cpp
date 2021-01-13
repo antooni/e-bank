@@ -85,10 +85,16 @@ bool Zaloguj::sprawdz_czy_w_bazie(string nazwa)
 	string line;
 	string temp;
 	fstream plik;
-
 	plik.open(baza, ios::in | ios::out);
 	while (getline(plik, line)) {
 		istringstream iss(line);
+		iss >> temp;
+		if (temp == nazwa) {
+			plik.close();
+			
+			return true;
+		}
+		iss >> temp;
 		iss >> temp;
 		if (temp == nazwa) {
 			plik.close();
@@ -126,6 +132,6 @@ void Zaloguj::konfiguracja_bazy(string nazwa, string imie, string nazwisko, stri
 	outfile.close();
 
 	outfile.open(path + "/saldo.txt", ios::out | ios::app);
-	outfile << "0.0 0.0 0.0 0.0";
+	outfile << "0.0" << endl << "0.0" << endl << "0.0" << endl << "0.0";
 	outfile.close();
 }
