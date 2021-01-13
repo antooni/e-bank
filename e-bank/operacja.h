@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include "dodatkowe.h"
+#include "operacja.h"
 
 using namespace std; 
 
@@ -35,6 +36,7 @@ public:
 	void wypisz_kontakty();
 	void wypisz_historia();
 	void wypisz_kurs();
+	bool sprawdz_kwote(double suma, string waluta);
 	Dane();
 };
 
@@ -49,3 +51,5 @@ public:
 	Do_wykonania* do_wykonania;
 	Operacja();
 };
+
+

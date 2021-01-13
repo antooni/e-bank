@@ -29,6 +29,8 @@ Operacja Baza::odczyt(Operacja operacja)
 				iss >> temp;
 				historia.wartosc = stod(temp);
 				iss >> temp;
+				historia.waluta = temp;
+				iss >> temp;
 				historia.odbiorca = temp;
 				iss >> temp;
 				historia.nadawca = temp;
@@ -153,12 +155,26 @@ Operacja Baza::zapis(Operacja operacja)
 				<< operacja.dane->do_wykonania->historia.data.miesiac << " "
 				<< operacja.dane->do_wykonania->historia.data.rok << " "
 				<< operacja.dane->do_wykonania->historia.wartosc << " "
+				<< operacja.dane->do_wykonania->historia.waluta << " "
 				<< operacja.dane->do_wykonania->historia.odbiorca << " "
 				<< operacja.dane->do_wykonania->historia.nadawca;
 			zapisz.close();
 		}
 		else {
 			operacja.kod_bledu = 1;
+		}
+	}
+
+	else if (operacja.typ_operacji == "przelew zewnetrzny") {
+		fstream zapisz;
+		zapisz.open("base/przelewy_zewnetrzne.txt", ios_base::out | ios_base::app);
+		if (zapisz.good()) {
+			zapisz.seekg(0, ios::end);
+			if (zapisz.tellg() != 0) { zapisz << endl; }
+			zapisz << operacja.dane->do_wykonania->historia.wartosc << " "
+				<< operacja.dane->do_wykonania->historia.waluta << " "
+				<< operacja.dane->do_wykonania->historia.odbiorca << " "
+				<< operacja.dane->do_wykonania->historia.nadawca;
 		}
 	}
 	return operacja;
