@@ -105,7 +105,7 @@ void UI::obsluga_rejestracji_lub_logowania()
 {
 	zaloguj = new Zaloguj();
 
-	zaloguj->usun_konto("admin", "aaa");
+	zaloguj->usun_konto("sd", "aaa");
 
 	while (true)
 	{

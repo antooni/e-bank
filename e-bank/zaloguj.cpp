@@ -100,6 +100,9 @@ bool Zaloguj::sprawdz_czy_w_bazie(string email)
 
 bool Zaloguj::usun_konto(string _email, string _haslo)
 {
+	bool res = false;
+	string numer = "";
+
 	string line;
 	string temp;
 	fstream plik;
@@ -107,32 +110,43 @@ bool Zaloguj::usun_konto(string _email, string _haslo)
 
 	vector<string> a;
 
-	fstream temp_plik;
-	temp_plik.open("temp.txt", ios::in | ios::out | ios::app);
-	temp_plik.seekg(0, ios::end);
-	if (temp_plik.tellg() != 0) { temp_plik << endl; }
-
 	
 	while (getline(plik, line)) {
 		istringstream iss(line);
 		iss >> temp;
 		if (temp == _email) {
-			continue;
+			res = true;
+			iss >> temp;
+			iss >> numer;
+
+
 		}
 		else
 		{
 			a.push_back(line);
-			temp_plik << line;
 		}
 	}
 	plik.close();
-	temp_plik.close();
+	plik.open(baza, ios::out | ios::trunc);
+
+	//cout << numer << endl;
+
+	string path = "base/" + numer;
+	cout << path << endl;
+
+	//tutaj najpierw wylistowac pliki
+	// usunac
+	//a potem usunac pusty folder
+	_rmdir(path.c_str());
+
 
 	for (int i = 0; i < a.size(); i++)
 	{
-		cout << a[i] << endl;
+		plik << a[i] << endl;
 	}
-	return false;
+	plik.close();
+
+	return res;
 	
 }
 
@@ -140,8 +154,8 @@ void Zaloguj::zapisz_do_bazy(string email, string haslo, string numer_konta)
 {
 	fstream zapisz;
 	zapisz.open(baza, ios::out | ios::app);
-	zapisz.seekg(0, ios::end);
-	if (zapisz.tellg() != 0) { zapisz << endl; }
+	//zapisz.seekg(0, ios::end);
+	//if (zapisz.tellg() != 0) { zapisz << endl; }
 	zapisz << email << " " << haslo << " " << numer_konta;
 
 	zapisz.close();
