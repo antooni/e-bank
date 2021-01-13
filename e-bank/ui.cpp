@@ -4,12 +4,21 @@
 #include "operacja.h"
 #include "testy.h"
 
+void wczytaj_haslo(string &haslo) {
+	char znak;
+	for (int i = 0; (znak = _getch()) != '\r'; i++)
+	{
+		cout << '*';
+		haslo += znak;
+	}
+	cout << endl;
+}
 void podaj_dane(string& email, string& haslo) {
 	system("cls");
 	cout << "Podaj email: ";
 	cin >> email;
 	cout << "Podaj haslo: ";
-	cin >> haslo;
+	wczytaj_haslo(haslo);
 	haslo = to_string(hash<string>{}(haslo)); //hashowanie hasla
 }
 
@@ -31,6 +40,8 @@ void menu_sprawdz() {			//wyrownac najlepiej w osobnym projekcie
 	cout << "Aby sprawdzic historie wybierz 3" << endl << endl;
 	cout.width(68);
 	cout << "Aby sprawdzic kursy walut wybierz 4" << endl << endl;
+	cout.width(53);
+	cout << "Aby wrocic wybierz 0" << endl << endl;
 }
 
 void menu_wykonaj() {
@@ -76,7 +87,7 @@ UI::UI()
 
 void UI::start()
 {
-	test = true;
+	//test = true;
 	if (test) {
 		uruchom_testy();
 		return;
@@ -147,7 +158,7 @@ void UI::obsluga_rejestracji_lub_logowania()
 			cout << "Podaj mail: ";
 			cin >> email;
 			cout << "Podaj haslo: ";
-			cin >> haslo;
+			wczytaj_haslo(haslo);
 			haslo = to_string(hash<string>{}(haslo)); // hashowanie hasla
 			cout << "Podaj imie: ";
 			cin >> imie;
@@ -203,6 +214,7 @@ void UI::obsluga_operacji_lub_wylogowania()
 	// bo mogly ulec jakies zmianie
 
 	// wyswietl menu()
+
 	// dalbym tutaj jakis naglowek w stylu
 	// Antoni Pawlak  |  saldo : 100 BTC  |  numer konta : 112132
 
@@ -212,14 +224,14 @@ void UI::obsluga_operacji_lub_wylogowania()
 		// zbierz dane o typie operacji
 		wczytaj_dane(wybor);
 		system("cls");
-		if (wybor == 3)
+		if (wybor == 3)				//wylogowywanie
 		{
 			//wyswietl info wylogowanie();
 			//może jakieś dodatkowe pytanie czy na pewno chce sie wylogowac
 			token = zaloguj->wyloguj(token);
 			break;
 		}
-		else if (wybor == 1)
+		else if (wybor == 1)				//sprawdzanie danych
 		{												
 			menu_sprawdz();
 			wczytaj_dane(wybor);
@@ -227,11 +239,6 @@ void UI::obsluga_operacji_lub_wylogowania()
 			operacja.typ = "sprawdz";
 			if (wybor == 1) {								//saldo
 			
-				// operacja.typ = "sprawdz"
-				// wyswietl menu sprawdzanie();
-
-				//cin >> [typ operacji]
-				// operacja.typ_operacji = [typ operacji]
 				operacja.typ_operacji = "saldo";
 				konto->sprawdz(operacja);
 				operacja.dane->wypisz_saldo();
@@ -239,7 +246,6 @@ void UI::obsluga_operacji_lub_wylogowania()
 				// wyswietl info(operacja);
 				// w tej metodzie jakas obsluga bledow najpierw aktualne (jedyny mozliwy blad to otwarcie pliku)
 				// a jak jest powodzenie to wyswietlic pobrane Dane
-
 
 			}
 			else if (wybor == 2) {					//kontakt
@@ -257,13 +263,16 @@ void UI::obsluga_operacji_lub_wylogowania()
 				konto->sprawdz(operacja);
 				operacja.dane->wypisz_kurs();
 			}
+			else if (wybor == 0) {
+				continue;
+			}
 			
 				cout << "Wcisnij dowolny klawisz aby kontynuowac" << endl;
 				_getch();
 				system("cls");
 
 		}
-		else if (wybor == 2)
+		else if (wybor == 2)						//wykonywanie operacji
 		{
 			double suma;
 			string temp;
