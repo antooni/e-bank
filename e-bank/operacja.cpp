@@ -1,5 +1,5 @@
 #include "operacja.h"
-#include <iomanip>
+
 Do_wykonania::Do_wykonania()
 {
 }
@@ -85,13 +85,13 @@ void Dane::wypisz_saldo() {
 
 void Dane::wypisz_kurs() {
 	cout.width(50);
-	cout << "Euro: " << setprecision(3) << kurs->euro << endl << endl;
+	cout << "Euro: " << kurs->euro << endl << endl;
 	cout.width(50);
-	cout << "Funt: " << setprecision(3) << kurs->funt << endl << endl;
+	cout << "Funt: " << kurs->funt << endl << endl;
 	cout.width(51);
-	cout << "Zloty: " << setprecision(3) << kurs->zloty << endl << endl;
+	cout << "Zloty: " << kurs->zloty << endl << endl;
 	cout.width(51);
-	cout << "Dolar: " << setprecision(3) << kurs->dolar << endl << endl;
+	cout << "Dolar: " << kurs->dolar << endl << endl;
 }
 
 bool Dane::przewalutuj(string waluta, string _waluta, double suma) {
