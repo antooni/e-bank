@@ -16,7 +16,9 @@ class UI
 	Uzytkownik* user;
 	Zaloguj* zaloguj;
 	bool test;
-	void przelew(Operacja, string, double);
+
+	int przelew(Operacja, string, double, string);
+  
 	void obsluga_rejestracji_lub_logowania();
 	void obsluga_operacji_lub_wylogowania();
 

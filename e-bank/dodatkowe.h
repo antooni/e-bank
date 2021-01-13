@@ -34,6 +34,7 @@ class Historia {
 	double wartosc;
 	string odbiorca;
 	string nadawca;
+	string waluta;
 	Historia();
 };
 

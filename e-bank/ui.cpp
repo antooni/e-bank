@@ -267,6 +267,8 @@ void UI::obsluga_operacji_lub_wylogowania()
 		{
 			double suma;
 			string temp;
+			string _waluta;
+			string waluta;
 			operacja.typ = "wykonaj";
 			menu_wykonaj(); // wyswietl menu wykonaj();
 			wczytaj_dane(wybor);
@@ -277,7 +279,10 @@ void UI::obsluga_operacji_lub_wylogowania()
 				cin >> temp;
 				cout << "Kwota przelewu: ";
 				cin >> suma;
-				przelew(operacja, temp, suma);
+				cout << "Waluta(PLN,EUR,USD,GBP): ";
+				cin >> _waluta;
+				waluta = toupper(_waluta[0]);
+				przelew(operacja, temp, suma, waluta);
 			}
 
 			else if (wybor == 2) {
@@ -291,7 +296,10 @@ void UI::obsluga_operacji_lub_wylogowania()
 				temp = operacja.dane->znajdz_numer(numer);
 				cout << "Kwota przelewu: ";
 				cin >> suma;
-				przelew(operacja, temp, suma);
+				cout << "Waluta(PLN,EUR,USD,GBP): ";
+				cin >> _waluta;
+				waluta = toupper(_waluta[0]);
+				przelew(operacja, temp, suma, waluta);
 				operacja.dane->kontakty.clear();
 			}
 
@@ -345,23 +353,50 @@ void UI::obsluga_operacji_lub_wylogowania()
 	}
 }
 
-void UI::przelew(Operacja operacja, string temp, double suma) {
+int UI::przelew(Operacja operacja, string temp, double suma, string waluta) {
 	Operacja odbiorca = Operacja();
 	odbiorca.token = temp;
+	bool check;
 	operacja.typ_operacji = "saldo";
 	konto->sprawdz(operacja);
-	if (suma <= operacja.dane->saldo->zloty) {
+	check = operacja.dane->sprawdz_kwote(suma, waluta);
+	if (check) {
 		cout << "Stan konta w porzadku" << endl;
-		if (zaloguj->sprawdz_czy_w_bazie(odbiorca.token)) {
-			if (odbiorca.token == operacja.token) cout << "nie mozesz przeslac pieniedzy na swoje konto" << endl;
-			else {
+		if (odbiorca.token == operacja.token) cout << "nie mozesz przeslac pieniedzy na swoje konto" << endl;
+		else {
+			if (zaloguj->sprawdz_czy_w_bazie(odbiorca.token)) {
 				odbiorca.typ_operacji = "saldo";
 				konto->sprawdz(odbiorca);
-				odbiorca.dane->saldo->zloty += suma;
+				if (waluta == "P") {
+					odbiorca.dane->saldo->zloty += suma;
+					operacja.dane->saldo->zloty -= suma;
+					odbiorca.dane->do_wykonania->historia.waluta = "PLN";
+					operacja.dane->do_wykonania->historia.waluta = "PLN";
+				}
+				else if (waluta == "U") {
+					odbiorca.dane->saldo->dolar += suma;
+					operacja.dane->saldo->dolar -= suma;
+					odbiorca.dane->do_wykonania->historia.waluta = "USD";
+					operacja.dane->do_wykonania->historia.waluta = "USD";
+				}
+				else if (waluta == "E") {
+					odbiorca.dane->saldo->euro += suma;
+					operacja.dane->saldo->euro -= suma;
+					odbiorca.dane->do_wykonania->historia.waluta = "EUR";
+					operacja.dane->do_wykonania->historia.waluta = "EUR";
+				}
+				else if (waluta == "G") {
+					odbiorca.dane->saldo->funt += suma;
+					operacja.dane->saldo->funt -= suma;
+					odbiorca.dane->do_wykonania->historia.waluta = "GBP";
+					operacja.dane->do_wykonania->historia.waluta = "GBP";
+				}
+				else {
+					return 0;
+				}
 				odbiorca.typ_operacji = "zapisz_saldo";
 				konto->wykonaj(odbiorca);
-
-				operacja.dane->saldo->zloty -= suma;
+				
 				operacja.typ_operacji = "zapisz_saldo";
 				konto->wykonaj(operacja);
 
@@ -380,6 +415,7 @@ void UI::przelew(Operacja operacja, string temp, double suma) {
 				odbiorca.dane->do_wykonania->historia.data.rok = "2021";
 
 				odbiorca.dane->do_wykonania->historia.wartosc = suma;
+				//odbiorca.dane->do_wykonania->historia.waluta = waluta;
 				odbiorca.dane->do_wykonania->historia.nadawca = operacja.token;
 				odbiorca.dane->do_wykonania->historia.odbiorca = odbiorca.token;
 
@@ -389,6 +425,42 @@ void UI::przelew(Operacja operacja, string temp, double suma) {
 				konto->wykonaj(operacja);
 				konto->wykonaj(odbiorca);
 			}
+			else {
+				if (waluta == "P") {
+					operacja.dane->saldo->zloty -= suma;
+					operacja.dane->do_wykonania->historia.waluta = "PLN";
+				}
+				else if (waluta == "U") {
+					operacja.dane->saldo->dolar -= suma;
+					operacja.dane->do_wykonania->historia.waluta = "USD";
+				}
+				else if (waluta == "E") {
+					operacja.dane->saldo->euro -= suma;
+					operacja.dane->do_wykonania->historia.waluta = "EUR";
+				}
+				else if (waluta == "G") {
+					operacja.dane->saldo->funt -= suma;
+					operacja.dane->do_wykonania->historia.waluta = "GBP";
+				}
+				operacja.typ_operacji = "zapisz_saldo";
+				konto->wykonaj(operacja);
+
+				//SYSTEMTIME st;
+				//GetSystemTime(&st);
+				operacja.dane->do_wykonania->historia.data.dzien = "13";
+				operacja.dane->do_wykonania->historia.data.miesiac = "01";
+				operacja.dane->do_wykonania->historia.data.rok = "2021";
+
+				operacja.dane->do_wykonania->historia.wartosc = suma * (-1);
+				operacja.dane->do_wykonania->historia.nadawca = operacja.token;
+				operacja.dane->do_wykonania->historia.odbiorca = temp;
+
+				operacja.typ_operacji = "zapisz_historie";
+				konto->wykonaj(operacja);
+				operacja.typ_operacji = "przelew zewnetrzny";
+				konto->wykonaj(operacja);
+			}
 		}
+		
 	}
 }

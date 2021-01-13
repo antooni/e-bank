@@ -13,6 +13,27 @@ Dane::Dane()
 	do_wykonania = new Do_wykonania();
 }
 
+
+
+bool Dane::sprawdz_kwote(double suma, string waluta) {
+	if (waluta == "P" && saldo->zloty >= suma) {
+		return true;
+	}
+	else if (waluta == "U" && saldo->dolar >= suma) {
+		return true;
+	}
+
+	else if (waluta == "G" && saldo->funt >= suma) {
+		return true;
+	}
+	else if (waluta == "E" && saldo->euro >= suma) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
 string Dane::znajdz_numer(string numer) {
 	for (int i = 0; i < kontakty.size(); i++) {
 		if (kontakty[i].numer == numer)
@@ -29,7 +50,7 @@ void Dane::wypisz_historia() {
 		cout.width(45);
 		cout << historia[i].data.dzien << "/" << historia[i].data.miesiac << "/" << historia[i].data.rok << endl << endl;
 		cout.width(50);
-		cout << "Wartosc: " << historia[i].wartosc << endl << endl;
+		cout << "Wartosc: " << historia[i].wartosc << " " << historia[i].waluta << endl << endl;
 		cout.width(51);
 		cout << "Odbiorca: " << historia[i].odbiorca << endl << endl;
 		cout.width(50);
