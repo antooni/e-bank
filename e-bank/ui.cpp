@@ -143,8 +143,6 @@ bool UI::obsluga_rejestracji_lub_logowania()
 			//wyjdz jezeli mu sie udalo
 			if (token != "") {
 				system("cls");
-				cout.width(60);
-				cout << "Poprawnie zalogowano" << endl << endl;
 				break;
 			}
 			else
@@ -219,12 +217,17 @@ void UI::obsluga_operacji_lub_wylogowania()
 	// ustawic : imie, nazwisko, numer_konta, email
 	// bo mogly ulec jakies zmianie
 
-	// wyswietl menu()
-
-	// dalbym tutaj jakis naglowek w stylu
-	// Antoni Pawlak  |  saldo : 100 BTC  |  numer konta : 112132
-
-	// ==========================================================
+		operacja.typ_operacji = "saldo";
+		konto->sprawdz(operacja);				//ustawia saldo
+		konto->wczytaj_stopka(operacja);		// ustawia uzytkownia
+		cout.width(30);
+		cout << operacja.dane->uzytkownik->imie << " ";
+		cout << operacja.dane->uzytkownik->nazwisko;
+		cout << "  |  ";
+		cout << "saldo : " << operacja.dane->saldo->zloty << " pln";
+		cout << "  |  ";
+		cout << "numer konta : " << operacja.dane->uzytkownik->numer_konta << endl << endl << endl;
+	
 		menu_operacji();
 		int wybor = 0;
 		// zbierz dane o typie operacji
