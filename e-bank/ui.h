@@ -19,7 +19,7 @@ class UI
 
 	int przelew(Operacja, string, double, string);
   
-	void obsluga_rejestracji_lub_logowania();
+	bool obsluga_rejestracji_lub_logowania();
 	void obsluga_operacji_lub_wylogowania();
 
 public:

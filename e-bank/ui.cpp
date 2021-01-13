@@ -15,6 +15,8 @@ void wczytaj_haslo(string &haslo) {
 }
 void podaj_dane(string& email, string& haslo) {
 	system("cls");
+	cout << "Panel logowania do e-bank" << endl;
+	cout << "========================" << endl;
 	cout << "Podaj email: ";
 	cin >> email;
 	cout << "Podaj haslo: ";
@@ -28,7 +30,7 @@ void menu() {
 	cout.width(64);
 	cout << "Aby sie zarejestrowac wybierz 2" << endl<<endl;
 	cout.width(56);
-	cout << "Aby sie wyjsc wybierz 3" << endl << endl;
+	cout << "Aby zakonczyc wybierz 3" << endl << endl;
 }
 
 void menu_sprawdz() {			//wyrownac najlepiej w osobnym projekcie
@@ -99,7 +101,7 @@ void UI::start()
 	{
 		if (token == "")
 		{
-			obsluga_rejestracji_lub_logowania();
+			if(obsluga_rejestracji_lub_logowania()) break;
 			continue;
 		}
 		else
@@ -112,7 +114,7 @@ void UI::start()
 	// moze jakis kod niech returnuje ta funkcja obsluga...
 }
 
-void UI::obsluga_rejestracji_lub_logowania()
+bool UI::obsluga_rejestracji_lub_logowania()
 {
 	zaloguj = new Zaloguj();
 
@@ -156,6 +158,9 @@ void UI::obsluga_rejestracji_lub_logowania()
 			string haslo = "";
 			string imie = "";
 			string nazwisko = "";
+
+			cout << "Panel rejestracji do e-bank" << endl;
+			cout << "==========================" << endl;
 			
 			cout << "Podaj mail: ";
 			cin >> email;
@@ -166,28 +171,27 @@ void UI::obsluga_rejestracji_lub_logowania()
 			cin >> imie;
 			cout << "Podaj nazwisko: ";
 			cin >> nazwisko;
-			//popros o dane ()
-			zaloguj->rejestracja(email, haslo, imie, nazwisko);
+			token = zaloguj->rejestracja(email, haslo, imie, nazwisko);
 
-			//info o powodzeniu lub nie()
-			// czy chcesz sie zalogowac?
-
-			// if chce sie zalogowac
-			//token = zaloguj->weryfikacja();
-
-			// info o powodzeniu lub nie()
-
-			// moze zrobic obiekt Menu czy coś
-			// żeby te info i bledy oddzielic od reszty
-			// i zeby nie wyszedl nam z tego jeden ogromny obiekt
-
-			// wyjdz jezeli mu sie udalo
+			if (token == "")
+			{
+				cout << " ! BLAD REJESTRACJI ! " << endl;
+			}
+			else
+			{
+				cout << "Rejestracja zakonczona powodzeniem, czy chcesz sie zalogowac ? (t/n) : ";
+				string _w = "";
+				cin >> _w;
+				if (_w == "n" || _w == "N") 
+					token = "";
+			}
 			break;
 		}
 		//zamkniecie panelu logowania, powrot do strony startowej
 		else if (wybor == 3)
 		{
-			break;
+			cout << endl << endl << endl << " + Dziekujemy za skorzystanie z uslug naszego banku, zapraszamy ponownie :-)" << endl << endl << endl;
+			return true;
 		}
 		// podaj poprawny numer operacji
 		else
@@ -195,7 +199,7 @@ void UI::obsluga_rejestracji_lub_logowania()
 			// cout podaj normalny numer
 		}
 	}
-
+	return false;
 }
 
 void UI::obsluga_operacji_lub_wylogowania()
