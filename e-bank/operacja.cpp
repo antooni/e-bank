@@ -1,5 +1,5 @@
 #include "operacja.h"
-
+#include <iomanip>
 Do_wykonania::Do_wykonania()
 {
 }
@@ -77,25 +77,21 @@ void Dane::wypisz_kontakty() {
 }
 
 void Dane::wypisz_saldo() {
-	cout.width(50);
-	cout << "Euro: " << saldo->euro << endl << endl;
-	cout.width(50);
-	cout << "Funt: " << saldo->funt << endl << endl;
-	cout.width(51);
-	cout << "Zloty: " << saldo->zloty << endl << endl;
-	cout.width(51);
-	cout << "Dolar: " << saldo->dolar << endl << endl;
+	printf("                                            Euro: %.2f \n \n", saldo->euro);
+	printf("                                            Funt: %.2f \n \n", saldo->funt);
+	printf("                                            Zloty: %.2f \n \n", saldo->zloty);
+	printf("                                            Dolar: %.2f \n \n", saldo->dolar);
 }
 
 void Dane::wypisz_kurs() {
 	cout.width(50);
-	cout << "Euro: " << kurs->euro << endl << endl;
+	cout << "Euro: " << setprecision(3) << kurs->euro << endl << endl;
 	cout.width(50);
-	cout << "Funt: " << kurs->funt << endl << endl;
+	cout << "Funt: " << setprecision(3) << kurs->funt << endl << endl;
 	cout.width(51);
-	cout << "Zloty: " << kurs->zloty << endl << endl;
+	cout << "Zloty: " << setprecision(3) << kurs->zloty << endl << endl;
 	cout.width(51);
-	cout << "Dolar: " << kurs->dolar << endl << endl;
+	cout << "Dolar: " << setprecision(3) << kurs->dolar << endl << endl;
 }
 
 bool Dane::przewalutuj(string waluta, string _waluta, double suma) {

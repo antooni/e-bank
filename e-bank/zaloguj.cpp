@@ -89,6 +89,8 @@ bool Zaloguj::sprawdz_czy_w_bazie(string email)
 	while (getline(plik, line)) {
 		istringstream iss(line);
 		iss >> temp;
+		iss >> temp;
+		iss >> temp;
 		if (temp == email) {
 			plik.close();
 			return true;

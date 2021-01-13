@@ -131,7 +131,10 @@ Operacja Baza::zapis(Operacja operacja)
 		zapisz.open("base/" + operacja.token + "/kontakty.txt", ios::out | ios::app);
 		zapisz.seekg(0, ios::end);
 		if (zapisz.tellg() != 0) { zapisz << endl; }
-		zapisz << operacja.dane->do_wykonania->kontakty.numer << " " << operacja.dane->do_wykonania->kontakty.imie << " " << operacja.dane->do_wykonania->kontakty.nazwisko << " " << operacja.dane->do_wykonania->kontakty.numer_konta;
+		zapisz << operacja.dane->do_wykonania->kontakty.numer << " " 
+			<< operacja.dane->do_wykonania->kontakty.imie << " " 
+			<< operacja.dane->do_wykonania->kontakty.nazwisko << " " 
+			<< operacja.dane->do_wykonania->kontakty.numer_konta;
 
 		zapisz.close();
 	}
