@@ -36,7 +36,9 @@ public:
 	void wypisz_kontakty();
 	void wypisz_historia();
 	void wypisz_kurs();
+	bool przewalutuj(string, string, double);
 	bool sprawdz_kwote(double suma, string waluta);
+
 	Dane();
 };
 

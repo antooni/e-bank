@@ -301,6 +301,7 @@ void UI::obsluga_operacji_lub_wylogowania()
 				cin >> _waluta;
 				waluta = toupper(_waluta[0]);
 				przelew(operacja, temp, suma, waluta);
+				system("cls");
 			}
 
 			else if (wybor == 2) {
@@ -319,6 +320,7 @@ void UI::obsluga_operacji_lub_wylogowania()
 				waluta = toupper(_waluta[0]);
 				przelew(operacja, temp, suma, waluta);
 				operacja.dane->kontakty.clear();
+				system("cls");
 			}
 
 			else if (wybor == 3) {
@@ -337,10 +339,40 @@ void UI::obsluga_operacji_lub_wylogowania()
 				operacja.typ_operacji = "zapisz_kontakt";
 				konto->wykonaj(operacja);
 				operacja.dane->kontakty.clear();
+				system("cls");
 			}
 
 			else if (wybor == 4) {
+				operacja.typ_operacji = "saldo";
+				konto->sprawdz(operacja);
+				cout.width(48);
+				cout << "Saldo:" << endl;
+				operacja.dane->wypisz_saldo();
+				operacja.typ_operacji = "kurs";
+				konto->sprawdz(operacja);
+				cout.width(47);
+				cout << "Kurs:" << endl;
+				operacja.dane->wypisz_kurs();
 
+				cout << "Z(PLN,EUR,USD,GBP): ";
+				cin >> waluta;
+				cout << "Na(PLN,EUR,USD,GBP): ";
+				cin >> _waluta;
+				cout << "Wartosc: ";
+				cin >> suma;
+				waluta = toupper(waluta[0]);
+				_waluta = toupper(_waluta[0]);
+				
+				if (operacja.dane->przewalutuj(waluta, _waluta, suma)) {
+					cout << "Operacja przewalutowania zostala potwierdzona" << endl;
+					cout << "Wcisnij dowolny klawisz aby kontynuowac" << endl;
+					_getch();
+				}
+
+				operacja.typ_operacji = "zapisz_saldo";
+				konto->wykonaj(operacja);
+
+				system("cls");
 			}
 			// cin >> [typ_operacji]
 			// operacja.typ_operacji = typ_operacji;
@@ -366,7 +398,7 @@ void UI::obsluga_operacji_lub_wylogowania()
 		}
 		else
 		{
-			// podaj poprawny numer operacji
+		cout << "Podaj poprawny numer operacji" << endl;
 		}
 	}
 }
