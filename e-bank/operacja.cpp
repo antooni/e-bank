@@ -98,6 +98,65 @@ void Dane::wypisz_kurs() {
 	cout << "Dolar: " << kurs->dolar << endl << endl;
 }
 
+bool Dane::przewalutuj(string waluta, string _waluta, double suma) {
+	if (waluta == "P" && saldo->zloty >= suma) {
+		saldo->zloty -= suma;
+		if (_waluta == "U") {
+			saldo->dolar += (suma / kurs->dolar);
+		}
+		else if (_waluta == "G") {
+			saldo->funt += (suma / kurs->funt);
+		}
+		else if (_waluta == "E") {
+			saldo->euro += (suma / kurs->euro);
+		}
+		return true;
+	}
+	else if (waluta == "U" && saldo->dolar >= suma) {
+		saldo->dolar -= suma;
+		if (_waluta == "P") {
+			saldo->zloty += (suma * kurs->dolar);
+		}
+		else if (_waluta == "G") {
+			saldo->funt += ((suma * kurs->dolar) / kurs->funt);
+		}
+		else if (_waluta == "E") {
+			saldo->euro += ((suma * kurs->dolar) / kurs->euro);
+		}
+		return true;
+	}
+
+	else if (waluta == "G" && saldo->funt >= suma) {
+		saldo->funt -= suma;
+		if (_waluta == "P") {
+			saldo->zloty += (suma * kurs->funt);
+		}
+		else if (_waluta == "U") {
+			saldo->dolar += ((suma * kurs->funt) / kurs->dolar);
+		}
+		else if (_waluta == "E") {
+			saldo->euro += ((suma * kurs->funt) / kurs->euro);
+		}
+		return true;
+	}
+	else if (waluta == "E" && saldo->euro >= suma) {
+		saldo->euro -= suma;
+		if (_waluta == "P") {
+			saldo->zloty += (suma * kurs->euro);
+		}
+		else if (_waluta == "G") {
+			saldo->funt += ((suma * kurs->euro) / kurs->funt);
+		}
+		else if (_waluta == "U") {
+			saldo->dolar += ((suma * kurs->euro) / kurs->dolar);
+		}
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
 Operacja::Operacja()
 {
 	typ = "";
