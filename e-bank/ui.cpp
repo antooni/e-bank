@@ -94,6 +94,7 @@ void UI::start()
 	}
 
 
+
 	while (true)
 	{
 		if (token == "")
@@ -114,6 +115,7 @@ void UI::start()
 void UI::obsluga_rejestracji_lub_logowania()
 {
 	zaloguj = new Zaloguj();
+
 	while (true)
 	{
 		// wyswietl menu();

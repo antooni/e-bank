@@ -91,13 +91,6 @@ bool Zaloguj::sprawdz_czy_w_bazie(string email)
 		iss >> temp;
 		if (temp == email) {
 			plik.close();
-			
-			return true;
-		}
-		iss >> temp;
-		iss >> temp;
-		if (temp == email) {
-			plik.close();
 			return true;
 		}
 	}
@@ -105,12 +98,48 @@ bool Zaloguj::sprawdz_czy_w_bazie(string email)
 	return false;
 }
 
+bool Zaloguj::usun_konto(string _email, string _haslo)
+{
+	bool res = false;
+
+	string line;
+	string temp;
+	fstream plik;
+	plik.open(baza, ios::in | ios::out);
+
+	vector<string> a;
+
+	
+	while (getline(plik, line)) {
+		istringstream iss(line);
+		iss >> temp;
+		if (temp == _email) {
+			res = true;
+		}
+		else
+		{
+			a.push_back(line);
+		}
+	}
+	plik.close();
+	plik.open(baza, ios::out | ios::trunc);
+
+	for (int i = 0; i < a.size(); i++)
+	{
+		plik << a[i] << endl;
+	}
+	plik.close();
+
+	return res;
+	
+}
+
 void Zaloguj::zapisz_do_bazy(string email, string haslo, string numer_konta)
 {
 	fstream zapisz;
 	zapisz.open(baza, ios::out | ios::app);
-	zapisz.seekg(0, ios::end);
-	if (zapisz.tellg() != 0) { zapisz << endl; }
+	//zapisz.seekg(0, ios::end);
+	//if (zapisz.tellg() != 0) { zapisz << endl; }
 	zapisz << email << " " << haslo << " " << numer_konta;
 
 	zapisz.close();
