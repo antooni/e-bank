@@ -8,7 +8,7 @@ Zaloguj::Zaloguj()
 	baza = "base/baza_logowania.txt";
 }
 
-string Zaloguj::weryfikacja(string nazwa, string haslo)
+string Zaloguj::weryfikacja(string email, string haslo)
 {
 	string line;
 	string temp;
@@ -17,7 +17,7 @@ string Zaloguj::weryfikacja(string nazwa, string haslo)
 	while (getline(plik, line)) {
 		istringstream iss(line);
 		iss >> temp;
-		if (temp == nazwa) {
+		if (temp == email) {
 			iss >> temp;
 			while (true) {
 				if (temp == haslo) {
@@ -39,10 +39,10 @@ string Zaloguj::weryfikacja(string nazwa, string haslo)
 
 
 
-string Zaloguj::rejestracja(string nazwa, string haslo, string imie , string nazwisko)
+string Zaloguj::rejestracja(string email, string haslo, string imie , string nazwisko)
 {
 	
-	if (sprawdz_czy_w_bazie(nazwa))
+	if (sprawdz_czy_w_bazie(email))
 	{
 		return "";
 	}
@@ -50,9 +50,9 @@ string Zaloguj::rejestracja(string nazwa, string haslo, string imie , string naz
 	{
 		string numer_konta = generuj_nr_konta();
 
-		zapisz_do_bazy(nazwa, haslo, numer_konta);
+		zapisz_do_bazy(email, haslo, numer_konta);
 
-		konfiguracja_bazy(nazwa, imie, nazwisko, numer_konta);
+		konfiguracja_bazy(email, imie, nazwisko, numer_konta);
 
 		return numer_konta;
 
@@ -80,7 +80,7 @@ string Zaloguj::generuj_nr_konta()
 	return numer;
 }
 
-bool Zaloguj::sprawdz_czy_w_bazie(string nazwa)
+bool Zaloguj::sprawdz_czy_w_bazie(string email)
 {
 	string line;
 	string temp;
@@ -89,14 +89,14 @@ bool Zaloguj::sprawdz_czy_w_bazie(string nazwa)
 	while (getline(plik, line)) {
 		istringstream iss(line);
 		iss >> temp;
-		if (temp == nazwa) {
+		if (temp == email) {
 			plik.close();
 			
 			return true;
 		}
 		iss >> temp;
 		iss >> temp;
-		if (temp == nazwa) {
+		if (temp == email) {
 			plik.close();
 			return true;
 		}
@@ -105,16 +105,18 @@ bool Zaloguj::sprawdz_czy_w_bazie(string nazwa)
 	return false;
 }
 
-void Zaloguj::zapisz_do_bazy(string nazwa, string haslo, string numer_konta)
+void Zaloguj::zapisz_do_bazy(string email, string haslo, string numer_konta)
 {
-	ofstream zapisz;
+	fstream zapisz;
 	zapisz.open(baza, ios::out | ios::app);
-	zapisz << endl << nazwa << " " << haslo << " " << numer_konta;
+	zapisz.seekg(0, ios::end);
+	if (zapisz.tellg() != 0) { zapisz << endl; }
+	zapisz << email << " " << haslo << " " << numer_konta;
 
 	zapisz.close();
 }
 
-void Zaloguj::konfiguracja_bazy(string nazwa, string imie, string nazwisko, string numer_konta)
+void Zaloguj::konfiguracja_bazy(string email, string imie, string nazwisko, string numer_konta)
 {
 	string path = "base/" + numer_konta;
 
@@ -122,7 +124,7 @@ void Zaloguj::konfiguracja_bazy(string nazwa, string imie, string nazwisko, stri
 
 	fstream outfile;
 	outfile.open(path + "/dane.txt", ios::out | ios::app);
-	outfile << imie << " " << nazwisko << " " << nazwa << " " << numer_konta;
+	outfile << imie << " " << nazwisko << " " << email << " " << numer_konta;
 	outfile.close();
 
 	outfile.open(path + "/historia.txt", ios::out);
