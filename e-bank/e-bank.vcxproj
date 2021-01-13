@@ -144,6 +144,7 @@
     <ClCompile Include="konto.cpp" />
     <ClCompile Include="operacja.cpp" />
     <ClCompile Include="sprawdz.cpp" />
+    <ClCompile Include="testy.cpp" />
     <ClCompile Include="wykonaj.cpp" />
     <ClCompile Include="zaloguj.cpp" />
     <ClCompile Include="main.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="konto.h" />
     <ClInclude Include="operacja.h" />
     <ClInclude Include="sprawdz.h" />
+    <ClInclude Include="testy.h" />
     <ClInclude Include="ui.h" />
     <ClInclude Include="wykonaj.h" />
     <ClInclude Include="zaloguj.h" />

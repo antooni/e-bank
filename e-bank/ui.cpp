@@ -2,6 +2,7 @@
 #include "konto.h"
 #include "zaloguj.h"
 #include "operacja.h"
+#include "testy.h"
 
 void podaj_dane(string& email, string& haslo) {
 	system("cls");
@@ -70,10 +71,17 @@ UI::UI()
 	konto = NULL;
 	user = NULL;
 	zaloguj = NULL;
+	test = false;
 }
 
 void UI::start()
 {
+	test = true;
+	if (test) {
+		uruchom_testy();
+		return;
+	}
+
 
 	while (true)
 	{
