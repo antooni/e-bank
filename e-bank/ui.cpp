@@ -76,11 +76,16 @@ UI::UI()
 
 void UI::start()
 {
+<<<<<<< HEAD
 	//test = true;
+=======
+	//	test = true;
+>>>>>>> usun-konto
 	if (test) {
 		uruchom_testy();
 		return;
 	}
+
 
 
 	while (true)
@@ -103,6 +108,9 @@ void UI::start()
 void UI::obsluga_rejestracji_lub_logowania()
 {
 	zaloguj = new Zaloguj();
+
+	zaloguj->usun_konto("sd", "aaa");
+
 	while (true)
 	{
 		// wyswietl menu();
