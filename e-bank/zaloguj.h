@@ -18,9 +18,12 @@ class Zaloguj
 
 public:
 	Zaloguj();
+	
 	string weryfikacja(string, string);
 	string rejestracja(string, string, string, string);
 	string wyloguj(string);
+	bool usun_konto(string, string);
+
 	string generuj_nr_konta();
 	bool sprawdz_czy_w_bazie(string);
 	void zapisz_do_bazy(string, string, string);

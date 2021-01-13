@@ -76,11 +76,12 @@ UI::UI()
 
 void UI::start()
 {
-	test = true;
+	//	test = true;
 	if (test) {
 		uruchom_testy();
 		return;
 	}
+
 
 
 	while (true)
@@ -103,6 +104,9 @@ void UI::start()
 void UI::obsluga_rejestracji_lub_logowania()
 {
 	zaloguj = new Zaloguj();
+
+	zaloguj->usun_konto("admin", "aaa");
+
 	while (true)
 	{
 		// wyswietl menu();
