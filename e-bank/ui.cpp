@@ -13,13 +13,24 @@ void wczytaj_haslo(string &haslo) {
 	}
 	cout << endl;
 }
-void podaj_dane(string& email, string& haslo) {
+void podaj_dane_login(string& email, string& haslo) {
 	system("cls");
 	cout << "Podaj email: ";
 	cin >> email;
 	cout << "Podaj haslo: ";
 	wczytaj_haslo(haslo);
 	haslo = to_string(hash<string>{}(haslo)); //hashowanie hasla
+}
+void podaj_dane_rejestruj(string& email, string& haslo, string& imie, string& nazwisko) {
+	cout << "Podaj mail: ";
+	cin >> email;
+	cout << "Podaj haslo: ";
+	wczytaj_haslo(haslo);
+	haslo = to_string(hash<string>{}(haslo)); // hashowanie hasla
+	cout << "Podaj imie: ";
+	cin >> imie;
+	cout << "Podaj nazwisko: ";
+	cin >> nazwisko;
 }
 
 void menu() {
@@ -128,7 +139,7 @@ void UI::obsluga_rejestracji_lub_logowania()
 		{
 			string email = "";
 			string haslo = "";
-			podaj_dane(email, haslo);
+			podaj_dane_login(email, haslo);
 
 			token = zaloguj->weryfikacja(email, haslo);
 
@@ -139,8 +150,6 @@ void UI::obsluga_rejestracji_lub_logowania()
 			//wyjdz jezeli mu sie udalo
 			if (token != "") {
 				system("cls");
-				cout.width(60);
-				cout << "Poprawnie zalogowano" << endl << endl;
 				break;
 			}
 			else
@@ -155,15 +164,7 @@ void UI::obsluga_rejestracji_lub_logowania()
 			string imie = "";
 			string nazwisko = "";
 			
-			cout << "Podaj mail: ";
-			cin >> email;
-			cout << "Podaj haslo: ";
-			wczytaj_haslo(haslo);
-			haslo = to_string(hash<string>{}(haslo)); // hashowanie hasla
-			cout << "Podaj imie: ";
-			cin >> imie;
-			cout << "Podaj nazwisko: ";
-			cin >> nazwisko;
+			podaj_dane_rejestruj(email, haslo, imie, nazwisko);
 			//popros o dane ()
 			zaloguj->rejestracja(email, haslo, imie, nazwisko);
 
@@ -200,7 +201,7 @@ void UI::obsluga_operacji_lub_wylogowania()
 {
 	Operacja operacja = Operacja();
 	konto = new Konto();
-	user = new Uzytkownik();
+	user = new Uzytkownik();  //czy my ztego
 
 	
 	while (true)
@@ -208,11 +209,23 @@ void UI::obsluga_operacji_lub_wylogowania()
 		operacja.token = token;		//operacja nie miala przypisanego tokenu
 									//spr czy tak ma to zostac lub czy nie powinien byc przypisany w zaloguj
 		// !!!!
+
 	// tu jeszcze przydaloby sie odpalic sprawdz() zeby :
 	// ustawic : nr_konta, saldo dla : konto
+		operacja.typ_operacji = "saldo";
+		konto->sprawdz(operacja);				//ustawia saldo
+		konto->wczytaj_stopka(operacja);		// ustawia uzytkownia
+		cout.width(30);
+		cout << operacja.dane->uzytkownik->imie<<" ";
+		cout << operacja.dane->uzytkownik->nazwisko;
+		cout << "  |  ";
+		cout << "saldo : " << operacja.dane->saldo->zloty << " pln";
+		cout << "  |  ";
+		cout << "numer konta : " << operacja.dane->uzytkownik->numer_konta << endl << endl;
+	
 	// ustawic : imie, nazwisko, numer_konta, email
 	// bo mogly ulec jakies zmianie
-
+		
 	// wyswietl menu()
 
 	// dalbym tutaj jakis naglowek w stylu
@@ -242,7 +255,6 @@ void UI::obsluga_operacji_lub_wylogowania()
 				operacja.typ_operacji = "saldo";
 				konto->sprawdz(operacja);
 				operacja.dane->wypisz_saldo();
-
 				// wyswietl info(operacja);
 				// w tej metodzie jakas obsluga bledow najpierw aktualne (jedyny mozliwy blad to otwarcie pliku)
 				// a jak jest powodzenie to wyswietlic pobrane Dane

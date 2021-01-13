@@ -9,6 +9,7 @@ class Sprawdz {
 public:
 	Sprawdz();
 	Operacja sprawdz(Operacja);
+	Operacja wczytaj_stopka(Operacja); //tak naprawde wczytuje tylko klase uzytkownik
 };
 
 

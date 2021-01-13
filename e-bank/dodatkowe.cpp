@@ -1,5 +1,12 @@
 #include "dodatkowe.h"
 
+/*Uzytkownik::Uzytkownik() {
+	imie = "";
+	nazwisko = "";
+	numer_konta = "";
+	email = "";
+}*/
+
 Data::Data() {
 	dzien = "";
 	miesiac = "";
