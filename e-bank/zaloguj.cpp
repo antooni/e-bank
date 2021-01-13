@@ -107,9 +107,11 @@ bool Zaloguj::sprawdz_czy_w_bazie(string email)
 
 void Zaloguj::zapisz_do_bazy(string email, string haslo, string numer_konta)
 {
-	ofstream zapisz;
+	fstream zapisz;
 	zapisz.open(baza, ios::out | ios::app);
-	zapisz << endl << email << " " << haslo << " " << numer_konta;
+	zapisz.seekg(0, ios::end);
+	if (zapisz.tellg() != 0) { zapisz << endl; }
+	zapisz << email << " " << haslo << " " << numer_konta;
 
 	zapisz.close();
 }

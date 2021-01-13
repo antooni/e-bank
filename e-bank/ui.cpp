@@ -3,13 +3,13 @@
 #include "zaloguj.h"
 #include "operacja.h"
 
-
 void podaj_dane(string& email, string& haslo) {
 	system("cls");
 	cout << "Podaj email: ";
 	cin >> email;
 	cout << "Podaj haslo: ";
 	cin >> haslo;
+	haslo = to_string(hash<string>{}(haslo)); //hashowanie hasla
 }
 
 void menu() {
@@ -74,6 +74,7 @@ UI::UI()
 
 void UI::start()
 {
+
 	while (true)
 	{
 		if (token == "")
@@ -139,6 +140,7 @@ void UI::obsluga_rejestracji_lub_logowania()
 			cin >> email;
 			cout << "Podaj haslo: ";
 			cin >> haslo;
+			haslo = to_string(hash<string>{}(haslo)); // hashowanie hasla
 			cout << "Podaj imie: ";
 			cin >> imie;
 			cout << "Podaj nazwisko: ";
@@ -255,7 +257,6 @@ void UI::obsluga_operacji_lub_wylogowania()
 		}
 		else if (wybor == 2)
 		{
-			
 			double suma;
 			string temp;
 			operacja.typ = "wykonaj";
