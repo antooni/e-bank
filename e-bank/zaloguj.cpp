@@ -126,7 +126,14 @@ bool Zaloguj::usun_konto(string _email, string _haslo)
 
 	for (int i = 0; i < a.size(); i++)
 	{
-		plik << a[i] << endl;
+		if (i == 0) {
+			plik << a[i];
+		}
+		else
+		{
+			plik << endl << a[i];
+		}
+		
 	}
 	plik.close();
 
@@ -138,8 +145,8 @@ void Zaloguj::zapisz_do_bazy(string email, string haslo, string numer_konta)
 {
 	fstream zapisz;
 	zapisz.open(baza, ios::out | ios::app);
-	//zapisz.seekg(0, ios::end);
-	//if (zapisz.tellg() != 0) { zapisz << endl; }
+	zapisz.seekg(0, ios::end);
+	if (zapisz.tellg() != 0) { zapisz << endl; }
 	zapisz << email << " " << haslo << " " << numer_konta;
 
 	zapisz.close();
