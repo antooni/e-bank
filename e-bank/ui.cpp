@@ -3,6 +3,7 @@
 #include "zaloguj.h"
 #include "operacja.h"
 
+
 void podaj_dane(string& email, string& haslo) {
 	system("cls");
 	cout << "Podaj email: ";
@@ -31,6 +32,13 @@ void menu_sprawdz() {			//wyrownac najlepiej w osobnym projekcie
 	cout << "Aby sprawdzic kursy walut wybierz 4" << endl << endl;
 }
 
+void menu_wykonaj() {
+	cout << "Aby wykonac dowolny przelew 1" << endl << endl;
+	cout << "Aby wykonac przelew do kontrahenta 2" << endl << endl;
+	cout << "Aby dodac nowy kontakt 3" << endl << endl;
+	cout << "Aby wymienic waluty 4" << endl << endl;
+}
+
 void menu_operacji() {
 	cout.width(61);
 	cout << "Aby sprawdzic dane wybierz 1" << endl << endl;
@@ -39,6 +47,8 @@ void menu_operacji() {
 	cout.width(60);
 	cout << "Aby wylogowac sie wybierz 3" << endl << endl;
 }
+
+
 
 template <typename T>					
 T wczytaj_dane(T& d) {							//funkcja pobiera dane uzytkownika w przypadku gdy sa poprawne
@@ -119,14 +129,19 @@ void UI::obsluga_rejestracji_lub_logowania()
 		//rejestracja
 		else if (wybor == 2)
 		{
+			system("cls");
 			string email = "";
 			string haslo = "";
 			string imie = "";
 			string nazwisko = "";
-
+			
+			cout << "Podaj mail: ";
 			cin >> email;
+			cout << "Podaj haslo: ";
 			cin >> haslo;
+			cout << "Podaj imie: ";
 			cin >> imie;
+			cout << "Podaj nazwisko: ";
 			cin >> nazwisko;
 			//popros o dane ()
 			zaloguj->rejestracja(email, haslo, imie, nazwisko);
@@ -199,7 +214,7 @@ void UI::obsluga_operacji_lub_wylogowania()
 			menu_sprawdz();
 			wczytaj_dane(wybor);
 			system("cls");
-			operacja.typ_operacji = "sprawdz";
+			operacja.typ = "sprawdz";
 			if (wybor == 1) {								//saldo
 			
 				// operacja.typ = "sprawdz"
@@ -240,9 +255,58 @@ void UI::obsluga_operacji_lub_wylogowania()
 		}
 		else if (wybor == 2)
 		{
-			// operacja.typ = "wykonaj"
-			// wyswietl menu wykonaj();
+			
+			double suma;
+			string temp;
+			operacja.typ = "wykonaj";
+			menu_wykonaj(); // wyswietl menu wykonaj();
+			wczytaj_dane(wybor);
+			system("cls");
+			
+			if (wybor == 1) {
+				cout << "Numer konta do przelewu: ";
+				cin >> temp;
+				cout << "Kwota przelewu: ";
+				cin >> suma;
+				przelew(operacja, temp, suma);
+			}
 
+			else if (wybor == 2) {
+				string numer;
+				operacja.typ_operacji = "kontakty";
+				konto->sprawdz(operacja);
+				operacja.dane->wypisz_kontakty();
+				cout << "Id kontaktu: ";
+				cin >> numer;
+				konto->sprawdz(operacja);
+				temp = operacja.dane->znajdz_numer(numer);
+				cout << "Kwota przelewu: ";
+				cin >> suma;
+				przelew(operacja, temp, suma);
+				operacja.dane->kontakty.clear();
+			}
+
+			else if (wybor == 3) {
+				operacja.typ_operacji = "kontakty";
+				cout << "Imie: ";
+				cin >> temp;
+				operacja.dane->do_wykonania->kontakty.imie = temp;
+				cout << "Nazwisko: ";
+				cin >> temp;
+				operacja.dane->do_wykonania->kontakty.nazwisko = temp;
+				cout << "Numer konta: ";
+				cin >> temp;
+				operacja.dane->do_wykonania->kontakty.numer_konta = temp;
+				konto->sprawdz(operacja);
+				operacja.dane->do_wykonania->kontakty.numer = to_string(operacja.dane->kontakty.size() + 1);
+				operacja.typ_operacji = "zapisz_kontakt";
+				konto->wykonaj(operacja);
+				operacja.dane->kontakty.clear();
+			}
+
+			else if (wybor == 4) {
+
+			}
 			// cin >> [typ_operacji]
 			// operacja.typ_operacji = typ_operacji;
 
@@ -258,7 +322,7 @@ void UI::obsluga_operacji_lub_wylogowania()
 			// operacja.dane.do_wykonania.adresat = cin>>podaj numer adresata;
 			// operacja.dane.do_wykonania.suma = cin >> podaj ile chcesz przelac;
 
-			 operacja = konto->wykonaj(operacja);
+			// operacja = konto->wykonaj(operacja);
 
 			//wyswietl info()
 
@@ -268,6 +332,54 @@ void UI::obsluga_operacji_lub_wylogowania()
 		else
 		{
 			// podaj poprawny numer operacji
+		}
+	}
+}
+
+void UI::przelew(Operacja operacja, string temp, double suma) {
+	Operacja odbiorca = Operacja();
+	odbiorca.token = temp;
+	operacja.typ_operacji = "saldo";
+	konto->sprawdz(operacja);
+	if (suma <= operacja.dane->saldo->zloty) {
+		cout << "Stan konta w porzadku" << endl;
+		if (zaloguj->sprawdz_czy_w_bazie(odbiorca.token)) {
+			if (odbiorca.token == operacja.token) cout << "nie mozesz przeslac pieniedzy na swoje konto" << endl;
+			else {
+				odbiorca.typ_operacji = "saldo";
+				konto->sprawdz(odbiorca);
+				odbiorca.dane->saldo->zloty += suma;
+				odbiorca.typ_operacji = "zapisz_saldo";
+				konto->wykonaj(odbiorca);
+
+				operacja.dane->saldo->zloty -= suma;
+				operacja.typ_operacji = "zapisz_saldo";
+				konto->wykonaj(operacja);
+
+				//SYSTEMTIME st;
+				//GetSystemTime(&st);
+				operacja.dane->do_wykonania->historia.data.dzien = "13";
+				operacja.dane->do_wykonania->historia.data.miesiac = "01";
+				operacja.dane->do_wykonania->historia.data.rok = "2021";
+
+				operacja.dane->do_wykonania->historia.wartosc = suma * (-1);
+				operacja.dane->do_wykonania->historia.nadawca = operacja.token;
+				operacja.dane->do_wykonania->historia.odbiorca = odbiorca.token;
+
+				odbiorca.dane->do_wykonania->historia.data.dzien = "13";
+				odbiorca.dane->do_wykonania->historia.data.miesiac = "01";
+				odbiorca.dane->do_wykonania->historia.data.rok = "2021";
+
+				odbiorca.dane->do_wykonania->historia.wartosc = suma;
+				odbiorca.dane->do_wykonania->historia.nadawca = operacja.token;
+				odbiorca.dane->do_wykonania->historia.odbiorca = odbiorca.token;
+
+				operacja.typ_operacji = "zapisz_historie";
+				odbiorca.typ_operacji = "zapisz_historie";
+
+				konto->wykonaj(operacja);
+				konto->wykonaj(odbiorca);
+			}
 		}
 	}
 }

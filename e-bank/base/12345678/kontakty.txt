@@ -1,2 +1,3 @@
-Antoni Pawlak 87654321
-Adam Plotnik 87654322
+1 Antoni Pawlak 87654321
+2 Adam Plotnik 87654322
+3 Sebastian Werecki 33598408
