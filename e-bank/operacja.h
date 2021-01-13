@@ -30,7 +30,7 @@ public:
 	Saldo* saldo;
 	Kurs* kurs;
 	Do_wykonania* do_wykonania;
-
+	Uzytkownik* uzytkownik;
 	string znajdz_numer(string);
 	void wypisz_saldo();
 	void wypisz_kontakty();

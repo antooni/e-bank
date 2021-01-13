@@ -90,7 +90,6 @@ Operacja Baza::odczyt(Operacja operacja)
 			//operacja.dane->saldo.dolar = stod(temp);
 			plik.close();
 			operacja.kod_bledu = 0;
-			cout << "Pobrano saldo" << endl;
 		}
 		else {
 			operacja.kod_bledu = 1;
@@ -176,6 +175,34 @@ Operacja Baza::zapis(Operacja operacja)
 				<< operacja.dane->do_wykonania->historia.odbiorca << " "
 				<< operacja.dane->do_wykonania->historia.nadawca;
 		}
+	}
+	return operacja;
+}
+
+
+Operacja Baza::wczytaj_stopka(Operacja operacja) {
+
+	string line;
+	string temp;
+	fstream plik;
+	plik.open("base/" + operacja.token + "/dane.txt", ios::in | ios::out);
+	if (plik.good() == true)
+	{
+		getline(plik, line);
+		istringstream iss(line);
+		iss >> temp;
+		operacja.dane->uzytkownik->imie = temp;
+		iss >> temp;
+		operacja.dane->uzytkownik->nazwisko = temp;
+		iss >> temp;
+		operacja.dane->uzytkownik->email = temp;
+		iss >> temp;
+		operacja.dane->uzytkownik->numer_konta = temp;
+		plik.close();
+		operacja.kod_bledu = 0;
+	}
+	else {
+		operacja.kod_bledu = 1;
 	}
 	return operacja;
 }

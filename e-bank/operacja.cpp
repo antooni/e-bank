@@ -11,6 +11,7 @@ Dane::Dane()
 	vector <Historia> historia;
 	kurs = new Kurs();
 	do_wykonania = new Do_wykonania();
+	uzytkownik = new Uzytkownik();
 }
 
 

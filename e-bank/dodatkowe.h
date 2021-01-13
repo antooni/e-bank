@@ -4,6 +4,9 @@
 using namespace std;
 
 class Uzytkownik {
+	friend class Dane;
+	friend class Baza;
+public:
 	string imie;
 	string nazwisko;
 	string numer_konta;

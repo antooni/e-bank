@@ -13,3 +13,10 @@ Operacja Sprawdz::sprawdz(Operacja operacja)
     
     return operacja;
 }
+
+Operacja Sprawdz::wczytaj_stopka(Operacja operacja) {
+    Baza baza = Baza();
+    operacja = baza.wczytaj_stopka(operacja);
+
+    return operacja;
+}

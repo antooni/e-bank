@@ -16,4 +16,5 @@ public:
 	Baza();
 	Operacja odczyt(Operacja);
 	Operacja zapis(Operacja);
+	Operacja wczytaj_stopka(Operacja);
 };
