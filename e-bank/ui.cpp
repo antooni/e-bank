@@ -212,6 +212,7 @@ void UI::obsluga_operacji_lub_wylogowania()
 				cin >> _waluta;
 				waluta = toupper(_waluta[0]);
 
+				
 				przelew(operacja, temp, suma, waluta);
 				system("cls");
 			}
