@@ -29,18 +29,20 @@ TDD jest to technika tworzenia oprogramowania, zaliczana do metod zwinnych, pole
 
 **W jaki sposób wykorzystaliśmy TDD ?**
 
-Stworzyliśmy szkielet projektu, klas i metod, napisaliśmy testy, na początek wszystkie były negatywne :
+**Stworzyliśmy szkielet projektu, klas i metod, napisaliśmy testy, na początek wszystkie były negatywne :**
 
 ![Alt text](/img/testy/errors-all.PNG?raw=true "Title")
 
-Następnie stopniowo wdrażaliśmy kolejne funkcjonalności, tak aby przechodziły testy :
+**Następnie stopniowo wdrażaliśmy kolejne funkcjonalności, tak aby przechodziły testy :**
 
 ![Alt text](/img/testy/zaloguj-usun.PNG?raw=true "Title")
 
-Na koniec procesu wytwarzania oprogramowania wszystkie testy zostały zdane :
+**Na koniec procesu wytwarzania oprogramowania wszystkie testy zostały zdane :**
 
 ![Alt text](/img/testy/no-errors.PNG?raw=true "Title")
 
+**Dodatkowe założenia i wnioski**
+- implementacja musi przechodzić test jednostkowy
 - po przejściu testu jednostkowego następowała refaktoryzacja kodu
 - wykorzystanie testów usprawniło iteracyjne wytwarzanie oprogramowania
 - metodyka testowania pozwoliła na uniknięcie wielu niechcianych błędów
