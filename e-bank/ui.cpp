@@ -28,7 +28,7 @@ UI::UI()
 
 void UI::start()
 {
-	test = true;
+	//test = true;
 	if (test) {
 		uruchom_testy();
 		return;
