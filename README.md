@@ -4,6 +4,11 @@ Repozytorium projektu na przedmiot Inżynieria Oprogramowania na III semestrze k
 # Metodyka wytwarzania oprogramowania
 
 # Wykorzystanie repozytorium
+Repozytorium kodu to narzędzie programisty, umożliwiające automatyczne wykrywanie zmian w plikach i automatyczne dokonywanie aktualizacji. Każdy update repozytorium kodu jest opisywany wiadomością, a historia zmian oraz ich autorzy są odpowiednio wyszczególnieni. Dzięki temu możliwe jest łatwe znalezienie potencjalnie występujących problemów oraz przywrócenie kodu do poprzedniego stanu. Wykorzystanie repozytorium dodatkowo sprzyja pracy w zespole, ułatwia podział projektu na mniejsze bezkolizyjne części.
+
+Wykorzystany system kontroli wersji : Git
+
+Wykorzystane zdalne repozytorium Git : github.com
 
 # Ciągła integracja
 
