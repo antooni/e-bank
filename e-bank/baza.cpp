@@ -7,6 +7,7 @@
 Baza::Baza()
 {
 }
+
 Operacja Baza::odczyt(Operacja operacja)
 {	
 	if (operacja.typ_operacji == "historia") {

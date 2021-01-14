@@ -33,6 +33,7 @@ class Historia {
 	friend class Do_wykonania;
 	friend class Konto;
 	friend class UI;
+	friend bool test_historia();
 	Data data;
 	double wartosc;
 	string odbiorca;
@@ -46,6 +47,9 @@ class Kontakty {
 	friend class Dane;
 	friend class Do_wykonania;
 	friend class UI;
+	friend bool test_kontakty();
+	friend bool test_przelew_do_kontaktu();
+	friend bool test_dodaj_kontakt();
 	string numer;
 	string imie;
 	string nazwisko;
@@ -59,6 +63,10 @@ class Saldo {
 	friend class Dane;
 	friend class Do_wykonania;
 	friend class Konto;
+	friend bool test_saldo();
+	friend bool test_przelew();
+	friend bool test_przelew_do_kontaktu();
+	friend bool test_wymien_walute();
 	double euro;
 	double funt;
 	double zloty;
@@ -70,6 +78,7 @@ class Kurs {
 	friend class Baza;
 	friend class Dane;
 	friend class Do_wykonania;
+	friend bool test_kursy();
 	double euro;
 	double funt;
 	double zloty;

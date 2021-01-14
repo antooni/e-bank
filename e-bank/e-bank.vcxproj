@@ -145,6 +145,7 @@
     <ClCompile Include="operacja.cpp" />
     <ClCompile Include="sprawdz.cpp" />
     <ClCompile Include="testy.cpp" />
+    <ClCompile Include="testy_funkcje.cpp" />
     <ClCompile Include="wykonaj.cpp" />
     <ClCompile Include="wyswietlane.cpp" />
     <ClCompile Include="zaloguj.cpp" />
