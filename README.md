@@ -23,10 +23,29 @@ Github to hostingowy serwis internetowy przeznaczony dla projektów programistyc
 ![Alt text](/img/repo/main.PNG?raw=true "Title")
 
 #### Rozproszne wytwarzanie oprogramowania przy pomocy gałęzi
-![Alt text](/img/repo/main.PNG?raw=true "Title")
+![Alt text](/img/repo/branch.PNG?raw=true "Title")
 
 #### Łączenie gałęzi na zdalnym serwerze, system Pull Request'ów
 ![Alt text](/img/repo/PR.PNG?raw=true "Title")
+
+#### Najczęściej wykorzystywane komendy
+
+- ``` git clone [url]``` pobranie kodu żródłowego wraz z kontrolą wersji
+- ``` git pull origin dev ```pobranie zmian na gałęzi dev
+- ``` git push origin [branch] ```wysłanie nowej funkcjonalności(gałęzi) na zdalne repozytorium
+- ``` git add . ``` dodanie zmian  
+- ``` git commit -m "informacje o zmianie" ``` dodanie nowego commit'u wraz z wiadomoscia
+- ``` git checkout [branch] ``` zmiana gałęzi
+- ``` git branch [name]  ```dodanie nowej gałęzi
+
+
+
+
+#### Dodatkowe założenia i wnioski
+- główna gałąź to "dev", nowe funkcjonalności dodajemy na nowe gałęzi a następnie dołączamy do dev'a (PR)
+- rozpoczynająć pracę pobieramy najnowszą wersję oprogramowania (git clone)
+- rozwiązujemy konflikty przy pomocy internetowego edytora
+- dodaliśmy plik .gitignore aby nie synchronizować zbędnych plików
 
 # Ciągła integracja
 
