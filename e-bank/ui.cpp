@@ -13,7 +13,7 @@ void wczytaj_haslo(string &haslo) {
 	}
 	cout << endl;
 }
-void podaj_dane(string& email, string& haslo) {
+void podaj_dane_login(string& email, string& haslo) {
 	system("cls");
 	cout << "Panel logowania do e-bank" << endl;
 	cout << "========================" << endl;
@@ -22,6 +22,20 @@ void podaj_dane(string& email, string& haslo) {
 	cout << "Podaj haslo: ";
 	wczytaj_haslo(haslo);
 	haslo = to_string(hash<string>{}(haslo)); //hashowanie hasla
+}
+void podan_dane_rejestruj(string& email, string& imie, string& haslo, string& nazwisko) {
+	cout << "Panel rejestracji do e-bank" << endl;
+	cout << "==========================" << endl;
+
+	cout << "Podaj mail: ";
+	cin >> email;
+	cout << "Podaj haslo: ";
+	wczytaj_haslo(haslo);
+	haslo = to_string(hash<string>{}(haslo)); // hashowanie hasla
+	cout << "Podaj imie: ";
+	cin >> imie;
+	cout << "Podaj nazwisko: ";
+	cin >> nazwisko;
 }
 
 void menu() {
@@ -47,9 +61,13 @@ void menu_sprawdz() {			//wyrownac najlepiej w osobnym projekcie
 }
 
 void menu_wykonaj() {
+	cout.width(62);
 	cout << "Aby wykonac dowolny przelew 1" << endl << endl;
+	cout.width(69);
 	cout << "Aby wykonac przelew do kontrahenta 2" << endl << endl;
+	cout.width(57);
 	cout << "Aby dodac nowy kontakt 3" << endl << endl;
+	cout.width(54);
 	cout << "Aby wymienic waluty 4" << endl << endl;
 }
 
@@ -122,27 +140,25 @@ bool UI::obsluga_rejestracji_lub_logowania()
 	{
 		// wyswietl menu();
 		menu();
-		//cout << "Aby sie zalogowac wybierz 1" << endl;
 
 		int wybor = 0;
 		// zbierz dane uzytkownika ();
-		wczytaj_dane(wybor);
+		wczytaj_dane(wybor);	
+		//wczytuje dane i sprawdza ich poprawnosc typu
 		// logowanie
 		if (wybor == 1)
 		{
 			string email = "";
 			string haslo = "";
-			podaj_dane(email, haslo);
+			podaj_dane_login(email, haslo);
 
 			token = zaloguj->weryfikacja(email, haslo);
 
-			//info o powodzeniu lub nie ()
 
 
 
 			//wyjdz jezeli mu sie udalo
 			if (token != "") {
-				system("cls");
 				break;
 			}
 			else
@@ -157,18 +173,7 @@ bool UI::obsluga_rejestracji_lub_logowania()
 			string imie = "";
 			string nazwisko = "";
 
-			cout << "Panel rejestracji do e-bank" << endl;
-			cout << "==========================" << endl;
-			
-			cout << "Podaj mail: ";
-			cin >> email;
-			cout << "Podaj haslo: ";
-			wczytaj_haslo(haslo);
-			haslo = to_string(hash<string>{}(haslo)); // hashowanie hasla
-			cout << "Podaj imie: ";
-			cin >> imie;
-			cout << "Podaj nazwisko: ";
-			cin >> nazwisko;
+			podan_dane_rejestruj(email, imie, haslo, nazwisko);
 			token = zaloguj->rejestracja(email, haslo, imie, nazwisko);
 
 			if (token == "")
@@ -211,12 +216,7 @@ void UI::obsluga_operacji_lub_wylogowania()
 	{
 		operacja.token = token;		//operacja nie miala przypisanego tokenu
 									//spr czy tak ma to zostac lub czy nie powinien byc przypisany w zaloguj
-		// !!!!
-	// tu jeszcze przydaloby sie odpalic sprawdz() zeby :
-	// ustawic : nr_konta, saldo dla : konto
-	// ustawic : imie, nazwisko, numer_konta, email
-	// bo mogly ulec jakies zmianie
-
+		system("cls");
 		operacja.typ_operacji = "saldo";
 		konto->sprawdz(operacja);				//ustawia saldo
 		konto->wczytaj_stopka(operacja);		// ustawia uzytkownia
