@@ -31,12 +31,12 @@ Github to hostingowy serwis internetowy przeznaczony dla projektów programistyc
 #### Najczęściej wykorzystywane komendy
 
 - ``` git clone [url]``` pobranie kodu żródłowego wraz z kontrolą wersji
-- ``` git pull origin dev ```pobranie zmian na gałęzi dev
-- ``` git push origin [branch] ```wysłanie nowej funkcjonalności(gałęzi) na zdalne repozytorium
+- ``` git pull origin dev ``` pobranie zmian na gałęzi dev
+- ``` git push origin [branch] ``` wysłanie nowej funkcjonalności(gałęzi) na zdalne repozytorium
 - ``` git add . ``` dodanie zmian  
 - ``` git commit -m "informacje o zmianie" ``` dodanie nowego commit'u wraz z wiadomoscia
 - ``` git checkout [branch] ``` zmiana gałęzi
-- ``` git branch [name]  ```dodanie nowej gałęzi
+- ``` git branch [name]  ``` dodanie nowej gałęzi
 
 
 
