@@ -7,9 +7,6 @@
 
 using namespace std; 
 
-// mozna sprobowac poukrywaæ pola zeby nie byly public
-// i pozaprzyjazniac klasy
-
 class Do_wykonania
 {
 public:

@@ -9,5 +9,7 @@ typ_operacji
 - ``"kursy"`` - dane kursów są zczytywane z bazy i zapisane do operacja.dane->kursy.euro/funt/zloty/dolar
 "wykonaj"
 ^^^^^^^^^
-- ``"przelew"`` - ...
-- ``"przelew"`` - ... 
+- ``"dowolny przelew"`` - użytkownik podaje dowolny numer bankowy, kwote oraz walute. Jeżeli dany numer znajduje się w naszej bazie to przelew robiony jest *"wewnetrznie"*, to znaczy zapisywany jest saldo oraz historia są zmieniane u odbiorcy i nadawcy. Natomiast gdy przelew jest *"zewnętrzny"* to aktualizowane jest tylko saldo i historia nadawcy, a operacja dodatkowo zapisuje się w przelewach zewnętrznych
+- ``"przelew do kontaktu"`` - użykownik wybiera id swojego kontaktu, wpisuje kwote i walute. Jeżeli środki na koncie się zgadzają, to przelew wykonywany jest do danego kontaktu.
+- ``"dodaj nowy kontakt"`` - użykownik wprowadza imie, nazwisko oraz numer kontaktu
+- ``"przewalutowanie"`` - użykownik wybiera symbol walut do przewalutowania oraz kwote. Jeżeli ma tyle środków, to kwota zostanie przewalutowana

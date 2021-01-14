@@ -30,3 +30,5 @@ public:
 	friend bool test_wymien_walute();
 };
 
+
+

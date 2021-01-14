@@ -5,50 +5,6 @@
 #include "testy.h"
 #include "wyswietlane.h"
 
-void wczytaj_haslo(string &haslo) {
-	char znak;
-	for (int i = 0; (znak = _getch()) != '\r'; i++)
-	{
-		if (znak == 8) {
-			haslo.pop_back();
-			cout << "\b \b";
-		}
-		else {
-			cout << '*';
-			haslo += znak;
-		}
-	}
-	cout << endl;
-}
-void podaj_dane_login(string& email, string& haslo) {
-	system("cls");
-	cout << "Panel logowania do e-bank" << endl;
-	cout << "========================" << endl;
-	cout << "Podaj email: ";
-	cin >> email;
-	cout << "Podaj haslo: ";
-	wczytaj_haslo(haslo);
-	haslo = to_string(hash<string>{}(haslo)); //hashowanie hasla
-}
-void podan_dane_rejestruj(string& email, string& imie, string& haslo, string& nazwisko) {
-	cout << "Panel rejestracji do e-bank" << endl;
-	cout << "==========================" << endl;
-
-	cout << "Podaj mail: ";
-	cin >> email;
-	cout << "Podaj haslo: ";
-	wczytaj_haslo(haslo);
-	haslo = to_string(hash<string>{}(haslo)); // hashowanie hasla
-	cout << "Podaj imie: ";
-	cin >> imie;
-	cout << "Podaj nazwisko: ";
-	cin >> nazwisko;
-}
-
-
-
-
-
 template <typename T>					
 T wczytaj_dane(T& d) {							//funkcja pobiera dane uzytkownika w przypadku gdy sa poprawne
 	cin >> d;
@@ -60,8 +16,6 @@ T wczytaj_dane(T& d) {							//funkcja pobiera dane uzytkownika w przypadku gdy 
 	}
 	return d;
 }
-
-
 
 UI::UI()
 {
@@ -181,19 +135,13 @@ void UI::obsluga_operacji_lub_wylogowania()
 	
 	while (true)
 	{
-		operacja.token = token;		//operacja nie miala przypisanego tokenu
-									//spr czy tak ma to zostac lub czy nie powinien byc przypisany w zaloguj
+		operacja.token = token;		
+									
 		system("cls");
 		operacja.typ_operacji = "saldo";
 		konto->sprawdz(operacja);				//ustawia saldo
 		konto->wczytaj_stopka(operacja);		// ustawia uzytkownia
-		cout.width(30);
-		cout << operacja.dane->uzytkownik->imie << " ";
-		cout << operacja.dane->uzytkownik->nazwisko;
-		cout << "  |  ";
-		cout << "saldo : " << operacja.dane->saldo->zloty << " pln";
-		cout << "  |  ";
-		cout << "numer konta : " << operacja.dane->uzytkownik->numer_konta << endl << endl << endl;
+		stopka(operacja, operacja.dane->saldo->zloty);
 	
 		menu_operacji();
 		int wybor = 0;
@@ -202,13 +150,13 @@ void UI::obsluga_operacji_lub_wylogowania()
 		system("cls");
 		if (wybor == 3)				//wylogowywanie
 		{
-			//wyswietl info wylogowanie();
-			//może jakieś dodatkowe pytanie czy na pewno chce sie wylogowac
+
 			token = zaloguj->wyloguj(token);
 			break;
 		}
 		else if (wybor == 1)				//sprawdzanie danych
-		{												
+		{				
+			stopka(operacja, operacja.dane->saldo->zloty);
 			menu_sprawdz();
 			wczytaj_dane(wybor);
 			system("cls");
@@ -250,7 +198,8 @@ void UI::obsluga_operacji_lub_wylogowania()
 			string _waluta;
 			string waluta;
 			operacja.typ = "wykonaj";
-			menu_wykonaj(); // wyswietl menu wykonaj();
+			stopka(operacja, operacja.dane->saldo->zloty);
+			menu_wykonaj(); 
 			wczytaj_dane(wybor);
 			system("cls");
 			
