@@ -40,6 +40,5 @@ Wytłumaczenie
 .. toctree::
    :maxdepth: 2
 
-   typ <typ>
    typ_operacji <typ_operacji>
    kod_bledu <kod_bledu>
