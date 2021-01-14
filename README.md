@@ -49,6 +49,17 @@ Github to hostingowy serwis internetowy przeznaczony dla projektów programistyc
 
 # Ciągła integracja
 
+### Czym jest ciągła integracja
+Ciągła integracja (CI) to praktyka programistyczna, która rozwiązuje problem budowania, testowania oraz integracji kodu. Jej zasadniczym elementem jest pojedyncze, współdzielone repozytorium kodu źródłowego, do którego dostęp powinien posiadać każdy programista rozwijający produkt.
+
+![Alt text](https://productvision.pl/wp-content/uploads/2016/08/continious-integration.png?raw=true)
+
+
+### W jaki sposób wykorzystaliśmy ciągłą integrację ?
+Przy pomocy testów oraz zdalnego repozytorium staraliśmy się jak najczęściej integrować naszą pracę. Po rozwinięciu funkcjonalności oraz skompilowaniu projektu, przeprowadzaliśmy testy a następnie dodawaliśmy zmiany na nową gałąź. Następnie integrowaliśmy nową gałąź z główną "dev", pobieraliśmy nowy kod i kompilowaliśmy.
+
+
+
 # Test-driven developement (TDD)
 ### Czym jest TDD ?
 TDD jest to technika tworzenia oprogramowania, zaliczana do metod zwinnych, polega na:
