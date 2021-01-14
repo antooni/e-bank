@@ -4,6 +4,9 @@ Klasa Baza odpowiada za wszelką komunikacje programu z plikami. Zawiera ona fun
 
 
 funkcje:
+^^^^^^^^^^^^^
+
+
 .. toctree::
    :maxdepth: 2
 
@@ -12,6 +15,9 @@ funkcje:
    wczytaj_stopka() <wczytaj_stopka>
    
 pliki:
+^^^^^^^^^^^^^
+
+
 .. toctree::
    :maxdepth: 2
 
