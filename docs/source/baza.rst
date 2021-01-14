@@ -1,6 +1,6 @@
 Baza
 =============
-Klasa Baza odpowiada za wszelką komunikacje programu z plikami. Zawiera ona funkcje zarówno odczytujące dane z plików jak i zapisujace do nich w zależności od wywołanego typu (odczyt/zapis). Posiada ona gotowe funkcje, które dane zwracają do obiektu *operacja*.
+Klasa Baza odpowiada za wszelką komunikacje programu z plikami. Zawiera ona funkcje zarówno odczytujące dane z plików jak i zapisujace do nich w zależności od wywołanego typu (odczyt/zapis). Posiada ona gotowe funkcje, które dane zwracają do obiektu *operacja*. 
 
 
 funkcje:
