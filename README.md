@@ -14,9 +14,11 @@ Git to darmowy, rozproszony system kontroli wersji o otwartym kodzie źródłowy
 **Wykorzystane zdalne repozytorium Git : github.com**
 Github to hostingowy serwis internetowy przeznaczony dla projektów programistycznych wykorzystujący system kontroli wersji Git. Pozwala na synchronizacje repozytorium pomiędzy kilkoma deweloperami, pobieranie oraz publikowanie kodu, pull request'y, oraz webhooki (wykrozystany do automatycznego budowania dokumantacji). Dodatkowo serwis jest darmowy dla zwykłych użytkowników oraz posiada bardzo dobrą dokumentację. Jest to obecnie najpopularniszy serwis do hostingu repozytorium.
 
+![Alt text](/img/graphics/github-logo.jpg?raw=true "Title")
+
 **W jaki sposób wykorzystaliśmy repozytorium ?**
 
-![Alt text](/img/graphics/github-logo.jpg?raw=true "Title")
+
 # Ciągła integracja
 
 # Test-driven developement (TDD)
