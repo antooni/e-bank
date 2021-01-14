@@ -129,22 +129,29 @@ Operacja Baza::zapis(Operacja operacja)
 	if (operacja.typ_operacji == "zapisz_kontakt") {
 		fstream zapisz;
 		zapisz.open("base/" + operacja.token + "/kontakty.txt", ios::out | ios::app);
-		zapisz.seekg(0, ios::end);
-		if (zapisz.tellg() != 0) { zapisz << endl; }
-		zapisz << operacja.dane->do_wykonania->kontakty.numer << " " 
-			<< operacja.dane->do_wykonania->kontakty.imie << " " 
-			<< operacja.dane->do_wykonania->kontakty.nazwisko << " " 
-			<< operacja.dane->do_wykonania->kontakty.numer_konta;
+		if (zapisz.good()) {
+			zapisz.seekg(0, ios::end);
+			if (zapisz.tellg() != 0) { zapisz << endl; }
+			zapisz << operacja.dane->do_wykonania->kontakty.numer << " "
+				<< operacja.dane->do_wykonania->kontakty.imie << " "
+				<< operacja.dane->do_wykonania->kontakty.nazwisko << " "
+				<< operacja.dane->do_wykonania->kontakty.numer_konta;
 
-		zapisz.close();
+			zapisz.close();
+		}
 	}
 
 	else if (operacja.typ_operacji == "zapisz_saldo") {
 		ofstream zapisz;
 		zapisz.open("base/" + operacja.token + "/saldo.txt", ios::trunc);
-		zapisz << operacja.dane->saldo->zloty << endl << operacja.dane->saldo->euro << endl << operacja.dane->saldo->funt << endl << operacja.dane->saldo->dolar;
+		if (zapisz.good()) {
+			zapisz << operacja.dane->saldo->zloty << endl << operacja.dane->saldo->euro << endl << operacja.dane->saldo->funt << endl << operacja.dane->saldo->dolar;
 
-		zapisz.close();
+			zapisz.close();
+		}
+		else {
+			operacja.kod_bledu = 1;
+		}
 	}
 
 	else if (operacja.typ_operacji == "zapisz_historie") {
@@ -177,6 +184,9 @@ Operacja Baza::zapis(Operacja operacja)
 				<< operacja.dane->do_wykonania->historia.waluta << " "
 				<< operacja.dane->do_wykonania->historia.odbiorca << " "
 				<< operacja.dane->do_wykonania->historia.nadawca;
+		}
+		else {
+			operacja.kod_bledu = 1;
 		}
 	}
 	return operacja;

@@ -9,8 +9,14 @@ void wczytaj_haslo(string &haslo) {
 	char znak;
 	for (int i = 0; (znak = _getch()) != '\r'; i++)
 	{
-		cout << '*';
-		haslo += znak;
+		if (znak == 8) {
+			haslo.pop_back();
+			cout << "\b \b";
+		}
+		else {
+			cout << '*';
+			haslo += znak;
+		}
 	}
 	cout << endl;
 }
@@ -212,11 +218,6 @@ void UI::obsluga_operacji_lub_wylogowania()
 				operacja.typ_operacji = "saldo";
 				konto->sprawdz(operacja);
 				operacja.dane->wypisz_saldo();
-
-				// wyswietl info(operacja);
-				// w tej metodzie jakas obsluga bledow najpierw aktualne (jedyny mozliwy blad to otwarcie pliku)
-				// a jak jest powodzenie to wyswietlic pobrane Dane
-
 			}
 			else if (wybor == 2) {					//kontakt
 				operacja.typ_operacji = "kontakty";
@@ -253,7 +254,7 @@ void UI::obsluga_operacji_lub_wylogowania()
 			wczytaj_dane(wybor);
 			system("cls");
 			
-			if (wybor == 1) {
+			if (wybor == 1) { //Przelew dowolny
 				cout << "Numer konta do przelewu: ";
 				cin >> temp;
 				cout << "Kwota przelewu: ";
@@ -261,11 +262,12 @@ void UI::obsluga_operacji_lub_wylogowania()
 				cout << "Waluta(PLN,EUR,USD,GBP): ";
 				cin >> _waluta;
 				waluta = toupper(_waluta[0]);
+
 				przelew(operacja, temp, suma, waluta);
 				system("cls");
 			}
 
-			else if (wybor == 2) {
+			else if (wybor == 2) { //Przleew do kontatku
 				string numer;
 				operacja.typ_operacji = "kontakty";
 				konto->sprawdz(operacja);
@@ -273,18 +275,27 @@ void UI::obsluga_operacji_lub_wylogowania()
 				cout << "Id kontaktu: ";
 				cin >> numer;
 				konto->sprawdz(operacja);
-				temp = operacja.dane->znajdz_numer(numer);
-				cout << "Kwota przelewu: ";
-				cin >> suma;
-				cout << "Waluta(PLN,EUR,USD,GBP): ";
-				cin >> _waluta;
-				waluta = toupper(_waluta[0]);
-				przelew(operacja, temp, suma, waluta);
-				operacja.dane->kontakty.clear();
+				if (stoi(numer) <= operacja.dane->kontakty.size()) {
+					temp = operacja.dane->znajdz_numer(numer);
+					cout << "Kwota przelewu: ";
+					cin >> suma;
+					cout << "Waluta(PLN,EUR,USD,GBP): ";
+					cin >> _waluta;
+					waluta = toupper(_waluta[0]);
+
+					przelew(operacja, temp, suma, waluta);
+
+					operacja.dane->kontakty.clear();
+				}
+				else {
+					cout << "Podany numer kontaktu nie istnieje" << endl;
+					cout << "Wcisnij dowolny klawisz aby kontynuowac" << endl;
+					_getch();
+				}
 				system("cls");
 			}
 
-			else if (wybor == 3) {
+			else if (wybor == 3) { //Dodaj kontakt
 				operacja.typ_operacji = "kontakty";
 				cout << "Imie: ";
 				cin >> temp;
@@ -295,20 +306,23 @@ void UI::obsluga_operacji_lub_wylogowania()
 				cout << "Numer konta: ";
 				cin >> temp;
 				operacja.dane->do_wykonania->kontakty.numer_konta = temp;
+
 				konto->sprawdz(operacja);
 				operacja.dane->do_wykonania->kontakty.numer = to_string(operacja.dane->kontakty.size() + 1);
+
 				operacja.typ_operacji = "zapisz_kontakt";
 				konto->wykonaj(operacja);
 				operacja.dane->kontakty.clear();
 				system("cls");
 			}
 
-			else if (wybor == 4) {
+			else if (wybor == 4) { // Przewalutuj
 				operacja.typ_operacji = "saldo";
 				konto->sprawdz(operacja);
 				cout.width(48);
 				cout << "Saldo:" << endl;
 				operacja.dane->wypisz_saldo();
+
 				operacja.typ_operacji = "kurs";
 				konto->sprawdz(operacja);
 				cout.width(47);
@@ -319,47 +333,31 @@ void UI::obsluga_operacji_lub_wylogowania()
 				cin >> waluta;
 				cout << "Na(PLN,EUR,USD,GBP): ";
 				cin >> _waluta;
-				cout << "Wartosc: ";
-				cin >> suma;
 				waluta = toupper(waluta[0]);
 				_waluta = toupper(_waluta[0]);
 				
+				cout << "Wartosc: ";
+				cin >> suma;
+
 				if (operacja.dane->przewalutuj(waluta, _waluta, suma)) {
 					cout << "Operacja przewalutowania zostala potwierdzona" << endl;
 					cout << "Wcisnij dowolny klawisz aby kontynuowac" << endl;
+					operacja.typ_operacji = "zapisz_saldo";
+					konto->wykonaj(operacja);
 					_getch();
 				}
-
-				operacja.typ_operacji = "zapisz_saldo";
-				konto->wykonaj(operacja);
-
+				else {
+					cout << "Wcisnij dowolny klawisz aby kontynuowac" << endl;
+					_getch();
+					operacja.kod_bledu = 2;
+				}
 				system("cls");
+				
 			}
-			// cin >> [typ_operacji]
-			// operacja.typ_operacji = typ_operacji;
-
-			// switch( [typ_operacji] )
-
-			// w zaleznosci od typu operacji zbierz potrzebne dane
-			// przyklad
-			// case [przelew] :
-
-			// operacja = konto.sprawdz( [saldo] ); //ta linijka jest po to zeby miec aktualne saldo
-
-			// operacja.dane.do_wykonania.nadawca = konto.numer;
-			// operacja.dane.do_wykonania.adresat = cin>>podaj numer adresata;
-			// operacja.dane.do_wykonania.suma = cin >> podaj ile chcesz przelac;
-
-			// operacja = konto->wykonaj(operacja);
-
-			//wyswietl info()
-
-
-
 		}
 		else
 		{
-		cout << "Podaj poprawny numer operacji" << endl;
+			cout << "Podaj poprawny numer operacji" << endl;
 		}
 	}
 }
@@ -373,7 +371,11 @@ int UI::przelew(Operacja operacja, string temp, double suma, string waluta) {
 	check = operacja.dane->sprawdz_kwote(suma, waluta);
 	if (check) {
 		cout << "Stan konta w porzadku" << endl;
-		if (odbiorca.token == operacja.token) cout << "nie mozesz przeslac pieniedzy na swoje konto" << endl;
+		if (odbiorca.token == operacja.token) {
+			cout << "Nie mozesz przeslac pieniedzy na swoje konto" << endl;
+			cout << "Wcisnij dowolny klawisz aby kontynuowac" << endl;
+			_getch();
+		}
 		else {
 			if (zaloguj->sprawdz_czy_w_bazie(odbiorca.token)) {
 				odbiorca.typ_operacji = "saldo";
@@ -473,5 +475,8 @@ int UI::przelew(Operacja operacja, string temp, double suma, string waluta) {
 			}
 		}
 		
+	}
+	else {
+		operacja.kod_bledu = 2;
 	}
 }

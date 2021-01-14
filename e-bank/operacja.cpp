@@ -31,6 +31,9 @@ bool Dane::sprawdz_kwote(double suma, string waluta) {
 		return true;
 	}
 	else {
+		cout << "Za malo srodkow na koncie lub podano bledna walute" << endl << endl;
+		cout << "Wcisnij dowolny klawisz aby kontynuowac" << endl;
+		_getch();
 		return false;
 	}
 }
@@ -149,6 +152,10 @@ bool Dane::przewalutuj(string waluta, string _waluta, double suma) {
 		return true;
 	}
 	else {
+		cout << "Za malo srodkow na koncie" << endl << endl;
+		cout << "Wcisnij dowolny klawisz aby kontynuowac" << endl;
+		_getch();
+
 		return false;
 	}
 }
