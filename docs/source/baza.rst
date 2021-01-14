@@ -10,9 +10,9 @@ funkcje:
 .. toctree::
    :maxdepth: 2
 
-   odczyt() <odczyt>
-   zapis() <zapis>
-   wczytaj_stopka() <wczytaj_stopka>
+   odczyt <odczyt>
+   zapis <zapis>
+   wczytaj_stopka <wczytaj_stopka>
    
 pliki:
 ^^^^^^^^^^^^^
