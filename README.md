@@ -8,8 +8,21 @@ Bank internetowy. Repozytorium projektu na przedmiot Inżynieria Oprogramowania 
 # Ciągła integracja
 
 # Test-driven developement (TDD)
+TDD jest to technika tworzenia oprogramowania, zaliczana do metod zwinnych, polega na:
+- pisaniu testów sprawdzających daną funkcjonalność
+- implementacji danej funkcjonalności do momentu przejścia testu
+- refaktoryzacji kodu aby spełniał oczekiwane standardy
+
+W jaki sposób wykorzystaliśmy TDD ?
+
+Stworzyliśmy szkielet projektu, klas i metod, napisaliśmy testy, na początek wszystkie były negatywne :
 
 ![Alt text](/img/testy/errors-all.PNG?raw=true "Title")
+
+Następnie stopniowo wdrażaliśmy kolejne funkcjonalności, tak aby przechodziły testy :
+
+![Alt text](/img/testy/zaloguj-usun.PNG?raw=true "Title")
+
 # Standardy kodowania
 
 # Dokumentacja kodu
