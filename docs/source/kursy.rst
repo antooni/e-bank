@@ -7,6 +7,5 @@ Dane uszeregowane są w następujący sposób:
 
 Funkcja odczyt() jako argument przyjmuje obiekt klasy *operacja*. Służy ona głównie do oczytu danych o koncie klienta.
 
-.. highlight:: cpp 
-if(operacja.typ_operacji == "historia")
+.. highlight:: cpp if(operacja.typ_operacji == "historia")
 
