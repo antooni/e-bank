@@ -9,6 +9,7 @@ Bank internetowy. Repozytorium projektu na przedmiot Inżynieria Oprogramowania 
 
 # Test-driven developement (TDD)
 
+![Alt text](/img/testy/errors-all.PNG?raw=true "Title")
 # Standardy kodowania
 
 # Dokumentacja kodu
