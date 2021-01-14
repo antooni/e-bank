@@ -1,0 +1,251 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="pl" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>operacja &mdash; e-bank 0.0.1 - dokumentacja</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indeks" href="genindex.html" />
+    <link rel="search" title="Szukaj" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="contents.html" class="icon icon-home"> e-bank
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">operacja</a><ul>
+<li><a class="reference internal" href="#typ-operacji">typ_operacji</a><ul>
+<li><a class="reference internal" href="#sprawdz">„sprawdz”</a></li>
+<li><a class="reference internal" href="#wykonaj">„wykonaj”</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#kod-bledu">kod_bledu</a></li>
+<li><a class="reference internal" href="#token">token</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="contents.html">e-bank</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="contents.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>operacja</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/operacja2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="operacja">
+<h1>operacja<a class="headerlink" href="#operacja" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<p>Obiekt operacja jest głównym obiektem poruszającym się po funkcjach i obiektach oraz przechowującym
+tymczasowe dane dotyczące użytkownika.</p>
+<div class="section" id="typ-operacji">
+<h2>typ_operacji<a class="headerlink" href="#typ-operacji" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<div class="section" id="sprawdz">
+<h3>„sprawdz”<a class="headerlink" href="#sprawdz" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">&quot;saldo&quot;</span></code> - dane salda z bazy zapisywane są do operacja.dane-&gt;saldo.euro/funt/zloty/dolar</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;historia&quot;</span></code> - dane historii z bazy zapisywane są do operacja.dane-&gt;historia (vector, który w każdym wierszu ma kolejne rekordy historii)</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;kontakty&quot;</span></code> - dane kontaków z bazy zapisywane są do operacja.dane-&gt;kontakty (vector, który w każdym wierszu ma kolejne rekordy kontaktów)</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;kurs&quot;</span></code> - dane kursów są zczytywane z bazy i zapisane do operacja.dane-&gt;kursy.euro/funt/zloty/dolar</li>
+</ul>
+</div>
+<div class="section" id="wykonaj">
+<h3>„wykonaj”<a class="headerlink" href="#wykonaj" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">&quot;dowolny</span> <span class="pre">przelew&quot;</span></code> - użytkownik podaje dowolny numer bankowy, kwote oraz walute. Jeżeli dany numer znajduje się w naszej bazie to przelew robiony jest <em>„wewnetrznie”</em>, to znaczy zapisywany jest saldo oraz historia są zmieniane u odbiorcy i nadawcy. Natomiast gdy przelew jest <em>„zewnętrzny”</em> to aktualizowane jest tylko saldo i historia nadawcy, a operacja dodatkowo zapisuje się w przelewach zewnętrznych</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;przelew</span> <span class="pre">do</span> <span class="pre">kontaktu&quot;</span></code> - użykownik wybiera id swojego kontaktu, wpisuje kwote i walute. Jeżeli środki na koncie się zgadzają, to przelew wykonywany jest do danego kontaktu.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;dodaj</span> <span class="pre">nowy</span> <span class="pre">kontakt&quot;</span></code> - użykownik wprowadza imie, nazwisko oraz numer kontaktu</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;przewalutowanie&quot;</span></code> - użykownik wybiera symbol walut do przewalutowania oraz kwote. Jeżeli ma tyle środków, to kwota zostanie przewalutowana</li>
+</ul>
+</div>
+</div>
+<div class="section" id="kod-bledu">
+<h2>kod_bledu<a class="headerlink" href="#kod-bledu" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">0</span></code> - brak błędów</li>
+<li><code class="docutils literal notranslate"><span class="pre">1</span></code> - błąd otwarcia plików</li>
+<li><code class="docutils literal notranslate"><span class="pre">2</span></code> - brak środków na koncie</li>
+</ul>
+</div>
+<div class="section" id="token">
+<h2>token<a class="headerlink" href="#token" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<ul class="simple">
+<li>specjalna zmienna przechowująca <em>token</em> użytkownika. Tylko zalogowani użytkownicy otrzymują swój token.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Pawlak Pabiniak Plotnik.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -14,11 +14,13 @@ Dokumentacja
    
    main.cpp <main>
    ui.cpp <ui>
-   konto.cpp <konto>
    zaloguj.cpp <zaloguj>
+   wyswietlane.cpp <wyswietlane>
+   konto.cpp <konto>
    operacja.cpp <operacja>
-   dodatkowe.cpp <dodatkowe>
    baza.cpp <baza>
+   dodatkowe.cpp <dodatkowe>
+   
 
 
 
