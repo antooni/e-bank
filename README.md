@@ -6,10 +6,17 @@ Repozytorium projektu na przedmiot Inżynieria Oprogramowania na III semestrze k
 # Wykorzystanie repozytorium
 Repozytorium kodu to narzędzie programisty, umożliwiające automatyczne wykrywanie zmian w plikach i automatyczne dokonywanie aktualizacji. Każdy update repozytorium kodu jest opisywany wiadomością, a historia zmian oraz ich autorzy są odpowiednio wyszczególnieni. Dzięki temu możliwe jest łatwe znalezienie potencjalnie występujących problemów oraz przywrócenie kodu do poprzedniego stanu. Wykorzystanie repozytorium dodatkowo sprzyja pracy w zespole, ułatwia podział projektu na mniejsze bezkolizyjne części.
 
-Wykorzystany system kontroli wersji : Git
+**Wykorzystany system kontroli wersji : Git**
+Git to darmowy, rozproszony system kontroli wersji o otwartym kodzie źródłowym, zaprojektowany do obsługi wszystkiego, od małych do bardzo dużych projektów, szybko i wydajnie. Pozwala na tworzenie gałęzi oraz ich łaczenie, umożliwia prace offline, posiada pełne wsparcie dla obecnych protokołów sieciowych (np. HTTP). Co najważniejsze, nie zapamiętuje zmian pomiędzy kolejnymi wersjami kodu, a całe ich obrazy (snapshots).  
 
-Wykorzystane zdalne repozytorium Git : github.com
+![Alt text](/img/graphics/git-logo.png?raw=true "Title")
 
+**Wykorzystane zdalne repozytorium Git : github.com**
+Github to hostingowy serwis internetowy przeznaczony dla projektów programistycznych wykorzystujący system kontroli wersji Git. Pozwala na synchronizacje repozytorium pomiędzy kilkoma deweloperami, pobieranie oraz publikowanie kodu, pull request'y, oraz webhooki (wykrozystany do automatycznego budowania dokumantacji). Dodatkowo serwis jest darmowy dla zwykłych użytkowników oraz posiada bardzo dobrą dokumentację. Jest to obecnie najpopularniszy serwis do hostingu repozytorium.
+
+**W jaki sposób wykorzystaliśmy repozytorium ?**
+
+![Alt text](/img/graphics/github-logo.jpg?raw=true "Title")
 # Ciągła integracja
 
 # Test-driven developement (TDD)
