@@ -27,12 +27,14 @@ void menu_sprawdz() {
 void menu_wykonaj() {
 	cout.width(62);
 	cout << "Aby wykonac dowolny przelew 1" << endl << endl;
-	cout.width(69);
-	cout << "Aby wykonac przelew do kontrahenta 2" << endl << endl;
+	cout.width(66);
+	cout << "Aby wykonac przelew do kontaktu 2" << endl << endl;
 	cout.width(57);
 	cout << "Aby dodac nowy kontakt 3" << endl << endl;
 	cout.width(54);
 	cout << "Aby wymienic waluty 4" << endl << endl;
+	cout.width(53);
+	cout << "Aby wrocic wybierz 0" << endl << endl;
 }
 
 void menu_operacji() {

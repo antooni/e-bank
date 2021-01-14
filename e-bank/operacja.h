@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include <conio.h>
 #include "dodatkowe.h"
 #include "operacja.h"
 
