@@ -146,6 +146,7 @@
     <ClCompile Include="sprawdz.cpp" />
     <ClCompile Include="testy.cpp" />
     <ClCompile Include="wykonaj.cpp" />
+    <ClCompile Include="wyswietlane.cpp" />
     <ClCompile Include="zaloguj.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ui.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="testy.h" />
     <ClInclude Include="ui.h" />
     <ClInclude Include="wykonaj.h" />
+    <ClInclude Include="wyswietlane.h" />
     <ClInclude Include="zaloguj.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
