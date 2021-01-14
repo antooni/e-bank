@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="pl" >
+<html class="writer-html4" lang="pl" >
 <head>
   <meta charset="utf-8" />
   
@@ -29,18 +29,17 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/translations.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
     <link rel="index" title="Indeks" href="genindex.html" />
-    <link rel="search" title="Szukaj" href="search.html" />
-    <link rel="next" title="Sprawdz" href="sprawdz.html" />
-    <link rel="prev" title="ui" href="ui.html" /> 
+    <link rel="search" title="Szukaj" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -54,7 +53,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> e-bank
+            <a href="contents.html" class="icon icon-home"> e-bank
           
 
           
@@ -85,20 +84,11 @@
               
             
             
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="main.html">main.cpp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ui.html">ui.cpp</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">konto.cpp</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sprawdz.html">sprawdz.cpp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="wykonaj.html">wykonaj.cpp</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Konto</a></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="zaloguj.html">zaloguj.cpp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="operacja.html">operacja.cpp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dodatkowe.html">dodatkowe.cpp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="baza.html">baza.cpp</a></li>
-</ul>
-
+</div>
             
           
         </div>
@@ -112,7 +102,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">e-bank</a>
+          <a href="contents.html">e-bank</a>
         
       </nav>
 
@@ -143,7 +133,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="contents.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Konto</li>
     
@@ -166,6 +156,10 @@
             
   <div class="section" id="konto">
 <h1>Konto<a class="headerlink" href="#konto" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<p>Klasa konto jest klasą, która dziedziczy z klas Sprawdz i Wykonaj.
+Za jej pośrednictwem jesteśmy w stanie bezpośrednio kontaktować się z
+funkcjami <em>Operacja sprawdz()</em>, <em>Operacja wykonaj()</em>, <em>Operacja wczytaj_stopka()</em>.</p>
+<p>Klasy po których ona dziedziczy:</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="sprawdz.html">sprawdz.cpp</a></li>
@@ -179,10 +173,6 @@
            
           </div>
           <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="sprawdz.html" class="btn btn-neutral float-right" title="Sprawdz" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="ui.html" class="btn btn-neutral float-left" title="ui" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
 
   <hr/>
 

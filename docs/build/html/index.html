@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="pl" >
+<html class="writer-html4" lang="pl" >
 <head>
   <meta charset="utf-8" />
   
@@ -29,17 +29,17 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/translations.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
     <link rel="index" title="Indeks" href="genindex.html" />
-    <link rel="search" title="Szukaj" href="search.html" />
-    <link rel="next" title="Main" href="main.html" /> 
+    <link rel="search" title="Szukaj" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -53,7 +53,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> e-bank
+            <a href="contents.html" class="icon icon-home"> e-bank
           
 
           
@@ -84,16 +84,14 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="main.html">main.cpp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ui.html">ui.cpp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="konto.html">konto.cpp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="zaloguj.html">zaloguj.cpp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="operacja.html">operacja.cpp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dodatkowe.html">dodatkowe.cpp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="baza.html">baza.cpp</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">e-bank</a><ul>
+<li><a class="reference internal" href="#dokumentacja">Dokumentacja</a></li>
 </ul>
-
+</li>
+</ul>
+</div>
             
           
         </div>
@@ -107,7 +105,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">e-bank</a>
+          <a href="contents.html">e-bank</a>
         
       </nav>
 
@@ -138,7 +136,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="contents.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>e-bank</li>
     
@@ -166,32 +164,55 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="main.html">main.cpp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ui.html">ui.cpp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui.html">ui.cpp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ui.html#obsluga-rejestracji-lub-logowania">obsluga_rejestracji_lub_logowania()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui.html#obsluga-operacji-lub-wylogowania">obsluga_operacji_lub_wylogowania()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui.html#przelew">przelew()</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zaloguj.html">zaloguj.cpp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zaloguj.html#weryfikacja">weryfikacja()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zaloguj.html#rejestracja">rejestracja()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zaloguj.html#wyloguj">wyloguj()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zaloguj.html#usun-konto">usun_konto()</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wyswietlane.html">wyswietlane.cpp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="konto.html">konto.cpp</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="sprawdz.html">sprawdz.cpp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wykonaj.html">wykonaj.cpp</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="zaloguj.html">zaloguj.cpp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="operacja.html">operacja.cpp</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="operacja.html#wytlumaczenie">Wytłumaczenie</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="typ.html">typ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="typ_operacji.html">typ_operacji</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kod_bledu.html">kod_bledu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operacja2.html">operacja</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="operacja2.html#typ-operacji">typ_operacji</a></li>
+<li class="toctree-l3"><a class="reference internal" href="operacja2.html#kod-bledu">kod_bledu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="operacja2.html#token">token</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="do_wykonania.html">do_wykonania</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dane2.html">dane</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="baza.html">baza.cpp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="baza.html#funkcje">funkcje:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="odczyt.html">odczyt()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zapis.html">zapis()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wczytaj_stopka.html">wczytaj_stopka()</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="baza.html#pliki">pliki:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="kursy.html">kursy.txt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="baza_logowania.html">baza_logowania.txt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dane.html">dane.txt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="historia.html">historia.txt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="saldo.html">saldo.txt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kontakty.html">kontakty.txt</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="dodatkowe.html">dodatkowe.cpp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="baza.html">baza.cpp</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="kursy.html">kursy.txt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="baza_logowania.html">baza_logowania.txt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dane.html">dane.txt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="historia.html">historia.txt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="saldo.html">saldo.txt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kontakty.html">kontakty.txt</a></li>
-</ul>
-</li>
 </ul>
 </div>
 </div>
@@ -202,9 +223,6 @@
            
           </div>
           <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="main.html" class="btn btn-neutral float-right" title="Main" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
 
   <hr/>
 
