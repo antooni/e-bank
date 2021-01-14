@@ -8,31 +8,48 @@ pomiędzy elementami naszej aplikacji.
 .. code-block:: c++
    :linenos:
 
-   class Operacja
-    {
-    public:
-        string typ;
-        string typ_operacji;
-        string token;
-        int kod_bledu;
-        Dane* dane;
-    };
+      class Operacja
+   {
+   public:
+      string typ_operacji;
+      string token;
+      int kod_bledu;
+      Dane* dane;
+      Do_wykonania* do_wykonania;
+      Operacja();
+   };
+      class Do_wykonania
+   {
+   public:
+      Historia historia;
+      Kontakty kontakty;
+      Saldo saldo;
+      double suma = 0;
+      string odbiorca;
+
+
+      Do_wykonania();
+   };
+
    class Dane
-    {
-    public:
-        vector <Historia> historia;
-        vector <Kontakty> kontakty;
-        Saldo saldo;
-        Kurs kursy;
-        Do_wykonania* do_wykonania;
-    };
-   class Do_wykonania
-    {
-    public:
-        string nadawca;
-        string adresat;
-        double suma;
-    };
+   {
+   public:
+      vector <Historia> historia;
+      vector <Kontakty> kontakty;
+      Saldo* saldo;
+      Kurs* kurs;
+      Do_wykonania* do_wykonania;
+      Uzytkownik* uzytkownik;
+      string znajdz_numer(string);
+      void wypisz_saldo();
+      void wypisz_kontakty();
+      void wypisz_historia();
+      void wypisz_kurs();
+      bool przewalutuj(string, string, double);
+      bool sprawdz_kwote(double suma, string waluta);
+
+      Dane();
+   };
 
 Wytłumaczenie
 ^^^^^^^^^^^^^
