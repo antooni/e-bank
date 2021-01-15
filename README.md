@@ -102,7 +102,7 @@ TDD jest to technika tworzenia oprogramowania, zaliczana do metod zwinnych, pole
 - metodyka testowania pozwoliła na uniknięcie wielu niechcianych błędów
 
 # Standardy kodowania
-Standardy kodowania poprawiają czytelność kodu, a ich stoswanie jest dobrym nawykiem. Tworzenie projektu w Visual studio w znaczący sposób ułatwia uzyskania dużej przejrzystości kodu, oraz uzyskania takiego same stylu pisania dla wszystkich osób biorących udział w projekcie. Możemy zauważyć, że wszystkie klay zaczynają sięod dużych liter, a zmienne zawsze od małych. Wszystkie nazwy zmiennych, klas, plików są dobierane tak aby tworzony kod był przejrzysty i stosunkowo łatwy do zrozumienia dodatkowo stosowano komentarze dla uzyskania jeszcze większej przejrzystośći.
+Standardy kodowania poprawiają czytelność kodu, a ich stoswanie jest dobrym nawykiem. Tworzenie projektu w Visual studio w znaczący sposób ułatwia uzyskania dużej przejrzystości kodu, oraz uzyskania takiego same stylu pisania dla wszystkich osób biorących udział w projekcie. Możemy zauważyć, że wszystkie klay zaczynają się od dużych liter, a zmienne zawsze od małych. Wszystkie nazwy zmiennych, klas, plików są dobierane tak aby tworzony kod był przejrzysty i stosunkowo łatwy do zrozumienia dodatkowo stosowano komentarze dla uzyskania jeszcze większej przejrzystośći.
 
 # Dokumentacja kodu
 Dokumentacja generuje się automatycznie podczas każdego PR na gałąź dev (folder ./docs),
@@ -112,4 +112,4 @@ Dokumentacja : https://e-bank.readthedocs.io/pl/latest/
 
 # Inspekcja kodu, refaktoryzacja
 
-
+Inspekcja kodu i refaktoryzacja są elementami które nie nie rozwijają samego projektu, ale znacznie ułatwiają jego tworzenie i rozwijanie. Dlatego już na etapie pisania kodu starano się jej dokonywać na bieżaco, nawet jeśli nie uzyskano zadowalającego efektu podcza samego pisania wracano później już do gotowych fragmentów kodu i porządkowano go tak aby nadal był przejrzysty.
