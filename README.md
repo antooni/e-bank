@@ -113,7 +113,7 @@ Dokumentacja : https://e-bank.readthedocs.io/pl/latest/
 # Inspekcja kodu, refaktoryzacja
 
 Inspekcja kodu i refaktoryzacja są elementami które nie nie rozwijają samego projektu, ale znacznie ułatwiają jego tworzenie i rozwijanie. Dlatego już na etapie pisania kodu starano się jej dokonywać na bieżaco, nawet jeśli nie uzyskano zadowalającego efektu podcza samego pisania wracano później już do gotowych fragmentów kodu i porządkowano go tak aby nadal był przejrzysty.
-![Alt text](/img/repo/kod.PNG?raw=true "Title")
+![Alt text](/img/repo/kod.jpg?raw=true "Title")
 ![Alt text](/img/repo/zaloguj.jpg?raw=true "Title")
 ![Alt text](/img/repo/main.jpg?raw=true "Title")
 ![Alt text](/img/repo/bib.jpg?raw=true "Title")
