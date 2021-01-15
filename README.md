@@ -6,7 +6,7 @@ Repozytorium projektu na przedmiot Inżynieria Oprogramowania na III semestrze k
 Agile to sposób pracy nad projektem który łączy różne cechy które przynoszą widoczne efekty podczas pracy.
 Wszystkie cechy nawzajem się przenikają i wpewnym stopniu przenikają.
 
-Sprinty czyli małe bloki które sądo wykonania.
+Sprinty czyli małe bloki które należy wykonać.
 
 Feature wykonanie każdego sprintu przynosi rozwój projektu.
 
@@ -102,6 +102,7 @@ TDD jest to technika tworzenia oprogramowania, zaliczana do metod zwinnych, pole
 - metodyka testowania pozwoliła na uniknięcie wielu niechcianych błędów
 
 # Standardy kodowania
+Standardy kodowania poprawiają czytelność kodu, a ich stoswanie jest dobrym nawykiem. Tworzenie projektu w Visual studio w znaczący sposób ułatwia uzyskania dużej przejrzystości kodu, oraz uzyskania takiego same stylu pisania dla wszystkich osób biorących udział w projekcie. Możemy zauważyć, że wszystkie klay zaczynają sięod dużych liter, a zmienne zawsze od małych. Wszystkie nazwy zmiennych, klas, plików są dobierane tak aby tworzony kod był przejrzysty i stosunkowo łatwy do zrozumienia dodatkowo stosowano komentarze dla uzyskania jeszcze większej przejrzystośći.
 
 # Dokumentacja kodu
 Dokumentacja generuje się automatycznie podczas każdego PR na gałąź dev (folder ./docs),
