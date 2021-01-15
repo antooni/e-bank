@@ -5,12 +5,16 @@ Repozytorium projektu na przedmiot Inżynieria Oprogramowania na III semestrze k
 ### Metodyka:Agile
 Agile to sposób pracy nad projektem który łączy różne cechy które przynoszą widoczne efekty podczas pracy.
 Wszystkie cechy nawzajem się przenikają i wpewnym stopniu przenikają.
+
 Sprinty czyli małe bloki które sądo wykonania.
+
 Feature wykonanie każdego sprintu przynosi rozwój projektu.
+
 Samodzielność zespołu każdy w wystarczającym stopniu może decydować jak ma wyglądać projekt i zgodnie z swoją intuicją go modyfikować.
+
 Elastyczność czyli każdy wykonuje swoje elementy w wygodnym dla niego czasie.
 
-
+![Alt text](/img/repo/agile.jpg?raw=true "Title")
 # Wykorzystanie repozytorium
 ### Czy jest repozytorium
 Repozytorium kodu to narzędzie programisty, umożliwiające automatyczne wykrywanie zmian w plikach i automatyczne dokonywanie aktualizacji. Każdy update repozytorium kodu jest opisywany wiadomością, a historia zmian oraz ich autorzy są odpowiednio wyszczególnieni. Dzięki temu możliwe jest łatwe znalezienie potencjalnie występujących problemów oraz przywrócenie kodu do poprzedniego stanu. Wykorzystanie repozytorium dodatkowo sprzyja pracy w zespole, ułatwia podział projektu na mniejsze bezkolizyjne części.
