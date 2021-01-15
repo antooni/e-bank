@@ -49,8 +49,6 @@ void UI::start()
 			continue;
 		}
 	}
-	// tutaj jeszcze podjerzewam bedzie brakowac wyjscia z tego while'a
-	// moze jakis kod niech returnuje ta funkcja obsluga...
 }
 
 bool UI::obsluga_rejestracji_lub_logowania()
@@ -63,9 +61,9 @@ bool UI::obsluga_rejestracji_lub_logowania()
 		menu();
 
 		int wybor = 0;
-		// zbierz dane uzytkownika ();
 		wczytaj_dane(wybor);	
 		//wczytuje dane i sprawdza ich poprawnosc typu
+
 		// logowanie
 		if (wybor == 1)
 		{
@@ -74,9 +72,6 @@ bool UI::obsluga_rejestracji_lub_logowania()
 			podaj_dane_login(email, haslo);
 
 			token = zaloguj->weryfikacja(email, haslo);
-
-
-
 
 			//wyjdz jezeli mu sie udalo
 			if (token != "") {
@@ -117,11 +112,7 @@ bool UI::obsluga_rejestracji_lub_logowania()
 			cout << endl << endl << endl << " + Dziekujemy za skorzystanie z uslug naszego banku, zapraszamy ponownie :-)" << endl << endl << endl;
 			return true;
 		}
-		// podaj poprawny numer operacji
-		else
-		{
-			// cout podaj normalny numer
-		}
+		
 	}
 	return false;
 }
@@ -131,7 +122,7 @@ void UI::obsluga_operacji_lub_wylogowania()
 	Operacja operacja = Operacja();
 	konto = new Konto();
 	user = new Uzytkownik();
-
+		//utworzenie obiektow potrzenych do realizacji operacji
 	
 	while (true)
 	{
@@ -148,9 +139,8 @@ void UI::obsluga_operacji_lub_wylogowania()
 		// zbierz dane o typie operacji
 		wczytaj_dane(wybor);
 		system("cls");
-		if (wybor == 3)				//wylogowywanie
-		{
-
+		if (wybor == 3)				//wylogowywanie  przenosi do panelu startowego
+		{					
 			token = zaloguj->wyloguj(token);
 			break;
 		}
@@ -212,6 +202,7 @@ void UI::obsluga_operacji_lub_wylogowania()
 				cin >> _waluta;
 				waluta = toupper(_waluta[0]);
 
+				
 				przelew(operacja, temp, suma, waluta);
 				system("cls");
 			}
@@ -331,7 +322,6 @@ int UI::przelew(Operacja operacja, string temp, double suma, string waluta) {
 	konto->sprawdz(operacja);
 	check = operacja.dane->sprawdz_kwote(suma, waluta);
 	if (check) {
-		cout << "Stan konta w porzadku" << endl;
 		if (odbiorca.token == operacja.token) {
 			cout << "Nie mozesz przeslac pieniedzy na swoje konto" << endl;
 			cout << "Wcisnij dowolny klawisz aby kontynuowac" << endl;

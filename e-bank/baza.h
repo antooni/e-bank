@@ -10,7 +10,7 @@
 
 
 using namespace std;
-
+			//klasa obsugujaca baze danych
 class Baza {
 public:
 	Baza();

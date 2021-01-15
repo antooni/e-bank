@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="pl" >
+<html class="writer-html4" lang="pl" >
 <head>
   <meta charset="utf-8" />
   
@@ -29,18 +29,17 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/translations.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
     <link rel="index" title="Indeks" href="genindex.html" />
-    <link rel="search" title="Szukaj" href="search.html" />
-    <link rel="next" title="Kursy" href="kursy.html" />
-    <link rel="prev" title="Dodatkowe" href="dodatkowe.html" /> 
+    <link rel="search" title="Szukaj" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -54,7 +53,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> e-bank
+            <a href="contents.html" class="icon icon-home"> e-bank
           
 
           
@@ -85,24 +84,15 @@
               
             
             
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="main.html">main.cpp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ui.html">ui.cpp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="konto.html">konto.cpp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="zaloguj.html">zaloguj.cpp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="operacja.html">operacja.cpp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dodatkowe.html">dodatkowe.cpp</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">baza.cpp</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="kursy.html">kursy.txt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="baza_logowania.html">baza_logowania.txt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dane.html">dane.txt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="historia.html">historia.txt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="saldo.html">saldo.txt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kontakty.html">kontakty.txt</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Baza</a><ul>
+<li><a class="reference internal" href="#funkcje">funkcje:</a></li>
+<li><a class="reference internal" href="#pliki">pliki:</a></li>
 </ul>
 </li>
 </ul>
-
+</div>
             
           
         </div>
@@ -116,7 +106,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">e-bank</a>
+          <a href="contents.html">e-bank</a>
         
       </nav>
 
@@ -147,7 +137,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="contents.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Baza</li>
     
@@ -170,7 +160,23 @@
             
   <div class="section" id="baza">
 <h1>Baza<a class="headerlink" href="#baza" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<div class="toctree-wrapper compound">
+<p>Klasa Baza odpowiada za wszelką komunikacje programu z plikami. Zawiera ona funkcje zarówno odczytujące dane z plików jak i zapisujace do nich w zależności od wywołanego typu (odczyt/zapis). Posiada ona gotowe funkcje, które dane zwracają do obiektu <em>operacja</em>.</p>
+<div class="section" id="funkcje">
+<h2>funkcje:<a class="headerlink" href="#funkcje" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<blockquote>
+<div><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="odczyt.html">odczyt()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zapis.html">zapis()</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wczytaj_stopka.html">wczytaj_stopka()</a></li>
+</ul>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="pliki">
+<h2>pliki:<a class="headerlink" href="#pliki" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<blockquote>
+<div><div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="kursy.html">kursy.txt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="baza_logowania.html">baza_logowania.txt</a></li>
@@ -180,6 +186,8 @@
 <li class="toctree-l1"><a class="reference internal" href="kontakty.html">kontakty.txt</a></li>
 </ul>
 </div>
+</div></blockquote>
+</div>
 </div>
 
 
@@ -187,10 +195,6 @@
            
           </div>
           <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="kursy.html" class="btn btn-neutral float-right" title="Kursy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="dodatkowe.html" class="btn btn-neutral float-left" title="Dodatkowe" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
 
   <hr/>
 

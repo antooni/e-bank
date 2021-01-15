@@ -1,1 +1,41 @@
+=======
+Odczyt()
+=============
+Funkcja odczyt() jako argument przyjmuje obiekt klasy *operacja*. 
+Służy ona głównie do oczytu danych o koncie klienta.
+
+Wyróżniamy cztery typy operacji tej funkcji:
+
+.. code-block:: c++
+
+    if(operacja.typ_operacji == "historia")
+
+Jeżeli typ operacji równy jest *historia*, to plik historia.txt zostaje otwarty 
+a następnie wszystkie pola zostają przypisane vectorowi historia obiektu, który został wysłany jako argument.
+
+.. code-block:: c++
+
+    else if(operacja.typ_operacji == "kontakty")
+
+Jeżeli typ operacji równy jest *kontakty*, to plik kontakty.txt zostaje otwarty 
+a następnie wszystkie pola zostają przypisane vectorowi kontakty obiektu, który 
+został wysłany jako argument.
+
+.. code-block:: c++
+
+    else if(operacja.typ_operacji == "saldo")
+
+Jeżeli typ operacji równy jest *saldo*, to plik saldo.txt zostaje otwarty 
+a następnie wszystkie waluty zostają przypisane do *obiektu->saldo*, który 
+został wysłany jako argument.
+
+.. code-block:: c++
+
+    else if(operacja.typ_operacji == "kurs")
+
+Jeżeli typ operacji równy jest *kurs*, to plik kurs.txt zostaje otwarty 
+a następnie wszystkie waluty zostają przypisane do *obiektu->kurs*, który 
+został wysłany jako argument.
+
+Jeżeli którakolwiek z operacji się nie powiedziecie ustawiany zostaje kod błędu na 1.
 
