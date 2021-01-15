@@ -303,6 +303,18 @@ void UI::obsluga_operacji_lub_wylogowania()
 				system("cls");
 				
 			}
+			else if(wybor == 5){
+				double suma;
+				string waluta;
+				cout << "Kwota do wplacenia: ";
+				cin >> suma;
+				cout << "Waluta:(PLN,EUR,USD,GBP): ";
+				cin >> waluta;
+				operacja.typ_operacji = "polecenie";
+				operacja.dane->do_wykonania->historia.wartosc = suma;
+				operacja.dane->do_wykonania->historia.waluta = waluta;
+				konto->wykonaj(operacja);
+			}
 		}
 		else
 		{
@@ -364,7 +376,7 @@ int UI::przelew(Operacja operacja, string temp, double suma, string waluta) {
 
 				//SYSTEMTIME st;
 				//GetSystemTime(&st);
-				operacja.dane->do_wykonania->historia.data.dzien = "13";
+				operacja.dane->do_wykonania->historia.data.dzien = "15";
 				operacja.dane->do_wykonania->historia.data.miesiac = "01";
 				operacja.dane->do_wykonania->historia.data.rok = "2021";
 
@@ -372,7 +384,7 @@ int UI::przelew(Operacja operacja, string temp, double suma, string waluta) {
 				operacja.dane->do_wykonania->historia.nadawca = operacja.token;
 				operacja.dane->do_wykonania->historia.odbiorca = odbiorca.token;
 
-				odbiorca.dane->do_wykonania->historia.data.dzien = "13";
+				odbiorca.dane->do_wykonania->historia.data.dzien = "15";
 				odbiorca.dane->do_wykonania->historia.data.miesiac = "01";
 				odbiorca.dane->do_wykonania->historia.data.rok = "2021";
 

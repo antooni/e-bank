@@ -53,8 +53,13 @@ void Dane::wypisz_historia() {
 		cout << "D/M/Y" << endl;
 		cout.width(45);
 		cout << historia[i].data.dzien << "/" << historia[i].data.miesiac << "/" << historia[i].data.rok << endl << endl;
-		cout.width(50);
-		cout << "Wartosc: " << historia[i].wartosc << " " << historia[i].waluta << endl << endl;
+		//cout.width(50);
+		if (historia[i].wartosc < 0) {
+			printf("                                                Wartosc: \x1B[31m  %.2f %s \033[0m \n \n ", historia[i].wartosc, historia[i].waluta.c_str());
+		}
+		else {
+			printf("                                                Wartosc: \x1B[32m  %.2f %s \033[0m \n \n ", historia[i].wartosc, historia[i].waluta.c_str());
+		}
 		cout.width(51);
 		cout << "Odbiorca: " << historia[i].odbiorca << endl << endl;
 		cout.width(50);
