@@ -2,7 +2,7 @@
 Repozytorium projektu na przedmiot Inżynieria Oprogramowania na III semestrze kierunku  Informatyki Technicznej na uczelni AGH
 
 # Metodyka wytwarzania oprogramowania
-### Metodyka:Agile
+### Metodyka : Agile
 Agile to sposób pracy nad projektem który łączy różne cechy które przynoszą widoczne efekty podczas pracy.
 Wszystkie cechy nawzajem się przenikają i wpewnym stopniu przenikają.
 
