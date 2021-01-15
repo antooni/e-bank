@@ -1,5 +1,5 @@
 #include "dodatkowe.h"
-
+				//konstruktory
 Data::Data() {
 	dzien = "";
 	miesiac = "";
