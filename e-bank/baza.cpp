@@ -79,16 +79,12 @@ Operacja Baza::odczyt(Operacja operacja)
 			
 			getline(plik, line);
 			operacja.dane->saldo->zloty = stod(line);
-			//operacja.dane->saldo.zloty = stod(temp);
 			getline(plik, line);
 			operacja.dane->saldo->euro = stod(line);
-			//operacja.dane->saldo.euro = stod(temp);
 			getline(plik, line);
 			operacja.dane->saldo->funt = stod(line);
-			//operacja.dane->saldo.funt = stod(temp);
 			getline(plik, line);
 			operacja.dane->saldo->dolar = stod(line);
-			//operacja.dane->saldo.dolar = stod(temp);
 			plik.close();
 			operacja.kod_bledu = 0;
 		}
@@ -194,7 +190,7 @@ Operacja Baza::zapis(Operacja operacja)
 }
 
 
-Operacja Baza::wczytaj_stopka(Operacja operacja) {
+Operacja Baza::wczytaj_stopka(Operacja operacja) {		//wczytuje uzytkownika
 
 	string line;
 	string temp;

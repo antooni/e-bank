@@ -2,6 +2,7 @@
 
 #include <iostream>
 using namespace std;
+//klasy które zawieraja informacje ktore moga byc potrzebne uzytkownikowi
 
 class Uzytkownik {
 	friend class Dane;
