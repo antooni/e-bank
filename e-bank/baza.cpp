@@ -186,6 +186,21 @@ Operacja Baza::zapis(Operacja operacja)
 			operacja.kod_bledu = 1;
 		}
 	}
+
+	else if (operacja.typ_operacji == "polecenie") {
+		fstream zapisz;
+		zapisz.open("base/polecenia.txt", ios_base::out | ios_base::app);
+		if (zapisz.good()) {
+			zapisz.seekg(0, ios::end);
+			if (zapisz.tellg() != 0) { zapisz << endl; }
+			zapisz << operacja.dane->do_wykonania->historia.wartosc << " "
+				<< operacja.dane->do_wykonania->historia.waluta << " "
+				<< operacja.token;
+		}
+		else {
+			operacja.kod_bledu = 1;
+		}
+	}
 	return operacja;
 }
 

@@ -33,6 +33,8 @@ void menu_wykonaj() {
 	cout << "Aby dodac nowy kontakt 3" << endl << endl;
 	cout.width(54);
 	cout << "Aby wymienic waluty 4" << endl << endl;
+	cout.width(52);
+	cout << "Aby zlecic wplate 5" << endl << endl;
 	cout.width(53);
 	cout << "Aby wrocic wybierz 0" << endl << endl;
 }

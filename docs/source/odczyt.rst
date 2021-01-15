@@ -1,3 +1,4 @@
+=======
 Odczyt()
 =============
 Funkcja odczyt() jako argument przyjmuje obiekt klasy *operacja*. 
@@ -37,3 +38,4 @@ a następnie wszystkie waluty zostają przypisane do *obiektu->kurs*, który
 został wysłany jako argument.
 
 Jeżeli którakolwiek z operacji się nie powiedziecie ustawiany zostaje kod błędu na 1.
+
