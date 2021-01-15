@@ -5,10 +5,16 @@ aplikacją dla klienta a częścią serwerową. Pozwala na tworzenie zapytań do
 zwracanie danych oraz obsługę błędów. Pełni rolę protokołu komunikacyjnego
 pomiędzy elementami naszej aplikacji.
 
+
+.. toctree::
+   :maxdepth: 2
+
+   operacja <operacja2>
+
 .. code-block:: c++
    :linenos:
 
-      class Operacja
+   class Operacja
    {
    public:
       string typ_operacji;
@@ -18,7 +24,17 @@ pomiędzy elementami naszej aplikacji.
       Do_wykonania* do_wykonania;
       Operacja();
    };
-      class Do_wykonania
+
+
+.. toctree::
+   :maxdepth: 2
+
+   do_wykonania <do_wykonania>
+
+.. code-block:: c++
+   :linenos:
+
+   class Do_wykonania
    {
    public:
       Historia historia;
@@ -26,10 +42,17 @@ pomiędzy elementami naszej aplikacji.
       Saldo saldo;
       double suma = 0;
       string odbiorca;
-
-
       Do_wykonania();
    };
+
+
+.. toctree::
+   :maxdepth: 2
+
+   dane <dane2>
+
+.. code-block:: c++
+   :linenos:
 
    class Dane
    {
@@ -47,15 +70,8 @@ pomiędzy elementami naszej aplikacji.
       void wypisz_kurs();
       bool przewalutuj(string, string, double);
       bool sprawdz_kwote(double suma, string waluta);
-
       Dane();
    };
 
-Wytłumaczenie
-^^^^^^^^^^^^^
 
-.. toctree::
-   :maxdepth: 2
 
-   typ_operacji <typ_operacji>
-   kod_bledu <kod_bledu>

@@ -202,6 +202,7 @@ void UI::obsluga_operacji_lub_wylogowania()
 				cin >> _waluta;
 				waluta = toupper(_waluta[0]);
 
+				
 				przelew(operacja, temp, suma, waluta);
 				system("cls");
 			}
@@ -309,7 +310,6 @@ int UI::przelew(Operacja operacja, string temp, double suma, string waluta) {
 	konto->sprawdz(operacja);
 	check = operacja.dane->sprawdz_kwote(suma, waluta);
 	if (check) {
-		cout << "Stan konta w porzadku" << endl;
 		if (odbiorca.token == operacja.token) {
 			cout << "Nie mozesz przeslac pieniedzy na swoje konto" << endl;
 			cout << "Wcisnij dowolny klawisz aby kontynuowac" << endl;

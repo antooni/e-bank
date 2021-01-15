@@ -7,7 +7,8 @@
 Baza::Baza()
 {
 }
-Operacja Baza::odczyt(Operacja operacja)		//wczytuje dane dla podanego tupy operacji
+
+Operacja Baza::odczyt(Operacja operacja)
 {	
 	if (operacja.typ_operacji == "historia") {
 		Historia historia;

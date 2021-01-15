@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="pl" >
+<html class="writer-html4" lang="pl" >
 <head>
   <meta charset="utf-8" />
   
@@ -29,18 +29,17 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/translations.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
     <link rel="index" title="Indeks" href="genindex.html" />
-    <link rel="search" title="Szukaj" href="search.html" />
-    <link rel="next" title="kod_bledu" href="kod_bledu.html" />
-    <link rel="prev" title="typ" href="typ.html" /> 
+    <link rel="search" title="Szukaj" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -54,7 +53,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> e-bank
+            <a href="contents.html" class="icon icon-home"> e-bank
           
 
           
@@ -85,28 +84,15 @@
               
             
             
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="main.html">main.cpp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ui.html">ui.cpp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="konto.html">konto.cpp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="zaloguj.html">zaloguj.cpp</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="operacja.html">operacja.cpp</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="operacja.html#wytlumaczenie">Wytłumaczenie</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="typ.html">typ</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">typ_operacji</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#sprawdz">„sprawdz”</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wykonaj">„wykonaj”</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="kod_bledu.html">kod_bledu</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">typ_operacji</a><ul>
+<li><a class="reference internal" href="#sprawdz">„sprawdz”</a></li>
+<li><a class="reference internal" href="#wykonaj">„wykonaj”</a></li>
 </ul>
 </li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="dodatkowe.html">dodatkowe.cpp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="baza.html">baza.cpp</a></li>
-</ul>
-
+</div>
             
           
         </div>
@@ -120,7 +106,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">e-bank</a>
+          <a href="contents.html">e-bank</a>
         
       </nav>
 
@@ -151,9 +137,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="operacja.html">Operacja</a> &raquo;</li>
+      <li><a href="contents.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>typ_operacji</li>
     
@@ -179,17 +163,19 @@
 <div class="section" id="sprawdz">
 <h2>„sprawdz”<a class="headerlink" href="#sprawdz" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;saldo&quot;</span></code> - dane salda z bazy zapisywane są do operacja.dane-&gt;saldo.euro/funt/zloty/dolar</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;historia&quot;</span></code> - dane historii z bazy zapisywane są do operacja.dane-&gt;historia (vector, który w każdym wierszu ma kolejne rekordy historii)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;kontakty&quot;</span></code> - dane kontaków z bazy zapisywane są do operacja.dane-&gt;kontakty (vector, który w każdym wierszu ma kolejne rekordy kontaktów)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;kursy&quot;</span></code> - dane kursów są zczytywane z bazy i zapisane do operacja.dane-&gt;kursy.euro/funt/zloty/dolar</p></li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;saldo&quot;</span></code> - dane salda z bazy zapisywane są do operacja.dane-&gt;saldo.euro/funt/zloty/dolar</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;historia&quot;</span></code> - dane historii z bazy zapisywane są do operacja.dane-&gt;historia (vector, który w każdym wierszu ma kolejne rekordy historii)</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;kontakty&quot;</span></code> - dane kontaków z bazy zapisywane są do operacja.dane-&gt;kontakty (vector, który w każdym wierszu ma kolejne rekordy kontaktów)</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;kurs&quot;</span></code> - dane kursów są zczytywane z bazy i zapisane do operacja.dane-&gt;kursy.euro/funt/zloty/dolar</li>
 </ul>
 </div>
 <div class="section" id="wykonaj">
 <h2>„wykonaj”<a class="headerlink" href="#wykonaj" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;przelew&quot;</span></code> - …</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;przelew&quot;</span></code> - …</p></li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;dowolny</span> <span class="pre">przelew&quot;</span></code> - użytkownik podaje dowolny numer bankowy, kwote oraz walute. Jeżeli dany numer znajduje się w naszej bazie to przelew robiony jest <em>„wewnetrznie”</em>, to znaczy zapisywany jest saldo oraz historia są zmieniane u odbiorcy i nadawcy. Natomiast gdy przelew jest <em>„zewnętrzny”</em> to aktualizowane jest tylko saldo i historia nadawcy, a operacja dodatkowo zapisuje się w przelewach zewnętrznych</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;przelew</span> <span class="pre">do</span> <span class="pre">kontaktu&quot;</span></code> - użykownik wybiera id swojego kontaktu, wpisuje kwote i walute. Jeżeli środki na koncie się zgadzają, to przelew wykonywany jest do danego kontaktu.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;dodaj</span> <span class="pre">nowy</span> <span class="pre">kontakt&quot;</span></code> - użykownik wprowadza imie, nazwisko oraz numer kontaktu</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;przewalutowanie&quot;</span></code> - użykownik wybiera symbol walut do przewalutowania oraz kwote. Jeżeli ma tyle środków, to kwota zostanie przewalutowana</li>
 </ul>
 </div>
 </div>
@@ -199,10 +185,6 @@
            
           </div>
           <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="kod_bledu.html" class="btn btn-neutral float-right" title="kod_bledu" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="typ.html" class="btn btn-neutral float-left" title="typ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
 
   <hr/>
 

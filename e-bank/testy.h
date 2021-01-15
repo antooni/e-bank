@@ -9,30 +9,30 @@
 #include "operacja.h"
 #include "sprawdz.h"
 #include "wykonaj.h"
+#include "ui.h"
 #include "zaloguj.h"
 
 using namespace std;
 
-void otworz_sekcje(string);
-void zamknij_sekcje();
+// testy z zaloguj
+bool test_poprawne_logowanie(string, string);
+bool test_poprawna_rejestracja(string nazwa, string haslo, string imie, string nazwisko);
+bool test_poprawne_wylogowanie(string, string);
+bool test_usuwanie_konta(string, string);
 
-bool test_poprawne_logowanie();
-bool test_niepoprawne_logowanie();
-
-bool test_poprawna_rejestracja();
-bool test_niepoprawna_rejestracja();
-
+// testy z sprawdz
 bool test_saldo();
 bool test_kontakty();
 bool test_historia();
 bool test_kursy();
 
+// testy z wykonaj
 bool test_przelew();
 bool test_przelew_do_kontaktu();
 bool test_dodaj_kontakt();
 bool test_wymien_walute();
 
-
+// wrapper
 bool uruchom_testy();
 
 class Test {
@@ -41,8 +41,8 @@ class Test {
 
 public:
 	template<typename T>
-	bool sprawdz_rownosc(T, T);
-	bool sprawdz_czy_poprawna(bool);
+	int sprawdz_rownosc(T, T);
+	int sprawdz_czy_poprawna(bool);
 	void ustaw_nazwe(string);
 
 	Test(string);
@@ -50,13 +50,17 @@ public:
 };
 
 template<typename T>
-inline bool Test::sprawdz_rownosc(T a, T b)
+inline int Test::sprawdz_rownosc(T a, T b)
 {
 	cout << " # " << nazwa << " : ";
 	if(a != b) {
 		printf("\x1B[31m  niezdany \033[0m \n");
-		return false;
+		return 1;
 	}
 	printf("\x1B[32m zdany \033[0m \n");
-	return true;
+	return 0;
 }
+
+// helpers
+void otworz_sekcje(string);
+void zamknij_sekcje();
