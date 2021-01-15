@@ -4,7 +4,7 @@ Repozytorium projektu na przedmiot Inżynieria Oprogramowania na III semestrze k
 # Metodyka wytwarzania oprogramowania
 ### Metodyka : Agile
 Agile to sposób pracy nad projektem który łączy różne cechy które przynoszą widoczne efekty podczas pracy.
-Wszystkie cechy nawzajem się przenikają i wpewnym stopniu przenikają.
+Wszystkie cechy nawzajem się przenikają i wpewnym stopniu uzupełniają.
 
 Sprinty czyli małe bloki które należy wykonać.
 
